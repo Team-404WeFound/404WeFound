@@ -1,8 +1,10 @@
 package com.WeFound.WeFound.entity;
 
+import com.WeFound.WeFound.dto.PostResponse;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -33,4 +35,17 @@ public class Post {
     @CreatedDate
     @Column(name = "wtime")
     private LocalDateTime create_time;
+
+    @Builder
+    public Post(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
+
+    public PostResponse toResponse(){
+        return PostResponse.builder()
+                .title(title)
+                .content(content)
+                .build();
+    }
 }
