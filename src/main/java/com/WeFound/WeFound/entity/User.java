@@ -11,10 +11,11 @@ import lombok.NoArgsConstructor;
 @Entity
 public class User {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "유저아이디", updatable = false)
-    private int user_id;
+    private int id;
 
     @Column(name = "이메일", nullable = false, unique = true)
     private String email;
@@ -33,6 +34,5 @@ public class User {
 
     @Column(name = "디스코드채널아이디", nullable = false)
     private String Field2;
-
 
 }
