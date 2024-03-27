@@ -6,11 +6,12 @@ import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.service.QuestionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class QuestionController {
     private final QuestionService questionService;
 
@@ -19,8 +20,8 @@ public class QuestionController {
     }
 
     //todo 게시판 생성
-    @PostMapping("api/posts")
-    public ResponseEntity<QuestionResponse> addQuestion(@RequestParam AddQuestionRequest request){
+    @PostMapping("/api/posts")
+    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request){
         Question question = questionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
