@@ -4,6 +4,8 @@ import com.WeFound.WeFound.dto.AddQuestionRequest;
 import com.WeFound.WeFound.dto.QuestionResponse;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.service.QuestionService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,15 +27,24 @@ public class QuestionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
     //todo 게시판 조회
-    @GetMapping("/api/questions")
-    public ResponseEntity<List<QuestionResponse>> showQuestion(){
-        List<Question> questionList = questionService.findAll();
-        List<QuestionResponse> questionResponseList = questionList
-                .stream()
-                .map(QuestionResponse::new)
-                .toList();
+    //일반 버전
+//    @GetMapping("/api/questions")
+//    public ResponseEntity<List<QuestionResponse>> showQuestion(){
+//        List<Question> questionList = questionService.findAll();
+//        List<QuestionResponse> questionResponseList = questionList
+//                .stream()
+//                .map(QuestionResponse::new)
+//                .toList();
+//
+//        return ResponseEntity.ok(questionResponseList);
+//    }
 
-        return ResponseEntity.ok(questionResponseList);
+    //paging 사용 버전
+    @GetMapping("/api/questions")
+    public ResponseEntity<Page<QuestionResponse>> getQuestions(Pageable pageable){
+        Page<Question> questionPage = questionService.PageFindAll(pageable);
+        Page<QuestionResponse> questionResponsePage = questionPage.map(QuestionResponse::new);
+        return ResponseEntity.ok(questionResponsePage);
     }
 
     //todo 게시판 단권 조회
