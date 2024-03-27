@@ -54,7 +54,16 @@ public class QuestionController {
         Question question = questionService.findById(question_id);
         return ResponseEntity.ok(question.toResponse());
     }
+
     //todo 게시판 수정
+    @PutMapping("/questions/{question_id}")
+    public ResponseEntity<Question> updateQuestion(@PathVariable Long question_id,
+                                                           @RequestBody AddQuestionRequest request){
+        Question updatedQuestion = questionService.update(question_id,request);
+
+        return ResponseEntity.status(HttpStatus.OK).body(updatedQuestion);
+    }
+
     //todo 게시판 삭제
 
 }
