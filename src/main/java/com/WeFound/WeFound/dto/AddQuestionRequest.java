@@ -1,13 +1,13 @@
 package com.WeFound.WeFound.dto;
 
-import com.WeFound.WeFound.entity.Post;
+import com.WeFound.WeFound.entity.Question;
 
-public class AddPostRequest {
+public class AddQuestionRequest {
     private String title;
     private String content;
 
-    public Post toEntity(){
-        return Post.builder()
+    public Question toEntity(){
+        return Question.builder()
                 .title(title)
                 .content(content)
                 .build();

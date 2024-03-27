@@ -1,6 +1,6 @@
 package com.WeFound.WeFound.entity;
 
-import com.WeFound.WeFound.dto.PostResponse;
+import com.WeFound.WeFound.dto.QuestionResponse;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @NoArgsConstructor
-public class Post {
+public class Question {
     @Id
     @Column(name = "post_id", updatable = false)
     private int post_id;
@@ -37,13 +37,13 @@ public class Post {
     private LocalDateTime create_time;
 
     @Builder
-    public Post(String title, String content){
+    public Question(String title, String content){
         this.title = title;
         this.content = content;
     }
 
-    public PostResponse toResponse(){
-        return PostResponse.builder()
+    public QuestionResponse toResponse(){
+        return QuestionResponse.builder()
                 .title(title)
                 .content(content)
                 .build();

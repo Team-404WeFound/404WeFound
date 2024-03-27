@@ -1,9 +1,9 @@
 package com.WeFound.WeFound.repository;
 
-import com.WeFound.WeFound.entity.Post;
+import com.WeFound.WeFound.entity.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface QuestionRepository extends JpaRepository<Question, Long> {
 }
