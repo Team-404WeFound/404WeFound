@@ -6,10 +6,9 @@ import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.service.QuestionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class QuestionController {
@@ -25,7 +24,18 @@ public class QuestionController {
         Question question = questionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
+
     //todo 게시판 조회
+    @GetMapping("/api/questions")
+    public ResponseEntity<List<QuestionResponse>> showQuestion(){
+        List<Question> questionList = questionService.findAll();
+        List<QuestionResponse> questionResponseList = questionList
+                .stream()
+                .map(QuestionResponse::new)
+                .toList();
+
+        return ResponseEntity.ok(questionResponseList);
+    }
     //todo 게시판 수정
     //todo 게시판 삭제
 
