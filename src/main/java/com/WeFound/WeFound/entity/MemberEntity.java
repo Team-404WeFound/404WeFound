@@ -1,7 +1,8 @@
 package com.WeFound.WeFound.entity;
 
 
-import entity
+
+import com.WeFound.WeFound.dto.MemberDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +11,8 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-@Table(name = "member_table이나 Mtable")
-public class Entity {
+@Table(name = "member_table")
+public class MemberEntity {
     @Id // pk 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
@@ -25,16 +26,16 @@ public class Entity {
     @Column
     private String memberName;
 
-    public static Entity toMemberEntity(MemberDTO memberDTO) {
-        Entity memberEntity = new MemberEntity();
+    public static MemberEntity toMemberEntity(MemberDTO memberDTO) {
+        MemberEntity memberEntity = new MemberEntity();
         memberEntity.setMemberEmail(memberDTO.getMemberEmail());
         memberEntity.setMemberPassword(memberDTO.getMemberPassword());
         memberEntity.setMemberName(memberDTO.getMemberName());
         return memberEntity;
     }
 
-    public static Entity toUpdateMemberEntity(MemberDTO memberDTO) {
-        Entity memberEntity = new MemberEntity();
+    public static MemberEntity toUpdateMemberEntity(MemberDTO memberDTO) {
+        MemberEntity memberEntity = new MemberEntity();
         memberEntity.setId(memberDTO.getId());
         memberEntity.setMemberEmail(memberDTO.getMemberEmail());
         memberEntity.setMemberPassword(memberDTO.getMemberPassword());
