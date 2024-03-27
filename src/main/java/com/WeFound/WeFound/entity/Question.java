@@ -31,25 +31,29 @@ public class Question {
     private String content;
 
     @CreatedDate
-    @Column(name = "create_at")
-    private LocalDateTime create_at;
+    @Column(name = "created_at")
+    private LocalDateTime created_at;
 
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updated_at;
 
     @Builder
-    public Question(String title, String content, Long question_id, Long user_id){
+    public Question(String title, String content, Long question_id, Long user_id, LocalDateTime created_at, LocalDateTime updated_at){
         this.title = title;
         this.content = content;
         this.question_id = question_id;
         this.user_id = user_id;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 
     public QuestionResponse toResponse(){
         return QuestionResponse.builder()
                 .title(title)
                 .content(content)
+                .created_at(created_at)
+                .updated_at(updated_at)
                 .build();
     }
 }
