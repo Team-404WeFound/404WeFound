@@ -9,8 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class QuestionResponse {
-    private int question_id;
-    private int user_id;
+    private Long question_id;
+    private Long user_id;
     private String title;
     private String content;
 
