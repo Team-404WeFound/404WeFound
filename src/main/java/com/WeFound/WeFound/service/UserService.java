@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public class UserService {
     private final UserRepository userRepository;
-    //private final BCryptPasswordEncoder encoder;
+    private final BCryptPasswordEncoder encoder;
 
 
-    /*public void save(AddUserdto request) {
+    public void save(AddUserdto request) {
         userRepository.save(new User(
                 request.getEmail(),encoder.encode(request.getPassword())));
     }
 
-     */
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());

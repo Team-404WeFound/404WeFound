@@ -36,4 +36,9 @@ public class User {
     @Column(name = "디스코드채널아이디", nullable = false)
     private String Field2;
 
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }
