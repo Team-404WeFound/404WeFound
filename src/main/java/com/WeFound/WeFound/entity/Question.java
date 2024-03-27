@@ -1,10 +1,7 @@
 package com.WeFound.WeFound.entity;
 
 import com.WeFound.WeFound.dto.QuestionResponse;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,11 +17,12 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class Question {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "question_id", updatable = false)
-    private int question_id;
+    private Long question_id;
 
     @Column(name = "user_id")
-    private int user_id;
+    private Long user_id;
 
     @Column(name = "title")
     private String title;
@@ -41,9 +39,11 @@ public class Question {
     private LocalDateTime updated_at;
 
     @Builder
-    public Question(String title, String content){
+    public Question(String title, String content, Long question_id, Long user_id){
         this.title = title;
         this.content = content;
+        this.question_id = question_id;
+        this.user_id = user_id;
     }
 
     public QuestionResponse toResponse(){
