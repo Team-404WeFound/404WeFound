@@ -3,6 +3,9 @@ package com.WeFound.WeFound.service;
 import com.WeFound.WeFound.dto.AddQuestionRequest;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.repository.QuestionRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,5 +28,10 @@ public class QuestionService {
 
     public Question findById(Long questionId) {
         return questionRepository.findById(questionId).orElse(new Question());
+    }
+
+
+    public Page<Question> PageFindAll(Pageable pageable) {
+        return questionRepository.findAll(pageable);
     }
 }
