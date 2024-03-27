@@ -1,7 +1,7 @@
 package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.MemberDTO;
-import com.codingrecipe.member.service.MemberService;
+import com.WeFound.WeFound.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
