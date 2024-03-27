@@ -37,9 +37,8 @@ public class QuestionService {
     }
 
     @Transactional
-    public Question update(Long questionId, AddQuestionRequest request) {
+    public void update(Long questionId, AddQuestionRequest request) {
         Question question = findById(questionId);
         question.update(request.getTitle(), request.getContent());
-        return question;
     }
 }

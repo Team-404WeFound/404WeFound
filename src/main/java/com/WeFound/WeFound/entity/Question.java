@@ -57,8 +57,9 @@ public class Question {
                 .build();
     }
 
-    public void update(String title, String content) {
+    public Question update(String title, String content) {
         this.title = title;
         this.content = content;
+        return this;
     }
 }
