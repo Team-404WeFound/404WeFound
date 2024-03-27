@@ -22,9 +22,9 @@ public class QuestionService {
         return questionRepository.save(request.toEntity());
     }
 
-    public List<Question> findAll(){
-        return questionRepository.findAll();
-    }
+//    public List<Question> findAll(){
+//        return questionRepository.findAll();
+//    }
 
     public Question findById(Long questionId) {
         return questionRepository.findById(questionId).orElse(new Question());
