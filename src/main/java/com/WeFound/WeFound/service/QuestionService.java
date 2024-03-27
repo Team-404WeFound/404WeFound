@@ -31,7 +31,7 @@ public class QuestionService {
     }
 
 
-    public Page<Question> PageFindAll(Pageable pageable) {
+    public Page<Question> getPageableQuestions(Pageable pageable) {
         return questionRepository.findAll(pageable);
     }
 }
