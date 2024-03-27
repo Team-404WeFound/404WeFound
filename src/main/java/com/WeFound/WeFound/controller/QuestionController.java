@@ -36,6 +36,14 @@ public class QuestionController {
 
         return ResponseEntity.ok(questionResponseList);
     }
+
+    //todo 게시판 단권 조회
+    @GetMapping("/api/questions/{question_id}")
+    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long question_id){
+        Question question = questionService.findById(question_id);
+        return ResponseEntity.ok(question.toResponse());
+    }
+
     //todo 게시판 수정
     //todo 게시판 삭제
 
