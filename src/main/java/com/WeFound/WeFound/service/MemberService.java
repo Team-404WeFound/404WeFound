@@ -1,14 +1,16 @@
-package com.codingrecipe.member.service;
+package com.WeFound.WeFound.service;
 
-import com.codingrecipe.member.dto.MemberDTO;
-import com.codingrecipe.member.entity.MemberEntity;
-import com.codingrecipe.member.repository.MemberRepository;
+import com.WeFound.WeFound.member.MemberDTO;
+import com.WeFound.WeFound.member.MemberEntity;
+import com.WeFound.WeFound.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+
 
 @Service
 @RequiredArgsConstructor
