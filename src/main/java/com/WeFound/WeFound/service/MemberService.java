@@ -1,8 +1,10 @@
-package com.codingrecipe.member.service;
 
-import com.codingrecipe.member.dto.MemberDTO;
-import com.codingrecipe.member.entity.MemberEntity;
-import com.codingrecipe.member.repository.MemberRepository;
+
+package com.WeFound.WeFound.member.service;
+
+import com.WeFound.WeFound.dto.MemberDTO;
+import com.WeFound.WeFound.entity.MemberEntity;
+import com.WeFound.WeFound.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
