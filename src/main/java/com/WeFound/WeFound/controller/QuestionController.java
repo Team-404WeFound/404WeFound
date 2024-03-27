@@ -19,7 +19,7 @@ public class QuestionController {
     }
 
     //todo 게시판 생성
-    @PostMapping("/posts")
+    @PostMapping("api/posts")
     public ResponseEntity<QuestionResponse> addQuestion(@RequestParam AddQuestionRequest request){
         Question question = questionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
