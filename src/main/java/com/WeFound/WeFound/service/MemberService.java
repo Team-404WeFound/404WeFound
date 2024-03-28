@@ -1,6 +1,6 @@
 
 
-package com.WeFound.WeFound.member.service;
+package com.WeFound.WeFound.service.memberservice;
 
 import com.WeFound.WeFound.dto.MemberDTO;
 import com.WeFound.WeFound.entity.MemberEntity;
