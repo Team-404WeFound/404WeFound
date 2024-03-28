@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
 @RestController
+//@Controller
+//둘의 차이가 존제한다.
+
+
 public class UserController {
     private final UserService userService;
 
@@ -23,23 +26,24 @@ public class UserController {
     }
 
 
-    @GetMapping("/users")
+  /*  @GetMapping("/users")
     public String signup(AddUserdto request){
         userService.save(request);
         return "redirect:/login";
-    }
+    }*/
 //신규 작성
-    @GetMapping("/users/")
+    @GetMapping("/api/users")
     public String findAll(Model model) {
         List<AddUserdto> memberDTOList = userService.findAll();
         model.addAttribute("memberList", memberDTOList);
         return "list";
     }
 
-    @GetMapping("/member/{id}")
+    @GetMapping("api/users/{id}")
     public String findById(@PathVariable Long id, Model model) {
         AddUserdto memberDTO = userService.findById(id);
         model.addAttribute("member", memberDTO);
-        return "detail";
+        return "detail"; //디테일이란 값이 클라이언트로 이동함 @RestController로 인해(특강 참고)
+
     }
 }
