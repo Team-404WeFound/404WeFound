@@ -50,8 +50,7 @@ public class MemberService {
             memberDTOList.add(MemberDTO.toMemberDTO(memberEntity));
 
 
-//            MemberDTO memberDTO = MemberDTO.toMemberDTO(memberEntity);
-//            memberDTOList.add(memberDTO);
+
         }
         return memberDTOList;
     }
@@ -61,9 +60,7 @@ public class MemberService {
         if (optionalMemberEntity.isPresent()) {
 
 
-//            MemberEntity memberEntity = optionalMemberEntity.get();
-//            MemberDTO memberDTO = MemberDTO.toMemberDTO(memberEntity);
-//            return memberDTO;
+
             return MemberDTO.toMemberDTO(optionalMemberEntity.get());
         } else {
             return null;

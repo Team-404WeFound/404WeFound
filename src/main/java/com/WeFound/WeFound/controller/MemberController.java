@@ -43,7 +43,7 @@ public class MemberController {
     @GetMapping("/member/")
     public String findAll(Model model) {
         List<MemberDTO> memberDTOList = memberService.findAll();
-        // 어떠한 html로 가져갈 데이터가 있다면 model사용
+
         model.addAttribute("memberList", memberDTOList);
         return "list";
     }
