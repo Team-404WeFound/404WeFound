@@ -11,20 +11,20 @@ import lombok.NoArgsConstructor;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "댓글식별자",updatable = false)
+    @Column(name = "comment_id",updatable = false)
     private Long comment_id;
 
-    @Column(name = "댓글내용",updatable = false)
+    @Column(name = "content",updatable = false)
     private String content;
-    @Column(name = "작성자 식별자",updatable = false)
+    @Column(name = "user_id",updatable = false)
     private Long user_id;
-    @Column(name = "게시글 식별자",updatable = false)
+    @Column(name = "question_id",updatable = false)
     private Long question_id;
-    @Column(name = "답변 식별자",updatable = false)
+    @Column(name = "answer_id",updatable = false)
     private Long answer_id;
-    @Column(name = "생성 일시",updatable = false)
+    @Column(name = "create_at",updatable = false)
     private Long create_at;
-    @Column(name = "수정 일시",updatable = false)
+    @Column(name = "update_at",updatable = false)
     private Long update_at;
 
     public Comment(String content,Long user_id,Long question_id,Long answer_id){
