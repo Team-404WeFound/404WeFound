@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.servlet.http.HttpSession; ///안됨
+//import javax.servlet.http.HttpSession; ///안됨
 
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
-    // 생성자 주입
+    // 생성자 사용
     private final MemberService memberService;
 
     // 회원가입 페이지 출력 요청
@@ -38,18 +38,7 @@ public class MemberController {
         return "login";
     }
 
-    @PostMapping("/member/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
-        MemberDTO loginResult = memberService.login(memberDTO);
-        if (loginResult != null) {
-            // login 성공
-            session.setAttribute("loginEmail", loginResult.getMemberEmail());
-            return "main";
-        } else {
-            // login 실패
-            return "login";
-        }
-    }
+
 
     @GetMapping("/member/")
     public String findAll(Model model) {
@@ -67,8 +56,6 @@ public class MemberController {
     }
 
 }
-}
-
 
 
 
