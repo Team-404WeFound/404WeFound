@@ -6,7 +6,11 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.time.LocalDateTime;
 
 @Table(name = "users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -15,10 +19,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 public class User {
 
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false)
+    @Column(name = "user_id", updatable = false)
     private int id;
 
     @Column(name = "email", nullable = false, unique = true)
@@ -26,18 +29,20 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
-/*
+
     @Column(name = "nickname",nullable = false)
     private String nickname;
 
     @Column(name = "role",nullable = false)
     private String role;
 
+    @CreatedDate
     @Column(name = "create_at",nullable = false)
-    private Long create_at;
+    private LocalDateTime create_at;
 
+    @LastModifiedDate
     @Column(name = "update_at",nullable = false)
-    private Long update_at;
+    private LocalDateTime update_at;
 
 
     /*@Column(name = "rank", nullable = false)
