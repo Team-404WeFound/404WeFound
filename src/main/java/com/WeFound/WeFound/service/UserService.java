@@ -13,6 +13,10 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -28,9 +32,31 @@ public class UserService {
     }
 
 
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
         return "redirect:/login";
     }
+
+    public List<AddUserdto> findAll() {
+        List<User> memberEntityList = userRepository.findAll();
+        List<AddUserdto> memberDTOList = new ArrayList<>();
+        for (User memberEntity: memberEntityList) {
+            memberDTOList.add(AddUserdto.addUserdto(memberEntity));
+
+        }
+        return memberDTOList;
+    }
+    public AddUserdto findById(Long id) {
+        Optional<User> optionalMemberEntity = userRepository.findById(id);
+        if (optionalMemberEntity.isPresent()) {
+
+            return AddUserdto.addUserdto(optionalMemberEntity.get());
+        } else {
+            return null;
+        }
+
+    }
+
 }
