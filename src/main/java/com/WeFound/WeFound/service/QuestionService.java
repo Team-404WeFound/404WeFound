@@ -3,6 +3,7 @@ package com.WeFound.WeFound.service;
 import com.WeFound.WeFound.dto.AddQuestionRequest;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.repository.QuestionRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -33,5 +34,11 @@ public class QuestionService {
 
     public Page<Question> getPageableQuestions(Pageable pageable) {
         return questionRepository.findAll(pageable);
+    }
+
+    @Transactional
+    public void update(Long questionId, AddQuestionRequest request) {
+        Question question = findById(questionId);
+        question.update(request.getTitle(), request.getContent());
     }
 }

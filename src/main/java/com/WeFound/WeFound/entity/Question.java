@@ -56,4 +56,10 @@ public class Question {
                 .updated_at(updated_at)
                 .build();
     }
+
+    public Question update(String title, String content) {
+        this.title = title;
+        this.content = content;
+        return this;
+    }
 }
