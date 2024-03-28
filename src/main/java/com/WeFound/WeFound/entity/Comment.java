@@ -15,21 +15,21 @@ import java.time.LocalDateTime;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comment_id",updatable = false)
+    @Column(name = "comment_id")
     private Long comment_id;
-    @Column(name = "content",updatable = false)
+    @Column(name = "content")
     private String content;
-    @Column(name = "user_id",updatable = false)
+    @Column(name = "user_id")
     private Long user_id;
-    @Column(name = "question_id",updatable = false)
+    @Column(name = "question_id")
     private Long question_id;
-    @Column(name = "answer_id",updatable = false)
+    @Column(name = "answer_id")
     private Long answer_id;
     @CreatedDate
-    @Column(name = "create_at",updatable = false)
+    @Column(name = "create_at")
     private LocalDateTime create_at;
     @LastModifiedDate
-    @Column(name = "update_at",updatable = false)
+    @Column(name = "update_at")
     private LocalDateTime update_at;
 
     public Comment(String content,Long user_id,Long question_id,Long answer_id,LocalDateTime create_at,LocalDateTime update_at){
