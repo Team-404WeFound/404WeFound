@@ -37,11 +37,11 @@ public class User {
     private String role;
 
     @CreatedDate
-    @Column(name = "create_at",nullable = false)
+    @Column(name = "create_at")
     private LocalDateTime create_at;
 
     @LastModifiedDate
-    @Column(name = "update_at",nullable = false)
+    @Column(name = "update_at")
     private LocalDateTime update_at;
 
 
