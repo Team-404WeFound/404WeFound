@@ -1,0 +1,217 @@
+/*css 초기화 시작*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*css 초기화 끝*/
+.logo_404{
+    width: 100px;
+    height: 100px;
+}
+#top_ba{
+    position: sticky;
+}
+input, button {
+    border : none;
+}
+
+#top_ba_container {
+    display: flex; /* 수평으로 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    background-color: #dfdfdf;
+    padding: 30px;
+}
+
+
+#top_ba_container > * {
+    margin-right: 10px; /* 각 요소 사이 간격 조절 */
+}
+
+#search {
+    display: flex; /* 수평으로 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-left: auto;
+    height: 50px;
+
+    #search_input{
+        width: 300px;
+        height: 50px;
+    }
+}
+
+
+nav ol, #top_menu{
+    display: flex; /* 수평으로 배치 */
+    list-style: none; /* 목록 기호 제거 */
+}
+
+#top_menu{
+    gap: 50px;
+    margin-left: 30px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* 화면 전체 높이를 차지하도록 설정 */
+}
+
+h1{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+#login_signup_area {
+    margin-top: 150px;
+    width: 300px; /* 로그인 영역의 너비를 설정 */
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #dfdfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img{
+        width: 200px;
+        height: 200px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+}
+
+#login_signup_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#main_title{
+    display: flex;
+    align-items: center;
+}
+
+
+nav ol li {
+    margin-right: 10px; /* 각 버튼 사이 간격 조절 */
+}
+
+#container, #top_ba{
+    margin: 0 300px;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    label{
+        font-weight: bold;
+    }
+    input{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        height: 20px;
+        border-radius: 5px;
+    }
+}
+
+#main_title{
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.nav_lnk {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    li{
+        font-size: 20px;
+    }
+}
+
+
+.blueBtn{
+    border-radius: 5px;
+    background-color: #3498db;
+
+}
+#loginBtn{
+    width: 80px;
+    height: 50px;
+}
+
+#signupBtn{
+    width: 80px;
+    height: 50px;
+}
+
+#AskBtn{
+    width: 180px;
+    height: 50px;
+    color: white;
+}
+
+.whiteBtn{
+    border-radius: 5px;
+    background-color: #ffffff;
+
+}
+
+.button_info{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#container button {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(4,4,12,0.64);
+    color: #fafafa;
+    font-weight: bold;
+}
+
+
+
+
+
