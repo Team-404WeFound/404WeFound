@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404-We-Found</title>
+    <link rel="stylesheet" href="css/login-signup.css" type="text/css">
+</head>
+<body>
+
+<header id="top_ba">
+    <div id="top_ba_container">
+        <a href="#">
+            <img class="logo_404" src="img/logo_404.png" alt="">
+        </a>
+        <ol id="top_menu">
+            <li>About</li>
+            <li>Product</li>
+            <li>For Teams</li>
+        </ol>
+        <form id="search" role="search" action="/search">
+            <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
+            <input id="search_input" type="text"placeholder="검색해보세요 !">
+        </form>
+        <nav id="login_signup_nav">
+            <ol>
+                <li>
+                    <a href="">
+                        <button id="loginBtn" class="whiteBtn">login</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <button id="signupBtn" class="blueBtn">signup</button>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</header>
+
+<div id="container">
+    <div id="login_area">
+        <h1>로그인</h1>
+        <img src="img/logo_404.png" alt="">
+        <form id = "login_form" action="/login" method="POST">
+            <div id="content">
+                <label class = "input">Email address</label>
+                <input type="email">
+                <label class = "input">Password</label>
+                <input type="password">
+            </div>
+            <button type="submit">로그인</button>
+        </form>
+    </div>
+    <p class="button_info">404 We Found가 처음이신가요?</p>
+    <button type="button">회원가입</button>
+    <p class="button_info">비밀번호가 기억나지 않나요?</p>
+    <button type="button">비밀번호 찾기</button>
+</div>
+<footer></footer>
+</body>
+</html>
