@@ -64,5 +64,10 @@ public class QuestionController {
     }
 
     //todo 게시판 삭제
+    @DeleteMapping("/questions/{question_id}")
+    public ResponseEntity<Void> deleteQuestion(@PathVariable Long question_id){
+        questionService.delete(question_id);
+        return ResponseEntity.ok().build();
+    }
 
 }
