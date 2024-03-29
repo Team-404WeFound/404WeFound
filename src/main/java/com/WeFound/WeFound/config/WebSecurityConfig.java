@@ -34,30 +34,32 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity
-
-                .authorizeHttpRequests((auth) ->              // 인증, 인가 설정
-                        auth.requestMatchers("/login", "/signup", "/user").permitAll()
-                                .anyRequest().authenticated()
+                .authorizeHttpRequests((auth) -> auth
+                        .requestMatchers("/","/login", "/signup", "/user", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
+                        .anyRequest().authenticated() // 나머지 요청은 인증된 사용자에게만 허용
                 );
 
 
-        httpSecurity
-                .formLogin(auth -> auth.loginPage("/login")     // 폼 기반 로그인 설정
-                        .defaultSuccessUrl("/articles")
-                );
 
 
-        httpSecurity
-                .logout(auth -> auth.logoutSuccessUrl("/login") // 로그아웃 설정
-                        .invalidateHttpSession(true)
-                );
+
+//        httpSecurity
+//                .formLogin(auth -> auth.loginPage("/login")     // 폼 기반 로그인 설정
+//                        .defaultSuccessUrl("/articles")
+//                );
+
+
+//        httpSecurity
+//                .logout(auth -> auth.logoutSuccessUrl("/login") // 로그아웃 설정
+//                        .invalidateHttpSession(true)
+//                );
 
 
         // csrf 비활성화
-        httpSecurity
-                .csrf(auth -> auth
-                        .disable()
-                );
+//        httpSecurity
+//                .csrf(auth -> auth
+//                        .disable()
+//                );
 
 
         return httpSecurity.build();
