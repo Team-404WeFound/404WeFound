@@ -22,7 +22,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", updatable = false)
-    private int id;
+    private Long user_id;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -64,7 +64,7 @@ public class User {
     }
     public static User toUser(AddUserdto addUserdto){
         User toUser = new User();
-        toUser.setId(addUserdto.getId());
+        toUser.setUser_id(addUserdto.getUser_id());
         toUser.setEmail(addUserdto.getEmail());
         toUser.setPassword(addUserdto.getPassword());
         return toUser;
