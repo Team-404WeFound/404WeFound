@@ -35,7 +35,9 @@ public class WebSecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/","/login","/loginProc", "/signup", "/user", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
+                        .requestMatchers("/","/login","/loginProc", "/signup","/join", "/joinProc", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
+                        .requestMatchers("/admin").hasRole("ADMIN") // admin 경로는 ADMIN 권한을 가진 사용자에게만 허용
+                        .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER") // my/** 경로는 ADMIN, USER 권한을 가진 사용자에게만 허용
                         .anyRequest().authenticated() // 나머지 요청은 인증된 사용자에게만 허용
                 );
 

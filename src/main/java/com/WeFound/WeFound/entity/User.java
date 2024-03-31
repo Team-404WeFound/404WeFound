@@ -1,5 +1,10 @@
 package com.WeFound.WeFound.entity;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import com.WeFound.WeFound.dto.AddUserdto;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -13,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 
 @Table(name = "users")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+// @NoArgsConstructor(access = AccessLevel.PROTECTED) ???
 @Getter
 @Setter
 @Entity
@@ -24,10 +29,10 @@ public class User {
     @Column(name = "user_id", updatable = false)
     private int id;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true) // 로그인, 중복 불가
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false) // 로그인
     private String password;
 
     @Column(name = "nickname",nullable = false)
@@ -57,11 +62,10 @@ public class User {
     @Column(name = "디스코드채널아이디", nullable = false)
     private String Field2;*/
 
+    public User() {
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
     }
+
     public static User toUser(AddUserdto addUserdto){
         User toUser = new User();
         toUser.setId(addUserdto.getId());
