@@ -35,7 +35,7 @@ public class WebSecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/","/login", "/signup", "/user", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
+                        .requestMatchers("/","/login","/loginProc", "/signup", "/user", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
                         .anyRequest().authenticated() // 나머지 요청은 인증된 사용자에게만 허용
                 );
 
@@ -48,6 +48,12 @@ public class WebSecurityConfig {
 //                        .defaultSuccessUrl("/articles")
 //                );
 
+        httpSecurity
+                .formLogin((auth) -> auth.loginPage("/login")
+                        .loginProcessingUrl("/loginProc")
+                        .permitAll()
+                );
+
 
 //        httpSecurity
 //                .logout(auth -> auth.logoutSuccessUrl("/login") // 로그아웃 설정
@@ -55,11 +61,11 @@ public class WebSecurityConfig {
 //                );
 
 
-        // csrf 비활성화
-//        httpSecurity
-//                .csrf(auth -> auth
-//                        .disable()
-//                );
+        // csrf 일단 비활성화
+        httpSecurity
+                .csrf(auth -> auth
+                        .disable()
+                );
 
 
         return httpSecurity.build();
