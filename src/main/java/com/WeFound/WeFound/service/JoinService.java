@@ -21,6 +21,10 @@ public class JoinService {
 
     public void joinProcess(JoinDto joinDto) {
 
+        boolean isUser = userRepository.existsByEmail(joinDto.getEmail());
+        if (isUser) {
+            return;
+        }
 
         User data = new User();
 

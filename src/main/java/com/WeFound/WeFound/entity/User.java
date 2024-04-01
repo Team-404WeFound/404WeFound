@@ -18,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 
 @Table(name = "users")
-// @NoArgsConstructor(access = AccessLevel.PROTECTED) ???
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity
@@ -32,10 +32,10 @@ public class User {
     @Column(name = "email", nullable = false, unique = true) // 로그인, 중복 불가
     private String email;
 
-    @Column(name = "password", nullable = false) // 로그인
+    @Column(name = "password", nullable = false, unique = true) // 로그인
     private String password;
 
-    @Column(name = "nickname",nullable = false)
+    @Column(name = "nickname",nullable = false, unique = true)
     private String nickname;
 
     @Column(name = "role",nullable = false)
