@@ -22,26 +22,6 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 @Configuration
 public class WebSecurityConfig {
 
-    private final UserDetailService userDetailService;
-
-    public WebSecurityConfig(UserDetailService userDetailService) {
-        this.userDetailService = userDetailService;
-    }
-    //UserDetailService를 사용하는것이 맞는지 모르겠다..
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
-    @Bean
-    public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailService);
-        authProvider.setPasswordEncoder(bCryptPasswordEncoder());
-        return authProvider;
-    }
-
-
-
     // 패스워드 암호화
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
