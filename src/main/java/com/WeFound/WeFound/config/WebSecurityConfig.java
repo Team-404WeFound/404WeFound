@@ -1,7 +1,14 @@
 package com.WeFound.WeFound.config;
 
+import com.WeFound.WeFound.service.UserDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -15,12 +22,25 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 @Configuration
 public class WebSecurityConfig {
 
-//    // 특정 HTTP 요청에 대한 웹 기반 보안 구성
-//    @Bean
-//    public WebSecurityCustomizer configure() {      // 스프링 시큐리티 기능 비활성화
-//        return web -> web.ignoring().requestMatchers(toH2Console())
-//                .requestMatchers("/static/**","/api/**"); //나중엔 api항목은 지워야한다.
-//    }
+    private final UserDetailService userDetailService;
+
+    public WebSecurityConfig(UserDetailService userDetailService) {
+        this.userDetailService = userDetailService;
+    }
+    //UserDetailService를 사용하는것이 맞는지 모르겠다..
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailService);
+        authProvider.setPasswordEncoder(bCryptPasswordEncoder());
+        return authProvider;
+    }
+
+
 
     // 패스워드 암호화
     @Bean
@@ -35,24 +55,25 @@ public class WebSecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/","/login","/loginProc", "/signup", "/user", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
+                        .requestMatchers("/","/login","/loginProc", "/signup","/join", "/joinProc", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
+                        .requestMatchers("/admin").hasRole("ADMIN") // admin 경로는 ADMIN 권한을 가진 사용자에게만 허용
+                        .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER") // my/** 경로는 ADMIN, USER 권한을 가진 사용자에게만 허용
                         .anyRequest().authenticated() // 나머지 요청은 인증된 사용자에게만 허용
                 );
 
 
-
-
-
-//        httpSecurity
-//                .formLogin(auth -> auth.loginPage("/login")     // 폼 기반 로그인 설정
-//                        .defaultSuccessUrl("/articles")
-//                );
-
         httpSecurity
-                .formLogin((auth) -> auth.loginPage("/login")
+                .formLogin((form) -> form
+                        .loginPage("/login")
                         .loginProcessingUrl("/loginProc")
+                        .usernameParameter("email") // username 대신 email 파라미터 사용
                         .permitAll()
                 );
+//                .formLogin((auth) -> auth.loginPage("/login")
+//                        .loginProcessingUrl("/loginProc")
+//                        .permitAll()
+//                );
+
 
 
 //        httpSecurity

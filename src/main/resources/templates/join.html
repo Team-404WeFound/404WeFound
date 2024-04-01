@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404-We-Found</title>
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<body>
+
+<header id="top_ba">
+    <div id="top_ba_container">
+        <a href="#">
+            <img class="logo_404" src="../static/img/logo_404.png" alt="">
+        </a>
+        <ol id="top_menu">
+            <li>About</li>
+            <li>Product</li>
+            <li>For Teams</li>
+        </ol>
+        <form id="search" role="search" th:action="@{/search}" method="get">
+            <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
+            <input id="search_input" type="text" placeholder="검색해보세요 !">
+        </form>
+        <nav id="login_signup_nav">
+            <ol>
+                <li>
+                    <a href="#">
+                        <button id="loginBtn" class="whiteBtn">login</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <button id="signupBtn" class="blueBtn">signup</button>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</header>
+
+<div id="container">
+    <div id="login_signup_area">
+        <h1>회원가입</h1>
+        <img src="../static/img/logo_404.png" alt="">
+<!--        <form id="login_signup_form" th:action="@{/signup}" method="post">-->
+<!--            <div id="content">-->
+<!--                <label class="input">Email address</label>-->
+<!--                <input type="email" name="email">-->
+<!--                <label class="input">Password</label>-->
+<!--                <input type="password" name="password">-->
+<!--                <label class="input">Check Password</label>-->
+<!--                <input type="password" name="confirmPassword">-->
+<!--                <label class="input">Nickname</label>-->
+<!--                <input type="text" name="nickname">-->
+<!--            </div>-->
+<!--            <button type="submit">회원가입</button>-->
+<!--        </form>-->
+        <form action="/joinProc" method="post" name="joinForm">
+            <input type="text" name="email" placeholder="Email"/>
+            <input type="text" name="nickname" placeholder="Nickname"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <input type="submit" value="Join"/>
+        </form>
+<!--        일단 급해서 css 생각없이 작성했습니다. 리팩토링 필요합니다.-->
+    </div>
+    <p class="button_info">이미 계정이 있으신가요?</p>
+    <button type="button">로그인</button>
+</div>
+<footer></footer>
+</body>
+</html>
