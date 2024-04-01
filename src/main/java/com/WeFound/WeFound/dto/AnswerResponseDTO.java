@@ -26,4 +26,7 @@ public class AnswerResponseDTO {
         this.update_at = update_at;
     }
 
+    public void setAnswerId(Long answer_id) {
+        this.answer_id = answer_id;
+    }
 }

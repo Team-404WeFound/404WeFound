@@ -41,12 +41,12 @@ public class QuestionController {
 //    }
 
     //paging 사용 버전
-    @GetMapping("/questions")
-    public ResponseEntity<Page<QuestionResponse>> getQuestions(Pageable pageable){
-        Page<Question> questionPage = questionService.getPageableQuestions(pageable);
-        Page<QuestionResponse> questionResponsePage = questionPage.map(QuestionResponse::new);
-        return ResponseEntity.ok(questionResponsePage);
-    }
+//    @GetMapping("/questions")
+//    public ResponseEntity<Page<QuestionResponse>> getQuestions(Pageable pageable){
+//        Page<Question> questionPage = questionService.getPageableQuestions(pageable);
+//        Page<QuestionResponse> questionResponsePage = questionPage.map(QuestionResponse::new);
+//        return ResponseEntity.ok(questionResponsePage);
+//    }
 
     //todo 게시판 단권 조회
     @GetMapping("/questions/{question_id}")

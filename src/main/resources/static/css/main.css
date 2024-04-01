@@ -110,9 +110,9 @@ nav ol li {
 
 #content{
     margin-top: 50px;
-    h1{
-        font-size: 50px;
-    }
+    /*h1{*/
+    /*    font-size: 50px;*/
+    /*}*/
     flex: 1;
 
     height: 100%;
@@ -127,9 +127,9 @@ nav ol li {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    li{
-        font-size: 20px;
-    }
+    /*li{*/
+    /*    font-size: 20px;*/
+    /*}*/
 }
 
 #side_menu{
@@ -138,10 +138,10 @@ nav ol li {
     #side_menu_section{
         margin-top: 50px;
     }
-    ol.nav_lnk{
-        align-items: center;
-        font-weight: bold;
-    }
+    /*ol.nav_lnk{*/
+    /*    align-items: center;*/
+    /*    font-weight: bold;*/
+    /*}*/
 }
 
 

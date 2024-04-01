@@ -1,19 +1,24 @@
 package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.AnswerRequestDTO;
+import com.WeFound.WeFound.dto.AnswerResponseDTO;
 import com.WeFound.WeFound.service.AnswerService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @RequestMapping("/api")
 public class AnswerController {
 
     private final AnswerService answerService;
+
+    public AnswerController(AnswerService answerService) {
+        this.answerService = answerService;
+    }
 
     /**
      * 댓글 작성
@@ -22,39 +27,40 @@ public class AnswerController {
      * @param authentication 유저 정보
      * @return 게시물 상세 페이지
      */
-    //게시판 질문답변 작성
     @PostMapping("/questions/{id}/answer")
-    @ResponseBody
-
-    public String writeAnswer(@PathVariable Long id, AnswerRequestDTO answerRequestDTO, Authentication authentication) {
+    public ResponseEntity<AnswerResponseDTO> writeAnswer(@PathVariable Long id, @RequestBody AnswerRequestDTO answerRequestDTO, Authentication authentication) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        Long l = answerService.writeAnswer(answerRequestDTO, id, userDetails.getUsername());
-        //todo 되돌려 놓기
-        //answer값이 저장이 됬다는 뜻이니까 answer_id값을 가져온거니까 awsid를 가져온다고
-        //확인하는 이유:redirect로 answer가 재대로 작동하는지 확인하려고 하는거니가
-        //값이 재대로 return이 되는지 확인하고자 합니다.
-        return "redirect:/qustions/"+id;
-    }
+        Long answerId = answerService.writeAnswer(answerRequestDTO, id, userDetails.getUsername());
 
-    //게시판 질문답변 수정
-    @ResponseBody
-    @PostMapping("/questions/{id}/answer/{answer_id}/update")
-    public String updateAnswer(@PathVariable Long id,@PathVariable Long answer_id,AnswerRequestDTO answerRequestDTO){
-        answerService.updateAnswer(answerRequestDTO,answer_id);
-        return "/questions/"+id;
+        // 생성된 답변의 ID를 사용하여 응답 구성
+        AnswerResponseDTO responseDTO = new AnswerResponseDTO();
+        responseDTO.setAnswerId(id); // 답변의 ID 설정
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+    }
+    /**
+     * 댓글 수정
+     * @param id 게시물 ID
+     * @param answer_id 답변 ID
+     * @param answerRequestDTO 수정할 답변 정보
+     * @return 수정된 답변의 상세 페이지
+     */
+    @PutMapping("/questions/{id}/answer/{answer_id}/update")
+    public ResponseEntity<AnswerResponseDTO> updateAnswer(@PathVariable Long id, @PathVariable Long answer_id, @RequestBody AnswerRequestDTO answerRequestDTO) {
+        // 서비스의 updateAnswer 메서드 호출하여 수정된 답변을 받아옴
+        AnswerResponseDTO responseDTO = answerService.updateAnswer(answer_id, answerRequestDTO);
+        return ResponseEntity.ok(responseDTO);
     }
 
     /**
      * 댓글 삭제
-     * @param id 게시물
-     * @param answer_id 답글 ID
-     * @return 해당 게시물 리다이렉트
+     * @param id 게시물 ID
+     * @param answer_id 답변 ID
+     * @return 게시물 상세 페이지로 리다이렉트
      */
-
-    //게시판 질문답변 삭제
-    @GetMapping("/questions/{id}/answer/{answer_id}/remove")
-    public String deleteAnswer(@PathVariable Long id,@PathVariable Long answer_id){
+    @DeleteMapping("/questions/{id}/answer/{answer_id}/remove")
+    public ResponseEntity<Void> deleteAnswer(@PathVariable Long id, @PathVariable Long answer_id) {
         answerService.deleteAnswer(answer_id);
-        return "redirect:/questions/" + id;
+        return ResponseEntity.ok().build();
     }
 }
