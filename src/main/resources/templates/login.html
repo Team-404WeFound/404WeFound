@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>404-We-Found</title>
@@ -7,36 +7,7 @@
 </head>
 <body>
 
-<header id="top_ba">
-    <div id="top_ba_container">
-        <a href="#">
-            <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
-        </a>
-        <ol id="top_menu">
-            <li><a href="/mypage">마이페이지</a></li>
-            <li>Product</li>
-            <li>For Teams</li>
-        </ol>
-        <form id="search" role="search" action="/search">
-            <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
-            <input id="search_input" type="text" placeholder="검색해보세요 !">
-        </form>
-        <nav id="login_signup_nav">
-            <ol>
-                <li>
-                    <a href="/login">
-                        <button id="loginBtn" class="whiteBtn">login</button>
-                    </a>
-                </li>
-                <li>
-                    <a href="/join">
-                        <button id="signupBtn" class="blueBtn">signup</button>
-                    </a>
-                </li>
-            </ol>
-        </nav>
-    </div>
-</header>
+<header th:replace="~{fragments/header :: header}"></header>
 
 <div id="container">
     <div id="login_signup_area">
@@ -53,6 +24,6 @@
     <p class="button_info">비밀번호가 기억나지 않나요?</p>
     <a href="#"><button type="button">비밀번호 찾기</button></a>
 </div>
-<footer></footer>
+<header th:replace="~{fragments/footer :: footer}"></header>
 </body>
 </html>
