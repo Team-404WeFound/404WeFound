@@ -1,0 +1,30 @@
+<header th:fragment="header">
+    <div id="top_ba_container">
+        <a href="#">
+            <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
+        </a>
+        <ol id="top_menu">
+            <li><a href="/mypage">마이페이지</a></li>
+            <li>Product</li>
+            <li>For Teams</li>
+        </ol>
+        <form id="search" role="search" th:action="@{/search}" method="get">
+            <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
+            <input id="search_input" type="text" placeholder="검색해보세요 !">
+        </form>
+        <nav id="login_signup_nav">
+            <ol>
+                <li>
+                    <a href="/login">
+                        <button id="loginBtn" class="whiteBtn">login</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="/join">
+                        <button id="signupBtn" class="blueBtn">signup</button>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</header>

@@ -7,36 +7,7 @@
 </head>
 <body>
 
-<header id="top_ba">
-    <div id="top_ba_container">
-        <a href="#">
-            <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
-        </a>
-        <ol id="top_menu">
-            <li><a href="/mypage">마이페이지</a></li>
-            <li>Product</li>
-            <li>For Teams</li>
-        </ol>
-        <form id="search" role="search" action="/search">
-            <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
-            <input id="search_input" type="text" placeholder="검색해보세요 !">
-        </form>
-        <nav id="login_signup_nav">
-            <ol>
-                <li>
-                    <a href="/login">
-                        <button id="loginBtn" class="whiteBtn">login</button>
-                    </a>
-                </li>
-                <li>
-                    <a href="/signup">
-                        <button id="signupBtn" class="blueBtn">signup</button>
-                    </a>
-                </li>
-            </ol>
-        </nav>
-    </div>
-</header>
+<header th:replace="~{fragments/header :: header}"></header>
 <main> <!-- main 태그 추가 -->
     마이페이지입니다. 여기서 회원정보를 확인하실 수 있습니다.
     <hr>
@@ -58,7 +29,7 @@
     </form>
 </main> <!-- main 태그 종료 -->
 
-<footer></footer>
+<header th:replace="~{fragments/footer :: footer}"></header>
 <script th:src="@{/scripts/userWithdraw.js}"></script>
 </body>
 </html>

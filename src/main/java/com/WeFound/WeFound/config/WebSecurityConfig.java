@@ -14,6 +14,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
@@ -37,7 +39,7 @@ public class WebSecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/loginProc", "/join", "/joinProc", "/css/**", "/img/**", "/scripts/**", "/plugin/**", "/fonts/**").permitAll()
+                        .requestMatchers("/login", "/loginProc", "/join", "/joinProc",  "/css/**", "/img/**", "/scripts/**", "/plugin/**", "/fonts/**").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/api/**").permitAll()
@@ -74,6 +76,16 @@ public class WebSecurityConfig {
         return httpSecurity.build();
     }
 
+
+//    @Bean
+//    public SpringResourceTemplateResolver templateResolver() {
+//        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+//        templateResolver.setPrefix("classpath:/templates/");
+//        templateResolver.setSuffix(".html");
+//        templateResolver.setTemplateMode(TemplateMode.HTML);
+//        templateResolver.setCacheable(false);
+//        return templateResolver;
+//    }
 
 
 }
