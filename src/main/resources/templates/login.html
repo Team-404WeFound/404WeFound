@@ -13,7 +13,7 @@
             <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
         </a>
         <ol id="top_menu">
-            <li>About</li>
+            <li><a href="/mypage">마이페이지</a></li>
             <li>Product</li>
             <li>For Teams</li>
         </ol>
@@ -24,12 +24,12 @@
         <nav id="login_signup_nav">
             <ol>
                 <li>
-                    <a href="">
+                    <a href="/login">
                         <button id="loginBtn" class="whiteBtn">login</button>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="/join">
                         <button id="signupBtn" class="blueBtn">signup</button>
                     </a>
                 </li>
@@ -42,25 +42,16 @@
     <div id="login_signup_area">
         <h1>로그인</h1>
         <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
-        <form id = "login_signup_form" action="/loginProc" method="post", name="loginForm">
-<!--            <div id="content">-->
-<!--                <label class = "input">Email address</label>-->
-<!--                <input type="email">-->
-<!--                <label class = "input">Password</label>-->
-<!--                <input type="password">-->
-<!--            </div>-->
+        <form id="login_signup_form" action="/loginProc" method="post" name="loginForm">
             <input id="email" type="text" name="email" placeholder="id"/>
             <input id="password" type="password" name="password" placeholder="password"/>
             <input type="submit" value="login"/>
-<!--            일단 급해서 css 생각없이 작성했습니다. 리팩토링 필요합니다.-->
-
-<!--            <button type="submit">로그인</button>-->
         </form>
     </div>
     <p class="button_info">404 We Found가 처음이신가요?</p>
-    <button type="button">회원가입</button>
+    <a href="/join"><button type="button">회원가입</button></a>
     <p class="button_info">비밀번호가 기억나지 않나요?</p>
-    <button type="button">비밀번호 찾기</button>
+    <a href="#"><button type="button">비밀번호 찾기</button></a>
 </div>
 <footer></footer>
 </body>

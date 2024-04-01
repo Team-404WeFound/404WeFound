@@ -13,7 +13,7 @@
             <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
         </a>
         <ol id="top_menu">
-            <li>About</li>
+            <li><a href="/mypage">마이페이지</a></li>
             <li>Product</li>
             <li>For Teams</li>
         </ol>
@@ -24,12 +24,12 @@
         <nav id="login_signup_nav">
             <ol>
                 <li>
-                    <a href="">
+                    <a href="/login">
                         <button id="loginBtn" class="whiteBtn">login</button>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="/signup">
                         <button id="signupBtn" class="blueBtn">signup</button>
                     </a>
                 </li>
@@ -37,20 +37,22 @@
         </nav>
     </div>
 </header>
-마이페이지입니다. 여기서 회원정보를 확인하실 수 있습니다.
-<hr>
-환영합니다. <span th:text="${nickname}"></span>님 ! <br>
-닉네임: <span th:text="${nickname}"></span><br>
-등급: <span th:text="${role}"></span><br>
-이메일: <span th:text="${email}"></span><br>
-<br>
-여기서 할 수 있는 기능은 다음과 같습니다.<br>
- - 회원 정보 수정<br>
- - 회원 탈퇴<br>
- - 회원 등급<br>
- - 회원 포인트<br>
- - 다음 등급까지 필요한 포인트<br>
- - 회원 등급에 따른 권한<br>
+<main> <!-- main 태그 추가 -->
+    마이페이지입니다. 여기서 회원정보를 확인하실 수 있습니다.
+    <hr>
+    환영합니다. <span th:text="${nickname}"></span>님 ! <br>
+    닉네임: <span th:text="${nickname}"></span><br>
+    등급: <span th:text="${role}"></span><br>
+    이메일: <span th:text="${email}"></span><br>
+    <br>
+    여기서 할 수 있는 기능은 다음과 같습니다.<br>
+    - 회원 정보 수정<br>
+    - 회원 탈퇴<br>
+    - 회원 등급<br>
+    - 회원 포인트<br>
+    - 다음 등급까지 필요한 포인트<br>
+    - 회원 등급에 따른 권한<br>
+</main> <!-- main 태그 종료 -->
 
 <footer></footer>
 </body>
