@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import com.WeFound.WeFound.dto.AddUserdto;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -52,11 +51,4 @@ public class User {
 
     }
 
-    public static User toUser(AddUserdto addUserdto){
-        User toUser = new User();
-        toUser.setId(addUserdto.getId());
-        toUser.setEmail(addUserdto.getEmail());
-        toUser.setPassword(addUserdto.getPassword());
-        return toUser;
-    }
 }

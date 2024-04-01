@@ -33,6 +33,8 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
 
+
+
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/login", "/loginProc", "/join", "/joinProc", "/css/**", "/img/**", "/scripts/**", "/plugin/**", "/fonts/**").permitAll()
