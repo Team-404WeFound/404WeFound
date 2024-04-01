@@ -15,18 +15,18 @@ public class Friend {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id",updatable = false)
-    private Long user_id;
+    private Long userId;
 
     @Column(name = "friend_id")
-    private Long friend_id;
+    private Long friendId;
 
     @CreatedDate
     @Column(name = "create_at")
-    private LocalDateTime create_at;
+    private LocalDateTime createAt;
 
-    public Friend(Long user_id,Long friend_id,LocalDateTime create_at){
-        this.user_id = user_id;
-        this.friend_id = friend_id;
-        this.create_at = create_at;
+    public Friend(Long userId,Long friendId,LocalDateTime createAt){
+        this.userId = userId;
+        this.friendId = friendId;
+        this.createAt = createAt;
     }
 }

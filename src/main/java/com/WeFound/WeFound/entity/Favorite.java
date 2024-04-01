@@ -15,16 +15,16 @@ public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id",updatable = false)
-    private Long user_id;
+    private Long userId;
     @Column(name = "question_id")
-    private Long question_id;
+    private Long questionId;
     @CreatedDate
     @Column(name = "created_at")
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
-    public Favorite(Long user_id,Long question_id,LocalDateTime created_at){
-        this.user_id = user_id;
-        this.question_id = question_id;
-        this.created_at = created_at;
+    public Favorite(Long userId,Long questionId,LocalDateTime createdAt){
+        this.userId = userId;
+        this.questionId = questionId;
+        this.createdAt = createdAt;
     }
 }

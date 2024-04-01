@@ -16,17 +16,17 @@ import java.time.LocalDateTime;
 public class AddQuestionRequest {
     private String title;
     private String content;
-    private Long user_id;
-    private Long question_id;
-    private LocalDateTime created_at;
-    private LocalDateTime updated_at;
+    private Long userId;
+    private Long questionId;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public Question toEntity(){
         return Question.builder()
                 .title(title)
                 .content(content)
-                .question_id(question_id)
-                .user_id(user_id)
+                .questionId(questionId)
+                .userId(userId)
                 .build();
     }
 }
