@@ -52,6 +52,13 @@ public class WebSecurityConfig {
                         .permitAll()
                 );
 
+        httpSecurity
+                .sessionManagement((auth) -> auth
+                        .maximumSessions(1) // 하나의 아이디에 대한 다중 로그인 허용 개수
+                        .maxSessionsPreventsLogin(true)); //다중 로그인 개수를 초과하였을 경우 초과시 새로운 로그인 차단
+                                                            // false는 초과시 기존 세션 하나 삭제
+
+        
 //        httpSecurity
 //                .logout(auth -> auth.logoutSuccessUrl("/login") // 로그아웃 설정
 //                        .invalidateHttpSession(true)
