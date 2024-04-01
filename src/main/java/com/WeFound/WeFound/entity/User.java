@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 
 @Table(name = "users")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity
@@ -62,6 +62,11 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+    public User() {
+
+    }
+
     public static User toUser(AddUserdto addUserdto){
         User toUser = new User();
         toUser.setUser_id(addUserdto.getUser_id());

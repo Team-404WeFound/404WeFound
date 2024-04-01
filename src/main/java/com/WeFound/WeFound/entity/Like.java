@@ -7,7 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
-@Table(name = "like")
+@Table(name = "likes")
 @NoArgsConstructor
 @Getter
 @Entity
