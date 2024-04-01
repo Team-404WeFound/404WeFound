@@ -18,7 +18,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 
 @Table(name = "users")
-//@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity
@@ -48,19 +47,6 @@ public class User {
     @LastModifiedDate
     @Column(name = "update_at")
     private LocalDateTime update_at;
-
-
-    /*@Column(name = "rank", nullable = false)
-    private int rank;
-
-    @Column(name = "닉네임", nullable = false)
-    private String name;
-
-    @Column(name = "집주소", nullable = false)
-    private String Field;
-
-    @Column(name = "디스코드채널아이디", nullable = false)
-    private String Field2;*/
 
     public User() {
 
