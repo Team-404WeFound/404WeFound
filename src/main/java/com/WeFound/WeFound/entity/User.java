@@ -52,6 +52,9 @@ public class User {
 
     }
 
+    public User(String email, String encode) {
+    }
+
     public static User toUser(AddUserdto addUserdto){
         User toUser = new User();
         toUser.setId(addUserdto.getId());
