@@ -58,16 +58,9 @@ public class User {
     private String Field2;*/
 
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
 
     public User() {
 
-    }
-
-    public User(String email, String encode) {
     }
 
     public static User toUser(AddUserdto addUserdto){
