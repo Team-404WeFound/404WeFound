@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404-We-Found</title>
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<body>
+
+<header id="top_ba">
+    <div id="top_ba_container">
+        <a href="#">
+            <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
+        </a>
+        <ol id="top_menu">
+            <li>About</li>
+            <li>Product</li>
+            <li>For Teams</li>
+        </ol>
+        <form id="search" role="search" action="/search">
+            <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
+            <input id="search_input" type="text" placeholder="검색해보세요 !">
+        </form>
+        <nav id="login_signup_nav">
+            <ol>
+                <li>
+                    <a href="">
+                        <button id="loginBtn" class="whiteBtn">login</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <button id="signupBtn" class="blueBtn">signup</button>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</header>
+
+main페이지 입니다. 로그인페이지와 구분하기 위해서 로그인폼을 일단 지웠습니다. 프론트 작업해주시면 됩니다.
+<footer></footer>
+</body>
+</html>

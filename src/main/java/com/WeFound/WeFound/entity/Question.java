@@ -2,6 +2,7 @@ package com.WeFound.WeFound.entity;
 
 import com.WeFound.WeFound.dto.QuestionResponse;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Question {
     @Id
@@ -55,5 +57,11 @@ public class Question {
                 .created_at(created_at)
                 .updated_at(updated_at)
                 .build();
+    }
+
+    public Question update(String title, String content) {
+        this.title = title;
+        this.content = content;
+        return this;
     }
 }
