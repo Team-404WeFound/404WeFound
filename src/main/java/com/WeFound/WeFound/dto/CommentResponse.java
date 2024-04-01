@@ -1,5 +1,6 @@
 package com.WeFound.WeFound.dto;
 
+import com.WeFound.WeFound.entity.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,8 +11,18 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class CommentResponse {
-    private Long comment_id;
+    private Long commentId;
     private String content;
-    private LocalDateTime created_at;
-    private LocalDateTime updated_at;
+    private LocalDateTime createdAt;
+    private Long userId;
+
+    public CommentResponse toResponse(Comment comment){
+        return new CommentResponse(
+                comment.getCommentId(),
+                comment.getContent(),
+                comment.getCreateAt(),
+                comment.getUserId()
+                );
+
+    }
 }
