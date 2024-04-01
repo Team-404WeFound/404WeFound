@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            width: 400px;
+            margin: 0 auto;
+            padding: 25px
+        }
+        .container h1{
+            text-align: left;
+            padding: 5px 5px 5px 5px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .chatting{
+            border : 1px solid gray;
+            width: 600px;
+            height: 600px;
+            overflow: auto;
+        }
+        .chatting p{
+            text-align: left;
+        }
+        input{
+            width: 400px;
+            height: 50px;
+        }
+
+        th{
+            width : 100px;
+        }
+        #yourMsg{
+            width: 600px;
+        }
+        .me{
+            color: blue;
+        }
+
+        .other{
+           color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1 id="title_room">오르미 12조 채팅방</h1>
+        <div id="chatting" class="chatting">
+        </div>
+        <div id="yourMsg">
+            <table class="inputTable">
+                <tr>
+                    <th>메시지</th>
+                    <th><input id="msg" placeholder="메시지를 입력하세요."></th>
+                    <th><button onclick="send()" id="sendBtn">보내기</button></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script>
+
+    var userId = window.prompt("이름은?");
+
+    function connect() {
+
+        var socket = new SockJS("/chatting");
+        stompClient = Stomp.over(socket);
+
+
+        stompClient.connect({}, function () {
+
+                sub = stompClient.subscribe('/topic/1', function (e) {
+                    //e.body에 전송된 data가 들어있다
+                    showMessage(JSON.parse(e .body));
+                });
+            },
+            function(e){
+
+                alert('에러가 발생했습니다');
+            }
+        );
+    }
+
+    connect();
+
+
+    $('#msg').keypress(function(e){
+        if(e.keyCode===13) send();
+    });
+
+
+    function showMessage(data){
+        if(data.sender===userId){
+            $('#chatting').append("<p class='me'>"+data.sender+" : "+data.contents+"</p>");
+        } else {
+            $('#chatting').append("<p class='other'>"+data.sender+" : "+data.contents+"</p>");
+        }
+    }
+
+
+    function send(){
+        data = {
+            'sender' :userId,
+            'contents': $("#msg").val()
+        };
+
+        stompClient.send("/app/chat/send", {}, JSON.stringify(data));
+        $("#msg").val('');
+    }
+
+</script>
+</body>
+</html>
