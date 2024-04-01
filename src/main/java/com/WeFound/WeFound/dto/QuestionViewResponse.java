@@ -5,12 +5,12 @@ import lombok.Getter;
 
 @Getter
 public class QuestionViewResponse {
-    private Long question_id;
+    private Long questionId;
     private String title;
     private String content;
 
     public QuestionViewResponse(Question question){
-        this.question_id = question.getQuestion_id();
+        this.questionId = question.getQuestionId();
         this.title = question.getTitle();
         this.content = question.getContent();
     }

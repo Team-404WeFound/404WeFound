@@ -19,10 +19,10 @@ public class CommentController {
     }
 
     //todo 댓글 생성
-    @PostMapping("/{question_id}")
-    public ResponseEntity<CommentResponse> addComment(@PathVariable Long question_id,
+    @PostMapping("/{questionId}")
+    public ResponseEntity<CommentResponse> addComment(@PathVariable Long questionId,
                                                       @RequestBody AddCommentRequest request){
-        Comment comment = commentService.save(question_id, request);
+        Comment comment = commentService.save(questionId, request);
         return ResponseEntity.ok(comment.toResponse());
     }
 

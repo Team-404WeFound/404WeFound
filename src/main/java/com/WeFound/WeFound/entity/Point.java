@@ -17,10 +17,10 @@ public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "point_id",updatable = false)
-    private Long point_id;
+    private Long pointId;
 
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
 
     @Column(name = "point")
     private Long point;
@@ -29,14 +29,14 @@ public class Point {
     private Long reason;
 
     @Column(name = "create_at")
-    private LocalDateTime create_at;
+    private LocalDateTime createAt;
 
-    public Point(Long point_id,Long user_id,Long point,Long reason,LocalDateTime create_at){
-        this.point_id = point_id;
-        this.user_id = user_id;
+    public Point(Long pointId,Long userId,Long point,Long reason,LocalDateTime createAt){
+        this.pointId = pointId;
+        this.userId = userId;
         this.point = point;
         this.reason = reason;
-        this.create_at = create_at;
+        this.createAt = createAt;
     }
 
 }

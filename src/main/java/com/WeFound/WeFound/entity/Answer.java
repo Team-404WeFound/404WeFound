@@ -19,32 +19,32 @@ public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "answer_id")
-    private Long answer_id;
+    private Long answerId;
 
     @Column(name = "content")
     private String content;
 
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
 
     @Column(name = "question_id")
-    private Long question_id;
+    private Long questionId;
 
     @CreatedDate
     @Column(name = "create_at")
-    private LocalDateTime create_at;
+    private LocalDateTime createAt;
 
     @LastModifiedDate
     @Column(name = "update_at")
-    private LocalDateTime update_at;
+    private LocalDateTime updateAt;
 
-    public Answer(Long answer_id,String content,Long user_id,Long question_id,LocalDateTime create_at,LocalDateTime update_at){
-        this.answer_id = answer_id;
+    public Answer(Long answerId,String content,Long userId,Long questionId,LocalDateTime createAt,LocalDateTime updateAt){
+        this.answerId = answerId;
         this.content = content;
-        this.user_id = user_id;
-        this.question_id = question_id;
-        this.create_at = create_at;
-        this.update_at = update_at;
+        this.userId = userId;
+        this.questionId = questionId;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
     }
 
 }

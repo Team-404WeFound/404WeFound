@@ -18,7 +18,7 @@ public class MainService {
         if (authentication != null && authentication.getPrincipal() instanceof CustomUserDetails) {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
             String email = userDetails.getEmail();
-            String nickname = userDetails.getNickname();
+            String nickName = userDetails.getNickName();
 
             // 권한(role) 정보 가져오기
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -28,7 +28,7 @@ public class MainService {
             }
 
             model.addAttribute("email", email);
-            model.addAttribute("nickname", nickname);
+            model.addAttribute("nickName", nickName);
             model.addAttribute("role", role);
         }
     }

@@ -29,7 +29,7 @@ public class JoinService {
         User data = new User();
 
         data.setEmail(joinDto.getEmail());
-        data.setNickname(joinDto.getNickname());
+        data.setNickName(joinDto.getNickName());
         data.setPassword(bCryptPasswordEncoder.encode(joinDto.getPassword()));
         data.setRole("ROLE_USER");
 

@@ -49,24 +49,24 @@ public class QuestionController {
 //    }
 
     //todo 게시판 단권 조회
-    @GetMapping("/questions/{question_id}")
-    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long question_id){
-        Question question = questionService.findById(question_id);
+    @GetMapping("/questions/{questionId}")
+    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long questionId){
+        Question question = questionService.findById(questionId);
         return ResponseEntity.ok(question.toResponse());
     }
 
     //todo 게시판 수정
-    @PutMapping("/questions/{question_id}")
-    public ResponseEntity<Question> updateQuestion(@PathVariable Long question_id,
+    @PutMapping("/questions/{questionId}")
+    public ResponseEntity<Question> updateQuestion(@PathVariable Long questionId,
                                                    @RequestBody AddQuestionRequest request){
-        questionService.update(question_id,request);
+        questionService.update(questionId,request);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     //todo 게시판 삭제
-    @DeleteMapping("/questions/{question_id}")
-    public ResponseEntity<Void> deleteQuestion(@PathVariable Long question_id){
-        questionService.delete(question_id);
+    @DeleteMapping("/questions/{questionId}")
+    public ResponseEntity<Void> deleteQuestion(@PathVariable Long questionId){
+        questionService.delete(questionId);
         return ResponseEntity.ok().build();
     }
 
