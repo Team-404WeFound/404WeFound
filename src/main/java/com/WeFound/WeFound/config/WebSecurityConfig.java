@@ -35,30 +35,27 @@ public class WebSecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/","/main","/login","/loginProc", "/join", "/joinProc", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN") // admin 경로는 ADMIN 권한을 가진 사용자에게만 허용
-                        .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER") // my/** 경로는 ADMIN, USER 권한을 가진 사용자에게만 허용
+                        .requestMatchers("/login", "/loginProc", "/join", "/joinProc", "/css/**", "/img/**", "/scripts/**", "/plugin/**", "/fonts/**").permitAll()
+                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/api/**").permitAll()
-                        .anyRequest().authenticated() // 나머지 요청은 인증된 사용자에게만 허용
+                        .anyRequest().authenticated()
                 );
-
-
         httpSecurity
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/loginProc")
-                        .usernameParameter("email") // username 대신 email 파라미터 사용
-                        .defaultSuccessUrl("/") // 로그인 성공 후 이동할 메인페이지
+                        .usernameParameter("email")
+                        .defaultSuccessUrl("/")
                         .permitAll()
                 );
-
         httpSecurity
                 .sessionManagement((auth) -> auth
                         .maximumSessions(1) // 하나의 아이디에 대한 다중 로그인 허용 개수
                         .maxSessionsPreventsLogin(true)); //다중 로그인 개수를 초과하였을 경우 초과시 새로운 로그인 차단
                                                             // false는 초과시 기존 세션 하나 삭제
 
-        
+
 //        httpSecurity
 //                .logout(auth -> auth.logoutSuccessUrl("/login") // 로그아웃 설정
 //                        .invalidateHttpSession(true)
