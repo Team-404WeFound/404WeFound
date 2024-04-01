@@ -35,9 +35,10 @@ public class WebSecurityConfig {
 
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/","/login","/loginProc", "/signup","/join", "/joinProc", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
+                        .requestMatchers("/","/main","/login","/loginProc", "/join", "/joinProc", "/css/**", "/img/**","/scripts/**","/plugin/**","/fonts/**").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN") // admin 경로는 ADMIN 권한을 가진 사용자에게만 허용
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER") // my/** 경로는 ADMIN, USER 권한을 가진 사용자에게만 허용
+                        .requestMatchers("/api/**").permitAll()
                         .anyRequest().authenticated() // 나머지 요청은 인증된 사용자에게만 허용
                 );
 
@@ -47,14 +48,9 @@ public class WebSecurityConfig {
                         .loginPage("/login")
                         .loginProcessingUrl("/loginProc")
                         .usernameParameter("email") // username 대신 email 파라미터 사용
+                        .defaultSuccessUrl("/") // 로그인 성공 후 이동할 메인페이지
                         .permitAll()
                 );
-//                .formLogin((auth) -> auth.loginPage("/login")
-//                        .loginProcessingUrl("/loginProc")
-//                        .permitAll()
-//                );
-
-
 
 //        httpSecurity
 //                .logout(auth -> auth.logoutSuccessUrl("/login") // 로그아웃 설정
