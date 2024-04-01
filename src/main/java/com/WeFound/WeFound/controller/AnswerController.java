@@ -6,17 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class AnswerController {
 
     private final AnswerService answerService;
-
 
     /**
      * 댓글 작성
@@ -27,10 +24,15 @@ public class AnswerController {
      */
     //게시판 질문답변 작성
     @PostMapping("/questions/{id}/answer")
+    @ResponseBody
+
     public String writeAnswer(@PathVariable Long id, AnswerRequestDTO answerRequestDTO, Authentication authentication) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        answerService.writeAnswer(answerRequestDTO, id, userDetails.getUsername());
-
+        Long l = answerService.writeAnswer(answerRequestDTO, id, userDetails.getUsername());
+        //todo 되돌려 놓기
+        //answer값이 저장이 됬다는 뜻이니까 answer_id값을 가져온거니까 awsid를 가져온다고
+        //확인하는 이유:redirect로 answer가 재대로 작동하는지 확인하려고 하는거니가
+        //값이 재대로 return이 되는지 확인하고자 합니다.
         return "redirect:/qustions/"+id;
     }
 

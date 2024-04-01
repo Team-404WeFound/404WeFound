@@ -10,7 +10,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
-
 @EnableWebSecurity
 @Configuration
 public class WebSecurityConfig {
@@ -18,7 +17,7 @@ public class WebSecurityConfig {
     @Bean
     public WebSecurityCustomizer configure() {      // 스프링 시큐리티 기능 비활성화
         return web -> web.ignoring().requestMatchers(toH2Console())
-                .requestMatchers("/static/**","/api/**"); //나중엔 api항목은 지워야한다.
+                .requestMatchers("/static/**"); //나중엔 api항목은 지워야한다.
     }
 
     // 특정 HTTP 요청에 대한 웹 기반 보안 구성
@@ -26,6 +25,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(auth ->              // 인증, 인가 설정
                         auth.requestMatchers("/login", "/signup", "/user").permitAll()
+                                .requestMatchers("/api/**").permitAll()
                                 .anyRequest().authenticated())
                 .formLogin(auth -> auth.loginPage("/login")     // 폼 기반 로그인 설정
                         .defaultSuccessUrl("/articles"))
