@@ -29,11 +29,11 @@ public class CommentService {
     }
 
     public Comment findComment(Long questionId, Long commentId){
-        return commentRepository.findByCommentId(questionId,commentId).orElseThrow(IllegalArgumentException::new);
+        return commentRepository.findByQuestion_QuestionIdAndCommentId(questionId,commentId).orElseThrow(IllegalArgumentException::new);
     }
 
     public AllCommentResponse findAllComments(Long questionId) {
-        List<Comment> comments = commentRepository.findByQuestionId(questionId)
+        List<Comment> comments = commentRepository.findByQuestion_QuestionId(questionId)
                 .orElseThrow(IllegalArgumentException::new);
 
         List<CommentResponse> commentList = new ArrayList<>();
