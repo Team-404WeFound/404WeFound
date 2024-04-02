@@ -7,6 +7,7 @@ import com.WeFound.WeFound.entity.Comment;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.repository.CommentRepository;
 import com.WeFound.WeFound.repository.QuestionRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,5 +43,10 @@ public class CommentService {
             commentList.add(comment.toResponse());
         }
         return  new AllCommentResponse(comments.get(0).getQuestion(), commentList);
+    }
+
+    @Transactional
+    public void deleteComment(Long questionId, Long commentId) {
+        commentRepository.deleteByQuestion_QuestionIdAndCommentId(questionId,commentId).orElseThrow(IllegalArgumentException::new);
     }
 }
