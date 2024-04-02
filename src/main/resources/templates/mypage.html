@@ -4,17 +4,68 @@
     <meta charset="UTF-8">
     <title>404-We-Found</title>
     <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+    <style>
+        main {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        hr {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        ul {
+            color: #666;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        thead {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
 <header th:replace="~{fragments/header :: header}"></header>
-<main> <!-- main 태그 추가 -->
+<main>
     <h1>마이페이지</h1>
     여기서 회원정보를 확인하실 수 있습니다.
     <hr>
     환영합니다. <span th:text="${nickName}"></span>님 ! <br>
     닉네임: <span th:text="${nickName}"></span><br>
     권한: <span th:text="${role}"></span><br>
+    현재 Point: <span th:text="${currentPoint}"></span><br>
     이메일: <span th:text="${email}"></span><br>
     <br>
     여기서 할 수 있는 기능은 다음과 같습니다.<br>
@@ -24,11 +75,27 @@
     - 회원 포인트<br>
     - 다음 등급까지 필요한 포인트<br>
     - 회원 등급에 따른 권한<br>
-
+    <h2>포인트 내역</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>포인트</th>
+            <th>사유</th>
+            <th>일시</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="point : ${pointHistory}">
+            <td th:text="${point.point}"></td>
+            <td th:text="${point.reason}"></td>
+            <td th:text="${#temporals.format(point.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        </tr>
+        </tbody>
+    </table>
     <form id="withdrawForm" th:action="@{/withdraw}" method="post">
         <button type="button" onclick="confirmWithdrawal()">회원 탈퇴</button>
     </form>
-</main> <!-- main 태그 종료 -->
+</main>
 
 <footer th:replace="~{fragments/footer :: footer}"></footer>
 <script th:src="@{/scripts/userWithdraw.js}"></script>

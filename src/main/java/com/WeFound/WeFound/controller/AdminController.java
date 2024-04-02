@@ -40,8 +40,8 @@ public class AdminController {
     }
 
     @PostMapping("/admin/updatePoint")
-    public String updateUserPoint(@RequestParam("userId") Long userId, @RequestParam("point") Long point) {
-        adminService.updateUserPoint(userId, point);
+    public String updateUserPoint(@RequestParam("userId") Long userId, @RequestParam("point") Long point, @RequestParam("reason") String reason) {
+        adminService.updateUserPoint(userId, point, reason);
         return "redirect:/admin";
     }
 }
