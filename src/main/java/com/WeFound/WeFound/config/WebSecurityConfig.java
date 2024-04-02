@@ -44,7 +44,15 @@ public class WebSecurityConfig {
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/api/**").permitAll()
                         .anyRequest().authenticated()
+                )
+                .exceptionHandling(e -> e
+                        .accessDeniedPage("/access-denied") // 접근 거부 시 리다이렉트할 경로 지정
                 );
+
+
+
+
+
         httpSecurity
                 .formLogin((form) -> form
                         .loginPage("/login")

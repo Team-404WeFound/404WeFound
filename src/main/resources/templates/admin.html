@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+  <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<header th:replace="~{fragments/header :: header}"></header>
+<body>
+<h1>어드민 페이지</h1>
+<table>
+  <thead>
+  <tr>
+    <th>User ID</th>
+    <th>Email</th>
+    <th>Nickname</th>
+    <th>Grade</th>
+    <th>Point</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${userList}">
+    <td th:text="${user.userId}"></td>
+    <td th:text="${user.email}"></td>
+    <td th:text="${user.nickName}"></td>
+    <td>
+      <form th:action="@{/admin/updateGrade}" method="post">
+        <input type="hidden" name="userId" th:value="${user.userId}" />
+        <input type="text" name="grade" th:value="${user.grade}" />
+        <button type="submit">Update Grade</button>
+      </form>
+    </td>
+    <td>
+      <form th:action="@{/admin/updatePoint}" method="post">
+        <input type="hidden" name="userId" th:value="${user.userId}" />
+        <input type="number" name="point" th:value="${user.point}" />
+        <button type="submit">Update Point</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

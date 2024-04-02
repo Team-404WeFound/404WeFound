@@ -7,7 +7,16 @@
 </head>
 <body>
 
+
 <header th:replace="~{fragments/header :: header}"></header>
+
+<main> <!-- main 태그 추가 -->
+    <h1>메인페이지</h1>
+    환영합니다. <span th:text="${nickName}"></span>님 ! <br>
+    닉네임: <span th:text="${nickName}"></span><br>
+    권한: <span th:text="${role}"></span><br>
+    이메일: <span th:text="${email}"></span><br>
+
 <div class="container">
     <div class="row-6" th:each="question : ${questions}">
         <div class="card">
@@ -22,14 +31,10 @@
         <br>
     </div>
 </div>
-<main> <!-- main 태그 추가 -->
-    환영합니다. <span th:text="${nickName}"></span>님 ! <br>
-    닉네임: <span th:text="${nickName}"></span><br>
-    등급: <span th:text="${role}"></span><br>
-    이메일: <span th:text="${email}"></span><br>
+
 </main> <!-- main 태그 종료 -->
 
 
-<header th:replace="~{fragments/footer :: footer}"></header>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>

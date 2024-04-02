@@ -25,7 +25,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", updatable = false)
-    private int userId;
+    private Long userId;
 
     @Column(name = "email", nullable = false, unique = true) // 로그인, 중복 불가
     private String email;
@@ -36,8 +36,14 @@ public class User {
     @Column(name = "nickname",nullable = false, unique = true)
     private String nickName;
 
-    @Column(name = "role",nullable = false)
+    @Column(name = "role",nullable = false)  // 역할 (관리자 or 일반 사용자)
     private String role;
+
+    @Column(name = "grade")
+    private String grade;
+
+    @Column(name = "point")
+    private Long point;
 
     @CreatedDate
     @Column(name = "create_at")
