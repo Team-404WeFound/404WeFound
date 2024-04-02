@@ -18,7 +18,7 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    //todo 댓글 생성
+    // 질문 id 에 댓글 추가
     @PostMapping("/{questionId}")
     public ResponseEntity<CommentResponse> addComment(@PathVariable Long questionId,
                                                       @RequestBody AddCommentRequest request){
@@ -26,19 +26,27 @@ public class CommentController {
         return ResponseEntity.ok(comment.toResponse());
     }
 
-    //todo 댓글 조회
+    // 질문 id 에 해당하는 댓글 모두 조회
     @GetMapping("/{question_id}")
     public ResponseEntity<AllCommentResponse> getAllComments(@PathVariable Long question_id){
         AllCommentResponse allComments = commentService.findAllComments(question_id);
         return ResponseEntity.ok(allComments);
     }
 
+    // 질문 id에 해당하고 선택된 comment id의 댓글 단권 조회
     @GetMapping("/{question_id}/{comment_id}")
     public ResponseEntity<CommentResponse> getComment(@PathVariable Long question_id,
                                                       @PathVariable Long comment_id){
         Comment comment = commentService.findComment(question_id, comment_id);
         return ResponseEntity.ok(comment.toResponse());
     }
-    //todo 댓글 수정
+
     //todo 댓글 삭제
+    @DeleteMapping("/{question_id}/{comment_id}")
+    public ResponseEntity<Void> deleteComment(@PathVariable Long question_id,
+                                              @PathVariable Long comment_id){
+        commentService.deleteComment(question_id, comment_id);
+        return ResponseEntity.ok().build();
+    }
+
 }
