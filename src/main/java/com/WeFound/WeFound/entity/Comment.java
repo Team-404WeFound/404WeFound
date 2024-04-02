@@ -32,9 +32,10 @@ public class Comment {
     @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "question_id")
+    @ManyToOne
+    @JoinColumn(name = "question_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Long questionId;
+    private Question question;
 
     @Column(name = "answer_id")
     private Long answerId;
@@ -43,22 +44,9 @@ public class Comment {
     @Column(name = "create_at")
     private LocalDateTime createAt;
 
-    @LastModifiedDate
-    @Column(name = "update_at")
-    private LocalDateTime updateAt;
-
-    public Comment(String content,Long userId,Long questionId,Long answerId,LocalDateTime createAt,LocalDateTime updateAt){
-        this.content = content;
-        this.userId = userId;
-        this.questionId = questionId;
-        this.answerId = answerId;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
-    }
-
     @Builder
-    public Comment(Long questionId, String content){
-        this.questionId=questionId;
+    public Comment(Question question, String content){
+        this.question=question;
         this.content=content;
     }
 
@@ -67,7 +55,7 @@ public class Comment {
                 .commentId(commentId)
                 .content(content)
                 .createdAt(createAt)
-                .updatedAt(updateAt)
+                .userId(userId)
                 .build();
     }
 }
