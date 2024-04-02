@@ -12,10 +12,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "users")
 @Getter
 @Setter
@@ -45,6 +49,9 @@ public class User {
     @Column(name = "point")
     private Long point;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Point> points = new ArrayList<>();
+
     @CreatedDate
     @Column(name = "create_at")
     private LocalDateTime createAt;
@@ -54,7 +61,7 @@ public class User {
     private LocalDateTime updateAt;
 
     public User() {
-
+        this.point = 0L;
     }
 
 }
