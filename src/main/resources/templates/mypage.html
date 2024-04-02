@@ -9,11 +9,12 @@
 
 <header th:replace="~{fragments/header :: header}"></header>
 <main> <!-- main 태그 추가 -->
-    마이페이지입니다. 여기서 회원정보를 확인하실 수 있습니다.
+    <h1>마이페이지</h1>
+    여기서 회원정보를 확인하실 수 있습니다.
     <hr>
     환영합니다. <span th:text="${nickName}"></span>님 ! <br>
     닉네임: <span th:text="${nickName}"></span><br>
-    등급: <span th:text="${role}"></span><br>
+    권한: <span th:text="${role}"></span><br>
     이메일: <span th:text="${email}"></span><br>
     <br>
     여기서 할 수 있는 기능은 다음과 같습니다.<br>
@@ -29,7 +30,7 @@
     </form>
 </main> <!-- main 태그 종료 -->
 
-<header th:replace="~{fragments/footer :: footer}"></header>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 <script th:src="@{/scripts/userWithdraw.js}"></script>
 </body>
 </html>
