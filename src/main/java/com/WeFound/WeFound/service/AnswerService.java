@@ -30,19 +30,17 @@ public class AnswerService {
     }
 
     @Transactional
-    public Long writeAnswer(AnswerRequestDTO answerRequestDTO, Long question_id, String email) {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("이메일이 존재하지 않습니다."));
+    public Answer writeAnswer(AnswerRequestDTO answerRequestDTO, Long question_id) {
+
         Question question = questionRepository.findById(question_id)
                 .orElseThrow(() -> new IllegalArgumentException("게시물을 찾을 수 없습니다."));
         Answer res = Answer.builder()
                 .content(answerRequestDTO.getContent())
                 .question(question)
-                .user(user)
                 .build();
 
-        answerRepository.save(res);
-        return res.getAnswer_id();
+        return answerRepository.save(res);
+
     }
 
     public List<AnswerResponseDTO> answerList(Long questionId) {

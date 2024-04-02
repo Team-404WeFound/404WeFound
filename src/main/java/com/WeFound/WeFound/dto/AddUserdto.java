@@ -17,6 +17,7 @@ public class AddUserdto {
     private String email;
     private String password;
 
+
     public static AddUserdto addUserdto(User user){
         AddUserdto addUserdto = new AddUserdto();
         addUserdto.setUser_id(user.getUser_id());
