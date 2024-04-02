@@ -15,10 +15,10 @@ public class AllCommentResponse {
     private List<CommentResponse> comments;
 
     public AllCommentResponse(Question question, List<CommentResponse> comments){
-        this.question_id = question.getQuestion_id();
+        this.question_id = question.getQuestionId();
         this.title = question.getTitle();
         this.content = question.getContent();
-        this.createdAt = question.getCreated_at();
+        this.createdAt = question.getCreatedAt();
         this.comments = comments;
     }
 }
