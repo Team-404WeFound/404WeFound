@@ -1,7 +1,6 @@
 package com.WeFound.WeFound.entity;
 
 import com.WeFound.WeFound.dto.CommentResponse;
-import com.WeFound.WeFound.dto.QuestionResponse;
 import com.WeFound.WeFound.service.QuestionService;
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -19,42 +18,47 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+
 public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "commentId", updatable = false)
+    @Column(name = "comment_id", updatable = false)
     private Long commentId;
 
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "userId")
+    @Column(name = "user_id")
     private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "questionId")
+    @Column(name = "question_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Question question;
+    private Long questionId;
 
-    @Column(name = "answerId")
+    @Column(name = "answer_id")
     private Long answerId;
 
     @CreatedDate
-    @Column(name = "createAt")
+    @Column(name = "create_at")
     private LocalDateTime createAt;
 
-    public Comment(String content,Long userId,Question question,Long answerId,LocalDateTime createAt){
+    @LastModifiedDate
+    @Column(name = "update_at")
+    private LocalDateTime updateAt;
+
+    public Comment(String content,Long userId,Long questionId,Long answerId,LocalDateTime createAt,LocalDateTime updateAt){
         this.content = content;
         this.userId = userId;
-        this.question = question;
+        this.questionId = questionId;
         this.answerId = answerId;
         this.createAt = createAt;
+        this.updateAt = updateAt;
     }
 
     @Builder
-    public Comment(Question question, String content){
-        this.question=question;
+    public Comment(Long questionId, String content){
+        this.questionId=questionId;
         this.content=content;
     }
 
@@ -63,6 +67,7 @@ public class Comment {
                 .commentId(commentId)
                 .content(content)
                 .createdAt(createAt)
+                .updatedAt(updateAt)
                 .build();
     }
 }

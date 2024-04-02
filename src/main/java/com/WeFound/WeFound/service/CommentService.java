@@ -22,8 +22,8 @@ public class CommentService {
         this.questionRepository = questionRepository;
     }
 
-    public Comment save(Long question_id, AddCommentRequest request){
-        Question question = questionRepository.findById(question_id).orElseThrow(IllegalArgumentException::new);
+    public Comment save(Long questionId, AddCommentRequest request){
+        Question question = questionRepository.findById(questionId).orElseThrow(IllegalArgumentException::new);
         Comment comment = request.toEntity(question);
         return commentRepository.save(comment);
     }

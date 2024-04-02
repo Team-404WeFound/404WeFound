@@ -19,35 +19,35 @@ public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "grade_id",nullable = false)
-    private Long grade_id;
+    private Long gradeId;
 
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
 
     @Column(name = "grade_name")
-    private String grade_name;
+    private String gradeName;
 
     @Column(name = "min_point")
-    private int min_point;
+    private int minPoint;
 
     @Column(name = "max_point")
-    private int max_point;
+    private int maxPoint;
 
     @CreatedDate
     @Column(name = "created_at")
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(name = "updated_at")
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
-    public Grade(Long grade_id,Long user_id,String grade_name,int min_point,int max_point,LocalDateTime created_at,LocalDateTime updated_at){
-        this.grade_id = grade_id;
-        this.user_id = user_id;
-        this.grade_name = grade_name;
-        this.min_point = min_point;
-        this.max_point = max_point;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+    public Grade(Long gradeId,Long userId,String gradeName,int minPoint,int maxPoint,LocalDateTime createdAt,LocalDateTime updatedAt){
+        this.gradeId = gradeId;
+        this.userId = userId;
+        this.gradeName = gradeName;
+        this.minPoint = minPoint;
+        this.maxPoint = maxPoint;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 }

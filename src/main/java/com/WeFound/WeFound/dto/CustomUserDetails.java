@@ -48,8 +48,8 @@ public class CustomUserDetails implements UserDetails {
         return user.getEmail();
     }
 
-    public String getNickname() {
-        return user.getNickname();
+    public String getNickName() {
+        return user.getNickName();
     }
 
 

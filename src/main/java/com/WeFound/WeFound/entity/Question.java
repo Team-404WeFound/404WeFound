@@ -21,10 +21,10 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "question_id", updatable = false)
-    private Long question_id;
+    private Long questionId;
 
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
 
     @Column(name = "title")
     private String title;
@@ -34,28 +34,28 @@ public class Question {
 
     @CreatedDate
     @Column(name = "created_at")
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(name = "updated_at")
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
     @Builder
-    public Question(String title, String content, Long question_id, Long user_id, LocalDateTime created_at, LocalDateTime updated_at){
+    public Question(String title, String content, Long questionId, Long userId, LocalDateTime createdAt, LocalDateTime updatedAt){
         this.title = title;
         this.content = content;
-        this.question_id = question_id;
-        this.user_id = user_id;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+        this.questionId = questionId;
+        this.userId = userId;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public QuestionResponse toResponse(){
         return QuestionResponse.builder()
                 .title(title)
                 .content(content)
-                .created_at(created_at)
-                .updated_at(updated_at)
+                .createdAt(createdAt)
+                .updatedAt(updatedAt)
                 .build();
     }
 
