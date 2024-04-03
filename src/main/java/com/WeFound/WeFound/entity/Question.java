@@ -2,16 +2,14 @@ package com.WeFound.WeFound.entity;
 
 import com.WeFound.WeFound.dto.QuestionResponse;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+@Setter
 @Getter
 @Entity
 @NoArgsConstructor
