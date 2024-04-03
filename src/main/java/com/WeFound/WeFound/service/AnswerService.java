@@ -43,15 +43,19 @@ public class AnswerService {
 
     }
 
-    public List<AnswerResponseDTO> answerList(Long questionId) {
-        Question question = questionRepository.findById(questionId)
-                .orElseThrow(() -> new IllegalArgumentException("게시물을 찾을 수 없습니다."));
-        List<Answer> answers = answerRepository.findByQuestion(question);
-
-        return answers.stream()
-                .map(answer -> AnswerResponseDTO.builder().answer(answer).build())
-                .collect(Collectors.toList());
+//    public List<AnswerResponseDTO> answerList(Long questionId) {
+//        Question question = questionRepository.findById(questionId)
+//                .orElseThrow(() -> new IllegalArgumentException("게시물을 찾을 수 없습니다."));
+//        List<Answer> answers = answerRepository.findByQuestion(question);
+//
+//        return answers.stream()
+//                .map(answer -> AnswerResponseDTO.builder().answer(answer).build())
+//                .collect(Collectors.toList());
+//    }
+    public List<Answer> findAll(){
+        return answerRepository.findAll();
     }
+    public Answer findById(Long answer_id){return answerRepository.findById(answer_id).orElse(new Answer());}
 
 
     @Transactional

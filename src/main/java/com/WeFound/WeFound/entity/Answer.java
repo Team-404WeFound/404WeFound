@@ -1,5 +1,7 @@
 package com.WeFound.WeFound.entity;
 
+import com.WeFound.WeFound.dto.AnswerResponseDTO;
+import com.WeFound.WeFound.dto.QuestionResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,7 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.time.LocalDateTime;
 
 @Table(name = "answer")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -52,7 +54,20 @@ public class Answer{
         this.update_at = update_at;
     }
 
+
+
     public void update(String content) {
         this.content=content;
     }
+
+    public AnswerResponseDTO toResponse() {
+        return AnswerResponseDTO.builder()
+                .answer_id(answer_id)
+                .content(content)
+                .create_at(create_at)
+                .update_at(update_at)
+                .build();
+    }
+
+
 }

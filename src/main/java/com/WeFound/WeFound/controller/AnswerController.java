@@ -2,7 +2,9 @@ package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.AnswerRequestDTO;
 import com.WeFound.WeFound.dto.AnswerResponseDTO;
+import com.WeFound.WeFound.dto.QuestionResponse;
 import com.WeFound.WeFound.entity.Answer;
+import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.service.AnswerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 //@RequiredArgsConstructor
@@ -46,6 +50,8 @@ public class AnswerController {
 //
 //        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
 //    }
+
+
     @PostMapping("/questions/{question_id}/answer")
     public ResponseEntity<AnswerResponseDTO> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDTO answerRequestDTO) {
         Answer answerId = answerService.writeAnswer(answerRequestDTO, question_id);
@@ -56,6 +62,34 @@ public class AnswerController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }
+//    /**
+//     * 댓글 단권 조회
+//     * @param question_id 게시물 ID
+//     * @param answerRequestDTO 수정할 답변 정보
+//     * @return 수정된 답변의 상세 페이지
+//     */
+//    @GetMapping("/questions/{question_id}/answer")
+//    public ResponseEntity<List<AnswerResponseDTO>> showAllAnswer(){
+//        List<Answer> answerList = answerService.findAll();
+//        List<AnswerResponseDTO> responseDTOList = answerList
+//                .stream().map(AnswerResponseDTO::new)
+//                .toList();
+//        return ResponseEntity.ok(responseDTOList);
+//    }
+
+    /**
+     * 댓글 단권 조회
+     //* @param question_id 게시물 ID
+     * @param answer_id 답변 ID
+     //* @param answerRequestDTO 수정할 답변 정보
+     * @return 수정된 답변의 상세 페이지
+     */
+    @GetMapping("/questions/{question_id}/answer/{answer_id}")
+    public ResponseEntity<AnswerResponseDTO> showOneAnswer(@PathVariable Long answer_id){
+        Answer answer = answerService.findById(answer_id);
+        return ResponseEntity.ok(answer.toResponse());
+    }
+
     /**
      * 댓글 수정
      * @param question_id 게시물 ID
