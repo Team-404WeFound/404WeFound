@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,8 +24,10 @@ public class QuestionController {
 
     //todo 게시판 생성
     @PostMapping("/questions")
-    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request){
+    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, Principal principal){
         Question question = questionService.save(request);
+        Long userId = Long.parseLong(principal.getName());
+        question.setUserId(userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
     //todo 게시판 조회
