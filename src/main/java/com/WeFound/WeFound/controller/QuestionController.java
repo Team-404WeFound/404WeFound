@@ -8,8 +8,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,8 +26,11 @@ public class QuestionController {
 
     //todo 게시판 생성
     @PostMapping("/questions")
-    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request){
-        Question question = questionService.save(request);
+    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, Authentication authentication){
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        Question question = new Question();
+        question.setUserId(Long.parseLong(userDetails.getUsername()));
+        questionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
     //todo 게시판 조회
