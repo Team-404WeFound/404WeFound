@@ -2,10 +2,7 @@ package com.WeFound.WeFound.entity;
 
 import com.WeFound.WeFound.dto.QuestionResponse;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -23,6 +20,7 @@ public class Question {
     @Column(name = "question_id", updatable = false)
     private Long questionId;
 
+    @Setter
     @Column(name = "user_id")
     private Long userId;
 
@@ -64,4 +62,5 @@ public class Question {
         this.content = content;
         return this;
     }
+
 }
