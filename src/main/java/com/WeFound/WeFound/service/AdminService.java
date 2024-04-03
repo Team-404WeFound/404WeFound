@@ -14,11 +14,13 @@ public class AdminService {
 
     private final UserRepository userRepository;
     private final PointRepository pointRepository;
+    private final UserService userService;
 
     @Autowired
-    public AdminService(UserRepository userRepository, PointRepository pointRepository) {
+    public AdminService(UserRepository userRepository, PointRepository pointRepository, UserService userService) {
         this.userRepository = userRepository;
         this.pointRepository = pointRepository;
+        this.userService = userService;
     }
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -45,6 +47,8 @@ public class AdminService {
                 .sum();
 
         user.setPoint(totalPoint);
+
+        userService.updateUserGrade(user);
         userRepository.save(user);
     }
 }

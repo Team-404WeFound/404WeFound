@@ -64,17 +64,11 @@
     <hr>
     환영합니다. <span th:text="${nickName}"></span>님 ! <br>
     닉네임: <span th:text="${nickName}"></span><br>
+    등급: <span th:text="${grade}"></span><br>
     권한: <span th:text="${role}"></span><br>
     현재 Point: <span th:text="${currentPoint}"></span><br>
     이메일: <span th:text="${email}"></span><br>
     <br>
-    여기서 할 수 있는 기능은 다음과 같습니다.<br>
-    - 회원 정보 수정<br>
-    - 회원 탈퇴 <br>
-    - 회원 등급<br>
-    - 회원 포인트<br>
-    - 다음 등급까지 필요한 포인트<br>
-    - 회원 등급에 따른 권한<br>
     <h2>포인트 내역</h2>
     <table>
         <thead>
@@ -92,9 +86,18 @@
         </tr>
         </tbody>
     </table>
+    <br>
     <form id="withdrawForm" th:action="@{/withdraw}" method="post">
         <button type="button" onclick="confirmWithdrawal()">회원 탈퇴</button>
     </form>
+    <br>
+
+    여기서 추가해야할 기능은 다음과 같습니다.<br>
+    - 회원 정보 수정<br>
+    - 회원 등급<br>
+    - 회원 포인트<br>
+    - 다음 등급까지 필요한 포인트<br>
+    - 회원 등급에 따른 권한<br>
 </main>
 
 <footer th:replace="~{fragments/footer :: footer}"></footer>

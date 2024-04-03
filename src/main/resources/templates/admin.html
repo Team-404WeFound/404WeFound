@@ -76,15 +76,13 @@
     <td th:text="${user.userId}"></td>
     <td th:text="${user.email}"></td>
     <td th:text="${user.nickName}"></td>
-    <td>
-      <form th:action="@{/admin/updateGrade}" method="post">
-        <input type="hidden" name="userId" th:value="${user.userId}" /><br>
-        <input type="text" name="grade" th:value="${user.grade}" /><br>
-        <button type="submit">Update Grade</button><br>
-      </form>
+    <td th:text="${user.grade}">
+      <span th:text="${user.point}"></span>
     </td>
     <td>
       <p>현재 Point: <span th:text="${user.point}"></span></p>
+    </td>
+    <td>
       <form th:action="@{/admin/updatePoint}" method="post">
         <input type="hidden" name="userId" th:value="${user.userId}" /><br>
         <label for="point">Point 증감 조정:</label>

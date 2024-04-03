@@ -23,6 +23,9 @@ public class MypageController {
     @GetMapping("/mypage")
     public String myPage(Model model) {
         mypageService.populateModelWithUserDetails(model);
+        // 등급
+        String grade = (String) model.getAttribute("grade");
+        model.addAttribute("grade", grade);
         // 포인트 내역
         List<Point> pointHistory = mypageService.getPointHistoryForCurrentUser();
         model.addAttribute("pointHistory", pointHistory);

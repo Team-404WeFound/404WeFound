@@ -31,6 +31,7 @@ public class MypageService {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
             String email = userDetails.getEmail();
             String nickName = userDetails.getNickName();
+            String grade = userDetails.getGrade();
 
             // 권한(role) 정보 가져오기
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -41,6 +42,7 @@ public class MypageService {
 
             model.addAttribute("email", email);
             model.addAttribute("nickName", nickName);
+            model.addAttribute("grade", grade);
             model.addAttribute("role", role);
         }
     }
