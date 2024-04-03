@@ -21,6 +21,7 @@ public class Question {
     @Column(name = "question_id", updatable = false)
     private Long questionId;
 
+    @Setter
     @Column(name = "user_id")
     private Long userId;
 
@@ -62,4 +63,5 @@ public class Question {
         this.content = content;
         return this;
     }
+
 }
