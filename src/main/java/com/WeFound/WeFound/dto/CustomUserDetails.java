@@ -1,6 +1,7 @@
 package com.WeFound.WeFound.dto;
 
 import com.WeFound.WeFound.entity.User;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,6 +11,8 @@ import java.util.Collection;
 public class CustomUserDetails implements UserDetails {
 
     private final User user;
+    @Getter
+    private Long userId;
 
     public CustomUserDetails(User user) {
 
@@ -48,8 +51,8 @@ public class CustomUserDetails implements UserDetails {
         return user.getEmail();
     }
 
-    public String getNickname() {
-        return user.getNickname();
+    public String getNickName() {
+        return user.getNickName();
     }
 
 
@@ -71,5 +74,17 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getUserId() {
+        return user.getUserId();
+    }
+
+    public String getGrade() {
+        return user.getGrade();
     }
 }

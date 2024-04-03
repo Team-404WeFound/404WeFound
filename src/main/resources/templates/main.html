@@ -7,40 +7,20 @@
 </head>
 <body>
 
-<header id="top_ba">
-    <div id="top_ba_container">
-        <a href="#">
-            <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
-        </a>
-        <ol id="top_menu">
-            <li>About</li>
-            <li>Product</li>
-            <li>For Teams</li>
-        </ol>
-        <form id="search" role="search" action="/search">
-            <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
-            <input id="search_input" type="text" placeholder="검색해보세요 !">
-        </form>
-        <nav id="login_signup_nav">
-            <ol>
-                <li>
-                    <a href="">
-                        <button id="loginBtn" class="whiteBtn">login</button>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <button id="signupBtn" class="blueBtn">signup</button>
-                    </a>
-                </li>
-            </ol>
-        </nav>
-    </div>
-</header>
+
+<header th:replace="~{fragments/header :: header}"></header>
+
+<main> <!-- main 태그 추가 -->
+    <h1>메인페이지</h1>
+    환영합니다. <span th:text="${nickName}"></span>님 ! <br>
+    닉네임: <span th:text="${nickName}"></span><br>
+    권한: <span th:text="${role}"></span><br>
+    이메일: <span th:text="${email}"></span><br>
+
 <div class="container">
     <div class="row-6" th:each="question : ${questions}">
         <div class="card">
-            <div class="card-header" th:text="${question.question_id}">
+            <div class="card-header" th:text="${question.questionId}">
             </div>
             <div class="card-body">
                 <h5 class="card-title" th:text="${question.title}"></h5>
@@ -51,15 +31,10 @@
         <br>
     </div>
 </div>
-main페이지 입니다. 로그인페이지와 구분하기 위해서 로그인폼을 일단 지웠습니다. 프론트 작업해주시면 됩니다.
 
-<hr>
-환영합니다. <span th:text="${nickname}"></span>님 ! <br>
-닉네임: <span th:text="${nickname}"></span><br>
-등급: <span th:text="${role}"></span><br>
-이메일: <span th:text="${email}"></span><br>
+</main> <!-- main 태그 종료 -->
 
 
-<footer></footer>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>

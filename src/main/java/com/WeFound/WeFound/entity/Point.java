@@ -1,15 +1,13 @@
 package com.WeFound.WeFound.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
-
-@Table(name = "point")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EntityListeners(AuditingEntityListener.class)
+@Table(name = "points")
 @Getter
 @Setter
 @Entity
@@ -17,26 +15,26 @@ public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "point_id",updatable = false)
-    private Long point_id;
+    private Long pointId;
 
-    @Column(name = "user_id")
-    private Long user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "point")
     private Long point;
 
+
     @Column(name = "reason")
-    private Long reason;
+    private String reason;
 
-    @Column(name = "create_at")
-    private LocalDateTime create_at;
+    @CreatedDate
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
-    public Point(Long point_id,Long user_id,Long point,Long reason,LocalDateTime create_at){
-        this.point_id = point_id;
-        this.user_id = user_id;
-        this.point = point;
-        this.reason = reason;
-        this.create_at = create_at;
+
+
+    public Point() {
+
     }
-
 }

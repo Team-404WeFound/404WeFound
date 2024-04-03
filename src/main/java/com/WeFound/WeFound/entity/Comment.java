@@ -24,50 +24,38 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id", updatable = false)
-    private Long comment_id;
+    private Long commentId;
 
     @Column(name = "content", nullable = false)
     private String content;
 
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
 
-    @Column(name = "question_id")
+    @ManyToOne
+    @JoinColumn(name = "question_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Long question_id;
+    private Question question;
 
     @Column(name = "answer_id")
-    private Long answer_id;
+    private Long answerId;
 
     @CreatedDate
     @Column(name = "create_at")
-    private LocalDateTime create_at;
-
-    @LastModifiedDate
-    @Column(name = "update_at")
-    private LocalDateTime update_at;
-
-    public Comment(String content,Long user_id,Long question_id,Long answer_id,LocalDateTime create_at,LocalDateTime update_at){
-        this.content = content;
-        this.user_id = user_id;
-        this.question_id = question_id;
-        this.answer_id = answer_id;
-        this.create_at = create_at;
-        this.update_at = update_at;
-    }
+    private LocalDateTime createAt;
 
     @Builder
-    public Comment(Long question_id, String content){
-        this.question_id=question_id;
+    public Comment(Question question, String content){
+        this.question=question;
         this.content=content;
     }
 
     public CommentResponse toResponse(){
         return CommentResponse.builder()
-                .comment_id(comment_id)
+                .commentId(commentId)
                 .content(content)
-                .created_at(create_at)
-                .updated_at(update_at)
+                .createdAt(createAt)
+                .userId(userId)
                 .build();
     }
 }

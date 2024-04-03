@@ -13,7 +13,7 @@ public class AddCommentRequest {
     private String content;
     public Comment toEntity(Question question) {
         return Comment.builder()
-                .question_id(question.getQuestion_id())
+                .question(question)
                 .content(content)
                 .build();
     }

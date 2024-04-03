@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import com.WeFound.WeFound.dto.AddUserdto;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,10 +12,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "users")
 @Getter
 @Setter
@@ -26,7 +29,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", updatable = false)
-    private int id;
+    private Long userId;
 
     @Column(name = "email", nullable = false, unique = true) // 로그인, 중복 불가
     private String email;
@@ -35,28 +38,30 @@ public class User {
     private String password;
 
     @Column(name = "nickname",nullable = false, unique = true)
-    private String nickname;
+    private String nickName;
 
-    @Column(name = "role",nullable = false)
+    @Column(name = "role",nullable = false)  // 역할 (관리자 or 일반 사용자)
     private String role;
+
+    @Column(name = "grade")
+    private String grade;
+
+    @Column(name = "point")
+    private Long point;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Point> points = new ArrayList<>();
 
     @CreatedDate
     @Column(name = "create_at")
-    private LocalDateTime create_at;
+    private LocalDateTime createAt;
 
     @LastModifiedDate
     @Column(name = "update_at")
-    private LocalDateTime update_at;
+    private LocalDateTime updateAt;
 
     public User() {
-
+        this.point = 0L;
     }
 
-    public static User toUser(AddUserdto addUserdto){
-        User toUser = new User();
-        toUser.setId(addUserdto.getId());
-        toUser.setEmail(addUserdto.getEmail());
-        toUser.setPassword(addUserdto.getPassword());
-        return toUser;
-    }
 }
