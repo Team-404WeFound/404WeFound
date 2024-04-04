@@ -32,9 +32,9 @@ public class QuestionController {
 
     //todo 게시판 생성
     @PostMapping("/questions")
-    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, @AuthenticationPrincipal User user){
+    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, @AuthenticationPrincipal CustomUserDetails userDetails){
 
-        Long userId = user.getUserId();
+        Long userId = userDetails.getUserId();
         request.setUserId(userId);
         Question question = questionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
