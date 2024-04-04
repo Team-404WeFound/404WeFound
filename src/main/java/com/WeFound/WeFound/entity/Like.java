@@ -21,9 +21,10 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@IdClass(LikeId.class)
+/*@IdClass(LikeId.class)*/
 @Table(name = "likes")
-public class Like implements Serializable {
+public class Like  {
+
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
