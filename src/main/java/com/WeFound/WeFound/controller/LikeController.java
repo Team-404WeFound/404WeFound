@@ -21,7 +21,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/boards/{user}")
+@RequestMapping("/questions/{user}")
 public class LikeController {
     private final LikeService likeService;
      final UserService userService;
