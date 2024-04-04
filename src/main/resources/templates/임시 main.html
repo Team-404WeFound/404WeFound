@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404-We-Found</title>
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+    <style>
+        /* 추가된 CSS 스타일링 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header img.logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        header .auth-buttons {
+            margin-top: 10px;
+        }
+
+        header .auth-buttons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .board {
+            width: 70%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .board th, .board td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .board th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img class="logo" th:src="@{/img/logo_404.png}" alt="404 We Found">
+    <div class="auth-buttons">
+        <a href="/login">로그인</a>
+        <a href="/join">회원가입</a>
+    </div>
+</header>
+
+<main>
+    <table class="board">
+        <thead>
+        <tr>
+            <th>질문 ID</th>
+            <th>제목</th>
+            <th>내용</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 각 질문에 대한 행 추가 -->
+        <tr th:each="question : ${questions}">
+            <td th:text="${question.questionId}"></td>
+            <td th:text="${question.title}"></td>
+            <td th:text="${question.content}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p>Copyright © 2024 404-We-Found. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

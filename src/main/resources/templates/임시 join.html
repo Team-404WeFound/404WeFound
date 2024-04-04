@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404-We-Found</title>
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+    <style>
+        /* 추가된 CSS 스타일링 */
+        #container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #login_signup_area {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .button_info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div id="container">
+    <div id="login_signup_area">
+        <h1>회원가입</h1>
+        <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
+
+        <!-- 회원가입 폼 -->
+        <form action="/joinProc" method="post" name="joinForm" onsubmit="return validateForm()">
+            <input type="text" name="email" placeholder="Email"/>
+            <input type="text" name="nickName" placeholder="NickName"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <input type="submit" value="Join"/>
+        </form>
+    </div>
+    <p class="button_info">이미 계정이 있으신가요?</p>
+    <a href="/login"><button type="button">로그인</button></a>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<script>
+    // 회원가입 폼 유효성 검사
+    function validateForm() {
+        var email = document.forms["joinForm"]["email"].value;
+        var nickName = document.forms["joinForm"]["nickName"].value;
+        var password = document.forms["joinForm"]["password"].value;
+
+        if (email === "" || nickName === "" || password === "") {
+            alert("모든 필드를 입력하세요.");
+            return false;
+        }
+
+        // 이메일 형식 검사 (간단한 형식으로만 검사)
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("올바른 이메일 주소를 입력하세요.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
