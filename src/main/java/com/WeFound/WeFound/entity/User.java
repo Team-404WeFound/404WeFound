@@ -19,6 +19,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+//0404 추가한 코드
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
+
+
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "users")
 @Getter
@@ -59,6 +65,18 @@ public class User {
     @LastModifiedDate
     @Column(name = "update_at")
     private LocalDateTime updateAt;
+
+
+
+/*
+
+    //0404 추가한 코드
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Question> likes = new ArrayList<>();
+*/
+
+
 
     public User() {
         this.point = 0L;
