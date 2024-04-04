@@ -25,12 +25,19 @@ public class QuestionController {
     }
 
     //todo 게시판 생성
+//    @PostMapping("/questions")
+//    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, Authentication authentication){
+//        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+//        Question question = new Question();
+//        question.setUserId(Long.parseLong(userDetails.getUsername()));
+//        questionService.save(request);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
+//    }
+
+    //////////userid 없는 버전///////////////////////
     @PostMapping("/questions")
-    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, Authentication authentication){
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        Question question = new Question();
-        question.setUserId(Long.parseLong(userDetails.getUsername()));
-        questionService.save(request);
+    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request){
+        Question question = questionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
     //todo 게시판 조회
@@ -55,11 +62,11 @@ public class QuestionController {
 //    }
 
     //todo 게시판 단권 조회
-    @GetMapping("/questions/{questionId}")
-    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long questionId){
-        Question question = questionService.findById(questionId);
-        return ResponseEntity.ok(question.toResponse());
-    }
+//    @GetMapping("/questions/{questionId}")
+//    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long questionId){
+//        Question question = questionService.findById(questionId);
+//        return ResponseEntity.ok(question.toResponse());
+//    }
 
     //todo 게시판 수정
     @PutMapping("/questions/{questionId}")
