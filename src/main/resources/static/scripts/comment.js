@@ -3,7 +3,7 @@ const questionId = createCommentButton.dataset.questionId; // Thymeleaf 표현�
 if (createCommentButton) {
     createCommentButton.addEventListener('click', event => {
 
-        fetch(`/api/questions/{questionId}`, {
+        fetch(`/api/questions/${questionId}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
