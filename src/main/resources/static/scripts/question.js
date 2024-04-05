@@ -42,3 +42,11 @@ if (modifyButton) {
         });
     });
 }
+
+const backBtn = document.getElementById("back-btn");
+if (backBtn) {
+    backBtn.addEventListener("click", function() {
+        location.href = (`/api/questions`);
+    });
+}
+
