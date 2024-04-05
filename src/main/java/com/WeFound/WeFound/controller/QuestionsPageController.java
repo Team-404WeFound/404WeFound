@@ -2,15 +2,15 @@ package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionViewResponse;
+import com.WeFound.WeFound.entity.Comment;
 import com.WeFound.WeFound.entity.Question;
+import com.WeFound.WeFound.service.CommentService;
 import com.WeFound.WeFound.service.QuestionService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -18,9 +18,11 @@ import java.util.List;
 @Controller
 public class QuestionsPageController {
     private QuestionService questionService;
+    private CommentService commentService;
 
-    public QuestionsPageController(QuestionService questionService) {
+    public QuestionsPageController(QuestionService questionService, CommentService commentService) {
         this.questionService = questionService;
+        this.commentService = commentService;
     }
 
     @GetMapping("/api/questions")
@@ -34,10 +36,12 @@ public class QuestionsPageController {
     }
 
     @GetMapping("/api/questions/{questionId}")   //상세 html 뷰로 전환을 위한 Get
-    public String getQuestion(@PathVariable Long questionId, Model model) {
+    public String getQuestion(@PathVariable Long questionId,Model model, @AuthenticationPrincipal CustomUserDetails details) {
         Question question = questionService.findById(questionId);
         model.addAttribute("question", new QuestionViewResponse(question));
 
+        List<Comment> comments = commentService.findAllComment(questionId);
+        model.addAttribute("comments", comments);
         return "questionDetail";
     }
 

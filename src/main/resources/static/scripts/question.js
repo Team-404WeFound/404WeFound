@@ -1,3 +1,17 @@
+const deleteButton = document.getElementById('delete-btn');
+
+if (deleteButton) {
+    deleteButton.addEventListener('click', event => {
+        let questionId = document.getElementById('question-id');
+        fetch(`/api/questions/${questionId}`, {
+            method: 'DELETE'
+        }).then(() => {
+            alert('삭제가 완료되었습니다');
+            location.replace('/');
+        });
+    });
+}
+
 const createButton = document.getElementById('create-btn');
 
 if (createButton) {
