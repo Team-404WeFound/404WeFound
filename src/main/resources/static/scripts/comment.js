@@ -1,9 +1,7 @@
 const createCommentButton = document.getElementById('create-comment-btn');
-
+const questionId = createCommentButton.dataset.questionId; // Thymeleaf 표현식으로 questionId 가져오기
 if (createCommentButton) {
     createCommentButton.addEventListener('click', event => {
-        let params = new URLSearchParams(location.search);
-        let questionId = params.get('questionId');
 
         fetch(`/api/questions/{questionId}`, {
             method: 'POST',
@@ -12,7 +10,7 @@ if (createCommentButton) {
             },
             body : JSON.stringify({
                 content: document.getElementById('content').value
-            }),
+            })
         }).then(() => {
             alert('등록 완료되었습니다');
             location.replace(`/api/questions/${questionId}`);
