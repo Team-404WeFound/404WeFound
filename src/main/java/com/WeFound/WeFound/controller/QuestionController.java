@@ -1,32 +1,52 @@
 package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.AddQuestionRequest;
+import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionResponse;
 import com.WeFound.WeFound.entity.Question;
+import com.WeFound.WeFound.entity.User;
 import com.WeFound.WeFound.service.QuestionService;
+import com.WeFound.WeFound.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class QuestionController {
     private final QuestionService questionService;
+    private final UserService userService;
 
-    public QuestionController(QuestionService questionService) {
+    public QuestionController(QuestionService questionService, UserService userService) {
         this.questionService = questionService;
+        this.userService = userService;
     }
 
     //todo 게시판 생성
     @PostMapping("/questions")
-    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request){
+    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, @AuthenticationPrincipal CustomUserDetails userDetails){
+
+        Long userId = userDetails.getUserId();
+        request.setUserId(userId);
         Question question = questionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
+
+    //////////userid 없는 버전///////////////////////
+//    @PostMapping("/questions")
+//    public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request){
+//        Question question = questionService.save(request);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
+//    }
+
     //todo 게시판 조회
     //일반 버전
 //    @GetMapping("/questions")
@@ -49,11 +69,11 @@ public class QuestionController {
 //    }
 
     //todo 게시판 단권 조회
-    @GetMapping("/questions/{questionId}")
-    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long questionId){
-        Question question = questionService.findById(questionId);
-        return ResponseEntity.ok(question.toResponse());
-    }
+//    @GetMapping("/questions/{questionId}")
+//    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long questionId){
+//        Question question = questionService.findById(questionId);
+//        return ResponseEntity.ok(question.toResponse());
+//    }
 
     //todo 게시판 수정
     @PutMapping("/questions/{questionId}")
