@@ -1,18 +1,16 @@
 package com.WeFound.WeFound.controller;
 
-import com.WeFound.WeFound.dto.AllCommentResponse;
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionViewResponse;
+import com.WeFound.WeFound.entity.Comment;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.service.CommentService;
 import com.WeFound.WeFound.service.QuestionService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -42,8 +40,13 @@ public class QuestionsPageController {
         Question question = questionService.findById(questionId);
         model.addAttribute("question", new QuestionViewResponse(question));
 
-        AllCommentResponse allCommentResponse = commentService.findAllComments(questionId);
-        model.addAttribute("comments", allCommentResponse);
+        List<Comment> comments = commentService.findAllComment(questionId);
+        if (!comments.isEmpty()){
+            model.addAttribute("comments", comments);
+        }
+        else{
+            return "questionDetailNoComment";
+        }
         return "questionDetail";
     }
 
