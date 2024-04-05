@@ -1,8 +1,8 @@
--- CREATE TABLE users(
---     user_id BIGINT AUTO_INCREMENT primary key,
---     email varchar(255) not null unique,
---     password varchar(255) not null
--- );
--- INSERT INTO users(user_id,email,password) VALUES (1,'seok556@gmail.com','1234');
--- INSERT INTO users(user_id,email,password) VALUES (2,'chan7952@naver.com','7952');
--- INSERT INTO users(user_id,email,password) VALUES (3,'kang6231@gmail.com','6231');
+-- INSERT INTO users (email, password, nickname, role, grade, point, create_at, update_at)
+-- VALUES ('user1@example.com', '$2a$10$92EXtYPmTZcYUN7I1kUO1e8cEcpkDf4J8KXDRYjPupSn5RUyn0WPu', 'user1', 'ROLE_USER', 'grade1', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+--
+-- INSERT INTO users (email, password, nickname, role, grade, point, create_at, update_at)
+-- VALUES ('user2@example.com', '$2a$10$92EXtYPmTZcYUN7I1kUO1e8cEcpkDf4J8KXDRYjPupSn5RUyn0WPu', 'user2', 'ROLE_USER', 'grade2', 60, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+--
+-- INSERT INTO users (email, password, nickname, role, grade, point, create_at, update_at)
+-- VALUES ('admin@example.com', '$2a$10$92EXtYPmTZcYUN7I1kUO1e8cEcpkDf4J8KXDRYjPupSn5RUyn0WPu', 'admin', 'ROLE_ADMIN', 'grade3', 120, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

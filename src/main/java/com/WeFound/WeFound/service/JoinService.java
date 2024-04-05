@@ -32,7 +32,7 @@ public class JoinService {
         data.setNickName(joinDto.getNickName());
         data.setPassword(bCryptPasswordEncoder.encode(joinDto.getPassword()));
         data.setGrade("grade1");
-        data.setRole("ROLE_USER");
+        data.setRole("ROLE_USER"); // ROLE_USER, ROLE_ADMIN
 
 
         userRepository.save(data);
