@@ -1,8 +1,10 @@
 package com.WeFound.WeFound.controller;
 
+import com.WeFound.WeFound.dto.AllCommentResponse;
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionViewResponse;
 import com.WeFound.WeFound.entity.Question;
+import com.WeFound.WeFound.service.CommentService;
 import com.WeFound.WeFound.service.QuestionService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,9 +20,11 @@ import java.util.List;
 @Controller
 public class QuestionsPageController {
     private QuestionService questionService;
+    private CommentService commentService;
 
-    public QuestionsPageController(QuestionService questionService) {
+    public QuestionsPageController(QuestionService questionService, CommentService commentService) {
         this.questionService = questionService;
+        this.commentService = commentService;
     }
 
     @GetMapping("/api/questions")
@@ -34,10 +38,12 @@ public class QuestionsPageController {
     }
 
     @GetMapping("/api/questions/{questionId}")   //상세 html 뷰로 전환을 위한 Get
-    public String getQuestion(@PathVariable Long questionId, Model model) {
+    public String getQuestion(@PathVariable Long questionId,Model model, @AuthenticationPrincipal CustomUserDetails details) {
         Question question = questionService.findById(questionId);
         model.addAttribute("question", new QuestionViewResponse(question));
 
+        AllCommentResponse allCommentResponse = commentService.findAllComments(questionId);
+        model.addAttribute("comments", allCommentResponse);
         return "questionDetail";
     }
 
