@@ -19,7 +19,7 @@ import lombok.AccessLevel;
 
 public class LikeRequest {
 
-    private Long userId;
+    private Long user;
     private Long questionId;
 
 

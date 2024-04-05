@@ -6,6 +6,7 @@ package com.WeFound.WeFound.controller;
 
 
 
+import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.entity.Like;
 import com.WeFound.WeFound.entity.User;
 import com.WeFound.WeFound.dto.LikeRequest;
@@ -24,22 +25,27 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 @RequestMapping("/questions/{user}")
 public class LikeController {
     private final LikeService likeService;
-     final UserService userService;
+    final CustomUserDetails user;
 
     @PostMapping("/likes")
+   /* public ResponseEntity<LikeResponse> addLike(*/
+
     public ResponseEntity<LikeResponse> addLike(
-            @AuthenticationPrincipal User user,
+
+            /*@AuthenticationPrincipal User user,*/
+            @AuthenticationPrincipal CustomUserDetails user,
             @RequestBody LikeRequest request
-    ) {
-        Like like = new Like(user, request.getQuestionId());
+    )
+ {
+        Like like = new Like( user.getUserId(), request.getQuestionId());
         likeService.addLike(like);
-        LikeResponse response = new LikeResponse(like);
-        return ResponseEntity.ok(response);
+
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/likes")
     public ResponseEntity<Void> deleteLike(
-            @AuthenticationPrincipal User user,
+            @AuthenticationPrincipal CustomUserDetails user,
             @RequestBody LikeRequest request
     ) {
 

@@ -1,3 +1,6 @@
+
+
+
 package com.WeFound.WeFound.dto;
 
 
@@ -18,12 +21,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class LikeResponse {
-    private  Long userId;
+    private  Long user;
     private Long questionId;
 
 
     public LikeResponse(Like like) {
-        this.userId= like.getUserId().getUserId();
+        this.user = like.getUser().getUserId();
         this.questionId = like.getQuestionId();
 
     }
