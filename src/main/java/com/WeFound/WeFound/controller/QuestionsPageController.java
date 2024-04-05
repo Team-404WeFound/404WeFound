@@ -41,12 +41,7 @@ public class QuestionsPageController {
         model.addAttribute("question", new QuestionViewResponse(question));
 
         List<Comment> comments = commentService.findAllComment(questionId);
-        if (!comments.isEmpty()){
-            model.addAttribute("comments", comments);
-        }
-        else{
-            return "questionDetailNoComment";
-        }
+        model.addAttribute("comments", comments);
         return "questionDetail";
     }
 
