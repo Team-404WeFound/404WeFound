@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>404-We-Found</title>
@@ -8,17 +8,19 @@
     <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
 </head>
 <body>
-
 <header th:replace="~{fragments/header :: header}"></header>
-
-<div id="container">
-    <form action="/api/questions" method="post" name="questionInput">
-        <input type="text" name="title" placeholder="제목을 입력하세요."/>
-        <input type="text" name="content" placeholder="질문을 입력하세요."/>
-        <input type="submit" value="질문 등록"/>
-    </form>
-</div>
+    <article>
+        <div id="container">
+            <input type="hidden" id="question-id" th:value="${question.questionId}">
+            <input type="text" name="title" placeholder="제목을 입력하세요." id = title th:value="${question.title}"/>
+            <textarea rows="20" placeholder="질문을 입력하세요." id="content" th:text="${question.content}"></textarea>
+        </div>
+        <button>s</button>
+        <button th:if="${question.questionId} != null" type="button" id="modify-btn" class="btn btn-primary btn-sm">수정</button>
+        <button th:if="${question.questionId} == null" type="button" id="create-btn" class="btn btn-primary btn-sm">등록</button>
+        <button type="button" id="back-btn" class="btn btn-primary btn-sm">목록으로가기</button>
+    </article>
 <footer th:replace="~{fragments/footer :: footer}"></footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/scripts/question.js"></script>
 </body>
 </html>

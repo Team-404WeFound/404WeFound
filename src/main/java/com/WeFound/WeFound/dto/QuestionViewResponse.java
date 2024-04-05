@@ -13,11 +13,13 @@ public class QuestionViewResponse {
     private String title;
     private String content;
     private LocalDateTime creatAt;
+    private Long userId;
 
     public QuestionViewResponse(Question question){
         this.questionId = question.getQuestionId();
         this.title = question.getTitle();
         this.content = question.getContent();
         this.creatAt = question.getCreatedAt();
+        this.userId = question.getUserId();
     }
 }

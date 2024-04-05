@@ -20,11 +20,13 @@
 <section class="mb-5">
     <p class="fs-5 mb-4" th:text="${question.content}"></p>
 </section>
-<button type="button" id="modify-btn"
+<button type="button" id="modify-btn" th:onclick="|location.href='@{/inputQuestion?questionId={questionId}(questionId=${question.questionId})}'|"
         class="btn btn-primary btn-sm">수정</button>
-<button type="button" id="delete-btn"
-        class="btn btn-secondary btn-sm">삭제</button>
+<button type="button" id="delete-btn" class="btn btn-secondary btn-sm">삭제</button>
+<button type="button" id="back-btn" class="btn btn-primary btn-sm">목록으로가기</button>
+
 <footer th:replace="~{fragments/footer :: footer}"></footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/scripts/question.js"></script>
 </body>
 </html>

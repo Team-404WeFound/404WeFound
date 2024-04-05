@@ -1,8 +1,11 @@
 package com.WeFound.WeFound.controller;
 
+import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionViewResponse;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.service.QuestionService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,13 +42,18 @@ public class QuestionsPageController {
     }
 
     @GetMapping("/inputQuestion")
-    public String newQuestion(@RequestParam(required = false) Long questionId, Model model){
+    public String newQuestion(@RequestParam(required = false) Long questionId, Model model, @AuthenticationPrincipal CustomUserDetails details){
         if (questionId == null){
             model.addAttribute("question", new QuestionViewResponse());
         }
         else{
             Question question = questionService.findById(questionId);
+            if (details.getUserId().equals(question.getUserId())){
             model.addAttribute("question", new QuestionViewResponse(question));
+            }
+            else{
+                return "main";
+            }
         }
         return "inputQuestion";
     }
