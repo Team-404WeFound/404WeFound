@@ -1,3 +1,4 @@
+
 package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.CustomUserDetails;
@@ -22,4 +23,5 @@ public class UserController {
         userService.withdrawUser(userDetails.getEmail());
         return "redirect:/logout";
     }
+
 }

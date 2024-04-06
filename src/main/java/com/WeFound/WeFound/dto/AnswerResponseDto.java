@@ -31,4 +31,5 @@ public class AnswerResponseDto {
     public void setAnswerId(Long answer_id) {
         this.answer_id = answer_id;
     }
+
 }

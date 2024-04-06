@@ -8,16 +8,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
-import com.WeFound.WeFound.dto.AnswerResponseDto;
-import com.WeFound.WeFound.dto.QuestionResponse;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
-import java.time.LocalDateTime;
-
 @Table(name = "answer")
 @NoArgsConstructor
 @Getter
@@ -52,6 +42,7 @@ public class Answer{
     private LocalDateTime update_at;
 
 
+
     @Builder
     public Answer(Long answer_id,String content,User user,Question question,LocalDateTime create_at,LocalDateTime update_at){
         this.answer_id = answer_id;
@@ -65,6 +56,7 @@ public class Answer{
 
 
     public void update(String content) {
+
         this.content=content;
     }
 

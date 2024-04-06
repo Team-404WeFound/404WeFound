@@ -1,16 +1,17 @@
 package com.WeFound.WeFound.controller;
 
 
-import com.WeFound.WeFound.dto.AnswerRequestDto;
+import com.WeFound.WeFound.dto.*;
 import com.WeFound.WeFound.dto.AnswerResponseDto;
-import com.WeFound.WeFound.dto.AnswerResponseDto;
-import com.WeFound.WeFound.dto.QuestionResponse;
 import com.WeFound.WeFound.entity.Answer;
 import com.WeFound.WeFound.entity.Question;
+import com.WeFound.WeFound.service.AdminService;
 import com.WeFound.WeFound.service.AnswerService;
+import com.WeFound.WeFound.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -24,9 +25,13 @@ import java.util.List;
 public class AnswerController {
 
     private final AnswerService answerService;
+    private final UserService userService;
+    private final AdminService adminService;
 
-    public AnswerController(AnswerService answerService) {
+    public AnswerController(AnswerService answerService,UserService userService,AdminService adminService) {
         this.answerService = answerService;
+        this.userService = userService;
+        this.adminService = adminService;
     }
 
     /**
@@ -37,7 +42,7 @@ public class AnswerController {
      * @return 게시물 상세 페이지
      */
 //    @PostMapping("/questions/{question_id}/answer")
-//    public ResponseEntity<AnswerResponseDTO> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDTO answerRequestDTO) {
+//    public ResponseEntity<AnswerResponseDto> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDto answerRequestDTO) {
 //        // 현재 사용자의 Authentication 객체 가져오기
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 //        // 현재 사용자의 이름 가져오기
@@ -47,7 +52,7 @@ public class AnswerController {
 //        Long answerId = answerService.writeAnswer(answerRequestDTO, question_id);
 //
 //        // 생성된 답변의 ID를 사용하여 응답 구성
-//        AnswerResponseDTO responseDTO = new AnswerResponseDTO();
+//        AnswerResponseDto responseDTO = new AnswerResponseDto();
 //        responseDTO.setAnswerId(answerId); // 답변의 ID 설정
 //
 //        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
@@ -55,10 +60,15 @@ public class AnswerController {
 
 
     @PostMapping("/questions/{question_id}/answer")
-    public ResponseEntity<AnswerResponseDto> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDto answerRequestDTO) {
-        Answer answerId = answerService.writeAnswer(answerRequestDTO, question_id);
+    public ResponseEntity<AnswerResponseDto> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDto answerRequestDTO,@AuthenticationPrincipal CustomUserDetails userDetails) {
+        Long userId = userDetails.getUserId();
+        answerRequestDTO.setUser_id(userId);
+        Answer answer= answerService.writeAnswer(answerRequestDTO,question_id);
+
 
         // 생성된 답변의 ID를 사용하여 응답 구성
+        //writeAnswer 진행시 즉 answer작성시 answer작성한 user에게 포인트 10L 주기로 함
+        adminService.updateUserPoint(userId,0L,"AnswerController");
         AnswerResponseDto responseDTO = new AnswerResponseDto();
         responseDTO.setAnswerId(question_id); // 답변의 ID 설정
 
