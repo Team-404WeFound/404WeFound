@@ -5,6 +5,7 @@ import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionResponse;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.entity.User;
+import com.WeFound.WeFound.service.AdminService;
 import com.WeFound.WeFound.service.QuestionService;
 import com.WeFound.WeFound.service.UserService;
 import org.springframework.data.domain.Page;
@@ -24,19 +25,25 @@ import java.util.List;
 public class QuestionController {
     private final QuestionService questionService;
     private final UserService userService;
+    private final AdminService adminService;
 
-    public QuestionController(QuestionService questionService, UserService userService) {
+    public QuestionController(QuestionService questionService, UserService userService,AdminService adminService) {
         this.questionService = questionService;
         this.userService = userService;
+        this.adminService = adminService;
     }
 
     //todo 게시판 생성
+    //userid 있는 버전
     @PostMapping("/questions")
     public ResponseEntity<QuestionResponse> addQuestion(@RequestBody AddQuestionRequest request, @AuthenticationPrincipal CustomUserDetails userDetails){
 
         Long userId = userDetails.getUserId();
         request.setUserId(userId);
         Question question = questionService.save(request);
+
+        // AddQuestionRequest가 실행되었을 때 reason 값을 "QuestionController"로 전달합니다.
+        adminService.updateUserPoint(userId, 10L, "QuestionController");
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
 

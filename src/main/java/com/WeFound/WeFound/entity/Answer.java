@@ -64,7 +64,8 @@ public class Answer{
 
 
 
-    public void update(String content) {
+    public void update(User user,String content) {
+        this.user = user;
         this.content=content;
     }
 

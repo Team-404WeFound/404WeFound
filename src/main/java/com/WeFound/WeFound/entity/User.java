@@ -37,10 +37,10 @@ public class User {
     @Column(name = "password", nullable = false, unique = true) // 로그인
     private String password;
 
-    @Column(name = "nickname",nullable = false, unique = true)
+    @Column(name = "nickname")//,nullable = false, unique = true)
     private String nickName;
 
-    @Column(name = "role",nullable = false)  // 역할 (관리자 or 일반 사용자)
+    @Column(name = "role")//,nullable = false)  // 역할 (관리자 or 일반 사용자)
     private String role;
 
     @Column(name = "grade")

@@ -37,7 +37,7 @@ public class AnswerController {
      * @return 게시물 상세 페이지
      */
 //    @PostMapping("/questions/{question_id}/answer")
-//    public ResponseEntity<AnswerResponseDTO> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDTO answerRequestDTO) {
+//    public ResponseEntity<AnswerResponseDto> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDto answerRequestDTO) {
 //        // 현재 사용자의 Authentication 객체 가져오기
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 //        // 현재 사용자의 이름 가져오기
@@ -47,7 +47,7 @@ public class AnswerController {
 //        Long answerId = answerService.writeAnswer(answerRequestDTO, question_id);
 //
 //        // 생성된 답변의 ID를 사용하여 응답 구성
-//        AnswerResponseDTO responseDTO = new AnswerResponseDTO();
+//        AnswerResponseDto responseDTO = new AnswerResponseDto();
 //        responseDTO.setAnswerId(answerId); // 답변의 ID 설정
 //
 //        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
@@ -57,6 +57,7 @@ public class AnswerController {
     @PostMapping("/questions/{question_id}/answer")
     public ResponseEntity<AnswerResponseDto> writeAnswer(@PathVariable Long question_id, @RequestBody AnswerRequestDto answerRequestDTO) {
         Answer answerId = answerService.writeAnswer(answerRequestDTO, question_id);
+
 
         // 생성된 답변의 ID를 사용하여 응답 구성
         AnswerResponseDto responseDTO = new AnswerResponseDto();
