@@ -41,8 +41,16 @@ public class AdminService {
         pointData.setReason(reason);
         pointRepository.save(pointData);
 
-        // "QuestionController"일 때만 포인트가 10점 증가하도록 조건을 추가합니다.
+        // "QuestionController"일 때만 포인트가 5점 증가하도록 조건을 추가합니다.
         if ("QuestionController".equals(reason)) {
+            Long totalPoint = pointRepository.findByUserOrderByCreatedAtDesc(user)
+                    .stream()
+                    .mapToLong(Point::getPoint)
+                    .sum() + 5; // 5점 증가
+            user.setPoint(totalPoint);
+        }
+        // "AnswerController"일 때만 포인트가 10점 증가하도록 조건을 추가합니다.
+        else if("AnswerController".equals(reason)){
             Long totalPoint = pointRepository.findByUserOrderByCreatedAtDesc(user)
                     .stream()
                     .mapToLong(Point::getPoint)

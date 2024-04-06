@@ -14,6 +14,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,10 +68,10 @@ public class AnswerService {
 
 
     @Transactional
-    public AnswerResponseDto updateAnswer(Long answer_id, AnswerRequestDto answerRequestDTO) {
+    public AnswerResponseDto updateAnswer(@PathVariable Long answer_id, @RequestBody AnswerRequestDto answerRequestDTO) {
         Answer answer = answerRepository.findById(answer_id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 댓글입니다."));
-        answer.update(answerRequestDTO.getUser(),answerRequestDTO.getContent());
+        answer.update(answerRequestDTO.getContent());
         // 수정된 답변을 조회하여 반환
         return new AnswerResponseDto(answer);
     }

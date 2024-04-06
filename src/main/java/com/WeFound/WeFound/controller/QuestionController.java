@@ -43,7 +43,7 @@ public class QuestionController {
         Question question = questionService.save(request);
 
         // AddQuestionRequest가 실행되었을 때 reason 값을 "QuestionController"로 전달합니다.
-        adminService.updateUserPoint(userId, 10L, "QuestionController");
+        adminService.updateUserPoint(userId, 0aL, "QuestionController");
         return ResponseEntity.status(HttpStatus.CREATED).body(question.toResponse());
     }
 
