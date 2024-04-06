@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+  <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background-color: #ecf0f1;
+    }
+
+    tr:hover {
+      background-color: #d5dbdb;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    button {
+      margin-bottom: 10px;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+
+  </style>
+</head>
+<header th:replace="~{fragments/header :: header}"></header>
+<body>
+<h1>어드민 페이지</h1>
+<table>
+  <thead>
+  <tr>
+    <th>User ID</th>
+    <th>Email</th>
+    <th>Nickname</th>
+    <th>Grade</th>
+    <th>Point</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${userList}">
+    <td th:text="${user.userId}"></td>
+    <td th:text="${user.email}"></td>
+    <td th:text="${user.nickName}"></td>
+    <td>
+      <form th:action="@{/admin/updateGrade}" method="post">
+        <input type="hidden" name="userId" th:value="${user.userId}" /><br>
+        <input type="text" name="grade" th:value="${user.grade}" /><br>
+        <button type="submit">Update Grade</button><br>
+      </form>
+    </td>
+    <td>
+      <p>현재 Point: <span th:text="${user.point}"></span></p>
+      <form th:action="@{/admin/updatePoint}" method="post">
+        <input type="hidden" name="userId" th:value="${user.userId}" /><br>
+        <label for="point">Point 증감 조정:</label>
+        <input type="number" id="point" name="point" /><br>
+        <input type="text" name="reason" value="관리자에 의해 포인트가 변동되었습니다." /><br>
+        <button type="submit">Update Point</button><br>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

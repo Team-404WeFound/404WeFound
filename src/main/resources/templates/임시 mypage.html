@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>404-We-Found</title>
+  <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    header img.logo {
+      width: 150px;
+      height: auto;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      color: #666;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    hr {
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    ul {
+      color: #666;
+      font-size: 18px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 15px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 15px 30px;
+      background-color: #ff5e3a;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff1f00;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img class="logo" th:src="@{/img/logo_404.png}" alt="404 We Found">
+</header>
+
+<main>
+  <h1>마이페이지</h1>
+  <p>여기서 회원정보를 확인하실 수 있습니다.</p>
+  <hr>
+  <p>환영합니다. <span th:text="${nickName}"></span>님!</p>
+  <ul>
+    <li><span>닉네임:</span> <span th:text="${nickName}"></span></li>
+    <li><span>권한:</span> <span th:text="${role}"></span></li>
+    <li><span>현재 Point:</span> <span th:text="${currentPoint}"></span></li>
+    <li><span>이메일:</span> <span th:text="${email}"></span></li>
+  </ul>
+  <p>여기서 할 수 있는 기능은 다음과 같습니다.</p>
+  <ul>
+    <li>회원 정보 수정</li>
+    <li>회원 탈퇴</li>
+    <li>회원 등급</li>
+    <li>회원 포인트</li>
+    <li>다음 등급까지 필요한 포인트</li>
+    <li>회원 등급에 따른 권한</li>
+  </ul>
+  <h2>포인트 내역</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>포인트</th>
+      <th>사유</th>
+      <th>일시</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="point : ${pointHistory}">
+      <td th:text="${point.point}"></td>
+      <td th:text="${point.reason}"></td>
+      <td th:text="${#temporals.format(point.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <button type="button" onclick="confirmWithdrawal()">회원 탈퇴</button>
+</main>
+
+<footer>
+  <p>&copy; 2024 404-We-Found. All rights reserved.</p>
+</footer>
+
+<script th:src="@{/scripts/userWithdraw.js}"></script>
+</body>
+</html>
