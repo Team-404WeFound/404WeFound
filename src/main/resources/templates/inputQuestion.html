@@ -15,7 +15,6 @@
             <input type="text" name="title" placeholder="제목을 입력하세요." id = title th:value="${question.title}"/>
             <textarea rows="20" placeholder="질문을 입력하세요." id="content" th:text="${question.content}"></textarea>
         </div>
-        <button>s</button>
         <button th:if="${question.questionId} != null" type="button" id="modify-btn" class="btn btn-primary btn-sm">수정</button>
         <button th:if="${question.questionId} == null" type="button" id="create-btn" class="btn btn-primary btn-sm">등록</button>
         <button type="button" id="back-btn" class="btn btn-primary btn-sm">목록으로가기</button>

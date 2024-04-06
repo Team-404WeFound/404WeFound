@@ -45,6 +45,13 @@ public class CommentService {
         return  new AllCommentResponse(comments.get(0).getQuestion(), commentList);
     }
 
+    public List<Comment> findAllComment(Long questionId){
+        List<Comment> comments = commentRepository.findByQuestion_QuestionId(questionId)
+                .orElseThrow(IllegalArgumentException::new);
+
+        return comments;
+    }
+
     @Transactional
     public void deleteComment(Long questionId, Long commentId) {
         commentRepository.deleteByQuestion_QuestionIdAndCommentId(questionId,commentId).orElseThrow(IllegalArgumentException::new);
