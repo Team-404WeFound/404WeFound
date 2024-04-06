@@ -2,6 +2,8 @@ package com.WeFound.WeFound.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,6 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +36,9 @@ public class Point {
     private LocalDateTime createdAt;
 
 
-
-    public Point() {
+    public Point(long pointId, Long point) {
+        this.pointId=pointId;
+        this.point=point;
 
     }
 }

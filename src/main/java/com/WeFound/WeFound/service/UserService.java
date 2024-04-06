@@ -4,6 +4,9 @@ import com.WeFound.WeFound.entity.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.WeFound.WeFound.repository.UserRepository;
+
+import java.util.Optional;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -13,6 +16,12 @@ public class UserService {
     }
 
 
+
+    //0405 추가 합니다
+public Optional<User> findById(Long id){
+        return userRepository.findById(id);
+
+}
 
 
 

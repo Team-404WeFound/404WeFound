@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class LikeResponse {
     private  Long user;
     private Long questionId;
@@ -27,8 +26,7 @@ public class LikeResponse {
 
     public LikeResponse(Like like) {
         this.user = like.getUser().getUserId();
-        this.questionId = like.getQuestionId();
-
+        this.questionId = like.getQuestion().getQuestionId();
     }
 }
 

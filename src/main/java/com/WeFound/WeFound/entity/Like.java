@@ -1,6 +1,3 @@
-
-
-
 package com.WeFound.WeFound.entity;
 
 import com.WeFound.WeFound.entity.Question;
@@ -17,12 +14,10 @@ import static jakarta.persistence.FetchType.LAZY;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
-
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-
 @Table(name = "likes")
 public class Like {
 
@@ -30,38 +25,24 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Id
-    @Column(name = "question_id")
-    private Long questionId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id")
+    private Question question;
 
     @Column(nullable = false)
     private boolean status; // true = 좋아요, false = 좋아요 취소
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private LocalDate createDate; // 날짜
-
-
-    public Like(User user, Long questionId) {
-
+    public Like(User user, Question question) {
         this.user = user;
-        this.questionId = questionId;
-
+        this.question = question;
         this.status = true;
     }
-}
-   /* public void unLikeBoard( User user , Long questionId ) {
-        this.status = false;
-        questionId.setLiked(questionId.getLiked() - 1);
+
+    public void toggleLike() {
+        this.status = !this.status;
     }
-*/
-
-
-
-
-
-
+}

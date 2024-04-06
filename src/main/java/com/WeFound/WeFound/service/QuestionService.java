@@ -19,11 +19,11 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
 
-    public Question save(AddQuestionRequest request){
+    public Question save(AddQuestionRequest request) {
         return questionRepository.save(request.toEntity());
     }
 
-    public List<Question> findAll(){
+    public List<Question> findAll() {
         return questionRepository.findAll();
     }
 

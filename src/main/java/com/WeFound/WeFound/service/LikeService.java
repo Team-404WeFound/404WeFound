@@ -9,15 +9,11 @@ package com.WeFound.WeFound.service;
 import com.WeFound.WeFound.entity.Like;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.repository.LikeRepository;
-import com.WeFound.WeFound.repository.QuestionRepository;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
 
 
 @Service
@@ -34,8 +30,8 @@ public class LikeService {
     }
 
 @Transactional
-   public void deleteLike(Long user_id, Long question_id) {
-        likeRepository.deleteByUserIdAndQuestionId(user_id, question_id); }
+   public void deleteLike(Long user_id, Question  question) {
+        likeRepository.deleteByIdAndQuestion(user_id, question); }
 
 
 

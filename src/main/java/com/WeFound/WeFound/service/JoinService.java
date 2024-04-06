@@ -32,8 +32,6 @@ public class JoinService {
         data.setNickName(joinDto.getNickName());
         data.setPassword(bCryptPasswordEncoder.encode(joinDto.getPassword()));
         data.setRole("ROLE_USER");
-
-
         userRepository.save(data);
     }
 }

@@ -1,12 +1,16 @@
 package com.WeFound.WeFound.dto;
 
 import com.WeFound.WeFound.entity.Question;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AllCommentResponse {
     private Long question_id;
     private String title;

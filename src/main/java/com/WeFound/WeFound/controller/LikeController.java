@@ -1,17 +1,15 @@
-
-
-
-
 package com.WeFound.WeFound.controller;
-
 
 
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.entity.Like;
+import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.entity.User;
 import com.WeFound.WeFound.dto.LikeRequest;
 import com.WeFound.WeFound.dto.LikeResponse;
+import com.WeFound.WeFound.repository.QuestionRepository;
 import com.WeFound.WeFound.service.LikeService;
+import com.WeFound.WeFound.service.QuestionService;
 import com.WeFound.WeFound.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,24 +18,28 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
+import java.util.Optional;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/questions/{user}")
 public class LikeController {
-    private final LikeService likeService;
-    final CustomUserDetails user;
+
+    final LikeService likeService;
+    final UserService userService;
+    final QuestionService questionService;
+    private final QuestionRepository questionRepository;
+
 
     @PostMapping("/likes")
-   /* public ResponseEntity<LikeResponse> addLike(*/
 
-    public ResponseEntity<LikeResponse> addLike(
 
-            /*@AuthenticationPrincipal User user,*/
-            @AuthenticationPrincipal CustomUserDetails user,
-            @RequestBody LikeRequest request
-    )
- {
-        Like like = new Like( user.getUserId(), request.getQuestionId());
+    public ResponseEntity<LikeResponse> addLike(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                @RequestBody LikeRequest request) {
+        Optional<User> user = userService.findById(userDetails.getUserId());
+        Question question = questionService.findById(request.getQuestionId());
+
+        Like like = new Like(user.orElseThrow(), question);
         likeService.addLike(like);
 
         return ResponseEntity.ok().build();
@@ -49,7 +51,8 @@ public class LikeController {
             @RequestBody LikeRequest request
     ) {
 
-       likeService.deleteLike(user.getUserId(), request.getQuestionId());
+        Question question = questionService.findById(request.getQuestionId());
+        likeService.deleteLike(user.getUserId(), question);
         return ResponseEntity.ok().build();
     }
 }

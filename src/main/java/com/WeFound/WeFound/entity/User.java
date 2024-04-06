@@ -66,15 +66,14 @@ public class User {
     @Column(name = "update_at")
     private LocalDateTime updateAt;
 
-
-
 /*
 
-    //0404 추가한 코드
-    @JsonManagedReference
-    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Question> likes = new ArrayList<>();
+//0405
+    @Column(name = "id")
+    private Long id;
 */
+
+
 
 
 

@@ -19,19 +19,16 @@ public class JoinController {
 
     @GetMapping("/join")
     public String joinP() {
-
         return "join";
     }
 
 
     @PostMapping("/joinProc")
     public String joinProcess(JoinDto joinDto) {
-
         System.out.println(joinDto.getEmail());
-
         joinService.joinProcess(joinDto);
-
-
         return "redirect:/login";
     }
+
+
 }

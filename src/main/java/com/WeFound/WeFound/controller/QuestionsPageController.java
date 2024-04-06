@@ -25,4 +25,6 @@ public class QuestionsPageController {
 
         return "main";   // articleList.html라는 뷰 조회
     }
+
+
 }

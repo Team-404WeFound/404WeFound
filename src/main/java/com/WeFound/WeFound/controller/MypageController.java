@@ -31,4 +31,7 @@ public class MypageController {
         model.addAttribute("currentPoint", currentPoint);
         return "mypage";
     }
+
+    public void setMypageService(MypageService mypageService) {
+    }
 }

@@ -2,10 +2,7 @@ package com.WeFound.WeFound.entity;
 
 import com.WeFound.WeFound.dto.QuestionResponse;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -41,7 +38,9 @@ public class Question {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Question(String title, String content, Long questionId, Long userId, LocalDateTime createdAt, LocalDateTime updatedAt){
+    public Question(String title, String content,
+                    Long questionId, Long userId, LocalDateTime createdAt,
+                    LocalDateTime updatedAt){
         this.title = title;
         this.content = content;
         this.questionId = questionId;
@@ -49,6 +48,7 @@ public class Question {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
 
     public QuestionResponse toResponse(){
         return QuestionResponse.builder()
@@ -64,4 +64,6 @@ public class Question {
         this.content = content;
         return this;
     }
+
+
 }
