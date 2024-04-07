@@ -85,15 +85,6 @@ public class QuestionController {
 
 
 
-    //todo 게시판 단권 조회
-    @GetMapping("/questions/{questionId}")
-    public ResponseEntity<QuestionResponse> showOneQuestion(@PathVariable Long questionId){
-        Question question = questionService.findById(questionId);
-        return ResponseEntity.ok(question.toResponse());
-    }
-
-
-
 
 
     //todo 게시판 수정

@@ -1,3 +1,4 @@
+
 package com.WeFound.WeFound.config;
 
 import com.WeFound.WeFound.service.UserDetailService;
@@ -35,8 +36,11 @@ public class WebSecurityConfig {
     // 특정 HTTP 요청에 대한 웹 기반 보안 구성
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+
+
         HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
         requestCache.setMatchingRequestParameterName(null);
+
 
 
         httpSecurity
@@ -76,6 +80,7 @@ public class WebSecurityConfig {
 //                );
 
 
+
         // csrf 일단 비활성화
         httpSecurity
                 .csrf(auth -> auth
@@ -85,6 +90,7 @@ public class WebSecurityConfig {
 
         return httpSecurity.build();
     }
+
 
 
 //    @Bean
