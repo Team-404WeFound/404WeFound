@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404-We-Found</title>
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<style>
+    h2{
+        font-size: larger;
+        font-weight: 600;
+    }
+    #main-wrapper{
+        display: flex;
+        flex-direction: column;
+        margin: 20px 300px 100px;
+    }
+
+    #img-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+    #button-area{
+        display: flex;
+        justify-content: center;
+        img {
+            width: 30px;
+            height: 30px;
+            margin: 0 20px;
+        }
+        align-items: center;
+        a{
+            text-decoration-line: none;
+        }
+        button{
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #818080;
+            color: white;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+    }
+
+    #intro-area{
+        width: 100%;
+        height: 100%;
+
+    }
+
+    #404img{
+        width: 53px;
+        height: 53px;
+    }
+</style>
+<body>
+
+
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div id = "main-wrapper">
+    <div id="intro-area">
+        <h1>404 We Found !</h1>
+        <div id="img-wrapper" style="margin-bottom: 20px">
+            <img id="404img" th:src="@{/img/logo_404.png}"> <br>
+        </div>
+        <h2>개발자들과 학생들은 개발과정에서 다양한 문제에 직면하게 됩니다.</h2> <br> <br> <br>
+        <h2>이러한 문제들을 해결하기위해 우리는 많은 시간과 노력을 쏟습니다.</h2> <br> <br> <br>
+        <h2>하지만 아직까지 개발지식과 경험을 나누는 플랫폼이 부족합니다.</h2> <br> <br> <br>
+        <h2>우리 404 We Found와 함께 개발 경험을 공유해 봅시다 !</h2> <br> <br> <br>
+    </div>
+    <div id="button-area" style="margin-top: 20px">
+        <a href="/api/questions">
+            <button>
+                <img th:src="@{/img/free-icon-faq-4765616.png}" alt="질문 이미지"/>
+                질문 게시판
+            </button>
+        </a>
+        <a href="/mypage">
+            <button>
+                <img th:src="@{/img/free-icon-user-747376.png}" alt="유저 이미지"/>
+                마이페이지
+            </button>
+        </a>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
