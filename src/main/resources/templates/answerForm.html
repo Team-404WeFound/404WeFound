@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer Form</title>
+</head>
+<body>
+<h1>답변 달기</h1>
+<form th:action="@{/api/questions/{questionId}/answers(questionId=${questionId})}" method="post">
+    <textarea name="content" rows="4" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

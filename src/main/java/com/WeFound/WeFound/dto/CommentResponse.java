@@ -20,7 +20,7 @@ public class CommentResponse {
         return new CommentResponse(
                 comment.getCommentId(),
                 comment.getContent(),
-                comment.getCreateAt(),
+                comment.getCreatedAt(),
                 comment.getUserId()
                 );
 

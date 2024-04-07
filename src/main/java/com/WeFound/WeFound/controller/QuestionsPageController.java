@@ -2,10 +2,14 @@ package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionViewResponse;
+import com.WeFound.WeFound.entity.Answer;
+import com.WeFound.WeFound.entity.AnswerComment;
 import com.WeFound.WeFound.entity.Comment;
 import com.WeFound.WeFound.entity.Question;
 import com.WeFound.WeFound.service.CommentService;
 import com.WeFound.WeFound.service.QuestionService;
+import com.WeFound.WeFound.service.AnswerService;
+import com.WeFound.WeFound.service.AnswerCommentService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +23,14 @@ import java.util.List;
 public class QuestionsPageController {
     private QuestionService questionService;
     private CommentService commentService;
+    private AnswerService answerService;
+    private AnswerCommentService answerCommentService;
 
-    public QuestionsPageController(QuestionService questionService, CommentService commentService) {
+    public QuestionsPageController(QuestionService questionService, CommentService commentService, AnswerService answerService, AnswerCommentService answerCommentService) {
         this.questionService = questionService;
         this.commentService = commentService;
+        this.answerService = answerService;
+        this.answerCommentService = answerCommentService;
     }
 
     @GetMapping("/api/questions")
@@ -42,6 +50,15 @@ public class QuestionsPageController {
 
         List<Comment> comments = commentService.findAllComment(questionId);
         model.addAttribute("comments", comments);
+
+
+        List<Answer> answers = answerService.getAnswersByQuestion(questionId);
+        model.addAttribute("answers", answers);
+        for (Answer answer : answers) {
+            List<AnswerComment> answerComments = answerCommentService.getAnswerCommentsByAnswer(answer.getAnswerId());
+            answer.setComments(answerComments);
+        }
+
         return "questionDetail";
     }
 

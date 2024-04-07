@@ -9,7 +9,7 @@ if (createCommentButton) {
                 "Content-Type": "application/json"
             },
             body : JSON.stringify({
-                content: document.getElementById('content').value
+                content: document.getElementById('comment-content').value
             })
         }).then(() => {
             alert('등록 완료되었습니다');
