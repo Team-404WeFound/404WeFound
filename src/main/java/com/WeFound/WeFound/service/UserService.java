@@ -12,6 +12,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public  User findNickNameByUserId(Long userId) { return userRepository.findByUserId(userId);
+    }
 
 
     public void updateUserGrade(User user) { // 포인트 변경이 감지되면

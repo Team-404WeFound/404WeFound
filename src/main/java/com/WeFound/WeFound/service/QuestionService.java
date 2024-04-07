@@ -45,4 +45,8 @@ public class QuestionService {
     public void delete(Long questionId) {
         questionRepository.deleteById(questionId);
     }
+
+    public Long findUserIdByQuestionId(Long questionId) {
+        return questionRepository.findById(questionId).orElseThrow().getUserId();
+    }
 }

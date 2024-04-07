@@ -23,7 +23,7 @@ public class Answer {
     private Long answerId;
 
     @ManyToOne
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "questionId")
     private Question question;
 
     @Column(columnDefinition = "TEXT")
@@ -34,6 +34,9 @@ public class Answer {
 
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    @Column(name = "userId")
+    private Long userId;
 
     @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL)
     private List<AnswerComment> comments = new ArrayList<>();

@@ -18,7 +18,9 @@
     </div>
 </header>
 <section class="mb-5">
+    <input type="hidden" id="question-id" th:value="${question.questionId}">
     <p class="fs-5 mb-4" th:text="${question.content}"></p>
+    <p>질문 작성자: <span th:text="${user.getNickName()}"></span></p>
 </section>
 <button type="button" id="modify-btn" th:onclick="|location.href='@{/inputQuestion?questionId={questionId}(questionId=${question.questionId})}'|"
         class="btn btn-primary btn-sm">수정</button>
