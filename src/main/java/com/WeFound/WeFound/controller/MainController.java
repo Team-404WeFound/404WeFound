@@ -19,6 +19,6 @@ public class MainController {
     @GetMapping("/")
     public String mainPage(Model model) {
         mainService.populateModelWithUserDetails(model);
-        return "main";
+        return "firstMain";
     }
 }
