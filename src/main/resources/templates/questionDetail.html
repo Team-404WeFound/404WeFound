@@ -25,6 +25,7 @@
 <button type="button" id="delete-btn" class="btn btn-secondary btn-sm">삭제</button>
 <button type="button" id="back-btn" class="btn btn-primary btn-sm">목록으로가기</button>
 
+<!--질문 댓글 리스트-->
 <div id="wrapper" th:if="${!comments.isEmpty()}">
     <div class="row-6" th:each="comment : ${comments}">
         <div class="card-body">
@@ -32,13 +33,47 @@
         </div>
     </div>
 </div>
+<!--질문 댓글 입력-->
 <div>
-    <input placeholder="댓글을 입력하세요" id="content"/>
+    <input placeholder="댓글을 입력하세요" id="comment-content"/>
     <button type="button" id="create-comment-btn" th:data-question-id = "${question.questionId}">댓글 달기</button>
 </div>
+
+
+
+<div id="answer-wrapper">
+    <h3>Answers</h3>
+    <ul>
+        <li th:each="answer : ${answers}">
+            <p th:text="${answer.content}"></p>
+            <p th:text="'Posted on ' + ${#temporals.format(answer.createdAt, 'yyyy-MM-dd HH:mm')}"></p>
+            <!--답변 댓글 리스트-->
+            <div class="answer-comment-wrapper" th:if="${!answer.comments.isEmpty()}">
+                <div class="row-6" th:each="comment : ${answer.comments}">
+                    <div class="card-body">
+                        <p class="card-text" th:text="${comment.content}"></p>
+                    </div>
+                </div>
+            </div>
+            <button th:data-answer-id="${answer.answerId}" class="add-comment-btn">Add Comment</button>
+            <div class="comment-form" style="display: none;">
+                <textarea class="comment-content" rows="2" required></textarea>
+                <button class="submit-comment-btn">Submit</button>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<a th:href="@{/api/questions/{questionId}/answers/new(questionId=${question.questionId})}">
+    <button>답변달기</button>
+</a>
+
 <footer th:replace="~{fragments/footer :: footer}"></footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="/scripts/question.js"></script>
 <script src="/scripts/comment.js"></script>
+<script src="/scripts/answer-comment.js"></script>
 </body>
 </html>

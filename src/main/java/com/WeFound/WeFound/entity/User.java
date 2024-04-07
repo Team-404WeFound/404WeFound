@@ -54,11 +54,11 @@ public class User {
 
     @CreatedDate
     @Column(name = "create_at")
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(name = "update_at")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public User() {
         this.point = 0L;
