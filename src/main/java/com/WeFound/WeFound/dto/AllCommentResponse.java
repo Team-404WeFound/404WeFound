@@ -1,12 +1,16 @@
 package com.WeFound.WeFound.dto;
 
 import com.WeFound.WeFound.entity.Question;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AllCommentResponse {
     private Long questionId;
     private String title;
@@ -14,6 +18,13 @@ public class AllCommentResponse {
     private LocalDateTime createdAt;
     private List<CommentResponse> comments;
     private Long userId;
+
+
+
+
+
+
+
 
     public AllCommentResponse(Question question, List<CommentResponse> comments){
         this.questionId = question.getQuestionId();

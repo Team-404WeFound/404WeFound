@@ -34,4 +34,11 @@ public class MypageController {
         model.addAttribute("currentPoint", currentPoint);
         return "mypage";
     }
+
+
+    //0407추가
+    public void setMypageService(MypageService mypageService) {
+    }
+
+
 }

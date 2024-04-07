@@ -2,6 +2,7 @@ package com.WeFound.WeFound.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor //0407추가
 public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +36,15 @@ public class Point {
 
 
 
-    public Point() {
+  /*  public Point() {
+
+    }*/
+
+    //0407추가
+    public Point(long pointId, Long point) {
+        this.pointId=pointId;
+        this.point=point;
 
     }
+
 }

@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+
+//0407 어노테이션 추가
 @Getter
 @Setter
 @NoArgsConstructor

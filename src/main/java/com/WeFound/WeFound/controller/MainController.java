@@ -1,6 +1,7 @@
 package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.service.MainService;
+import com.WeFound.WeFound.service.MypageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,4 +22,6 @@ public class MainController {
         mainService.populateModelWithUserDetails(model);
         return "main";
     }
+
+
 }
