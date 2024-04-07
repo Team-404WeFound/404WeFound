@@ -2,14 +2,9 @@ package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.dto.QuestionViewResponse;
-import com.WeFound.WeFound.entity.Answer;
-import com.WeFound.WeFound.entity.AnswerComment;
-import com.WeFound.WeFound.entity.Comment;
-import com.WeFound.WeFound.entity.Question;
-import com.WeFound.WeFound.service.CommentService;
-import com.WeFound.WeFound.service.QuestionService;
-import com.WeFound.WeFound.service.AnswerService;
-import com.WeFound.WeFound.service.AnswerCommentService;
+import com.WeFound.WeFound.entity.*;
+import com.WeFound.WeFound.service.*;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,18 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
 public class QuestionsPageController {
     private QuestionService questionService;
     private CommentService commentService;
     private AnswerService answerService;
     private AnswerCommentService answerCommentService;
+    private UserService userService;
 
-    public QuestionsPageController(QuestionService questionService, CommentService commentService, AnswerService answerService, AnswerCommentService answerCommentService) {
-        this.questionService = questionService;
-        this.commentService = commentService;
-        this.answerService = answerService;
-        this.answerCommentService = answerCommentService;
-    }
 
     @GetMapping("/api/questions")
     public String getQuestions(Model model) {
@@ -46,9 +37,11 @@ public class QuestionsPageController {
     @GetMapping("/api/questions/{questionId}")   //상세 html 뷰로 전환을 위한 Get
     public String getQuestion(@PathVariable Long questionId,Model model, @AuthenticationPrincipal CustomUserDetails details) {
         Question question = questionService.findById(questionId);
-        model.addAttribute("question", new QuestionViewResponse(question));
-        model.addAttribute("user", details);
+        Long userId = questionService.findUserIdByQuestionId(questionId);
+        User user = userService.findNickNameByUserId(userId);
         List<Comment> comments = commentService.findAllComment(questionId);
+        model.addAttribute("question", new QuestionViewResponse(question));
+        model.addAttribute("user", user);
         model.addAttribute("comments", comments);
 
 
