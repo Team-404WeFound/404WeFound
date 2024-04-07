@@ -47,7 +47,7 @@ public class QuestionsPageController {
     public String getQuestion(@PathVariable Long questionId,Model model, @AuthenticationPrincipal CustomUserDetails details) {
         Question question = questionService.findById(questionId);
         model.addAttribute("question", new QuestionViewResponse(question));
-
+        model.addAttribute("user", details);
         List<Comment> comments = commentService.findAllComment(questionId);
         model.addAttribute("comments", comments);
 
