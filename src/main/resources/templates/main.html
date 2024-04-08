@@ -5,35 +5,90 @@
     <title>404-We-Found</title>
     <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
 </head>
+<style>
+    #main-wrapper{
+        margin: 20px 300px 100px;
+    }
+
+    .container{
+        width: 200px;
+        height: 30px;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    .card{
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #dedede;
+        width: 900px;
+        height: 100px;
+        margin: 20px 20px 10px;
+    }
+
+    .card-body{
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+    }
+
+    #my-info{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .question-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .question-number{
+        margin-right: 100px;
+        display: flex;
+    }
+</style>
 <body>
 
 
 <header th:replace="~{fragments/header :: header}"></header>
 
 <main> <!-- main 태그 추가 -->
-    <h1>메인페이지</h1>
-    환영합니다. <span th:text="${nickName}"></span>님 ! <br>
-    닉네임: <span th:text="${nickName}"></span><br>
-    권한: <span th:text="${role}"></span><br>
-    이메일: <span th:text="${email}"></span><br>
-
-<div class="container">
-    <div class="row-6" th:each="question : ${questions}">
-        <div class="card">
-            <div class="card-header" th:text="${question.questionId}">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title" th:text="${question.title}"></h5>
-                <p class="card-text" th:text="${question.content}"></p>
-                <a th:href="@{/api/questions/{questionId}(questionId=${question.questionId})}" class="btn btn-primary">보러가기</a>
-            </div>
+    <div id="main-wrapper">
+        <div id="my-info">
+        <h1>질문게시판</h1>
+            환영합니다. <span th:text="${nickName}"></span>님 ! <br>
+            닉네임: <span th:text="${nickName}"></span><br>
+            권한: <span th:text="${role}"></span><br>
+            이메일: <span th:text="${email}"></span><br>
         </div>
-        <br>
-    </div>
-    <button type="button" id="create-btn"
-            th:onclick="|location.href='@{/inputQuestion}'|"> 글 등록 </button>
-</div>
+        <div class="container" style="width: 200px; height: 30px">
+            <button type="button" id="create-btn"
+                    th:onclick="|location.href='@{/inputQuestion}'|"> 글 등록 </button>
+            <div class="row-6" th:each="question : ${questions}">
+                <a th:href="@{/api/questions/{questionId}(questionId=${question.questionId})}" class="btn btn-primary">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="question-number">
+                            <span>질문 번호 : </span><span class="card-number" th:text="${question.questionId}"></span>
+                        </div>
+                        <div class="question-wrapper">
+                            <div>
+                                <span>질문 제목 : </span><span class="card-title" th:text="${question.title}"></span>
+                            </div>
+                            <div>
+                                <span>질문 내용 : </span><span class="card-text" th:text="${question.content}"></span>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+                </a>
+                <br>
+            </div>
+
+        </div>
+    </div>
 </main> <!-- main 태그 종료 -->
 
 
