@@ -35,4 +35,13 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
         userRepository.delete(user);
     }
+
+    public User findUserById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + userId));
+    }
+
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 }

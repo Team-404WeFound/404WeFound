@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-
 @Controller
 public class MypageController {
 
@@ -29,9 +28,6 @@ public class MypageController {
         // 포인트 내역
         List<Point> pointHistory = mypageService.getPointHistoryForCurrentUser();
         model.addAttribute("pointHistory", pointHistory);
-        // 현재 나의 포인트
-        Long currentPoint = pointHistory.stream().mapToLong(Point::getPoint).sum();
-        model.addAttribute("currentPoint", currentPoint);
         return "mypage";
     }
 }

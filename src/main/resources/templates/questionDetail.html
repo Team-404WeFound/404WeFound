@@ -49,6 +49,10 @@
         <li th:each="answer : ${answers}">
             <p th:text="${answer.content}"></p>
             <p th:text="'Posted on ' + ${#temporals.format(answer.createdAt, 'yyyy-MM-dd HH:mm')}"></p>
+            <form th:action="@{/api/answers/{answerId}/like(answerId=${answer.answerId})}" method="post">
+                <button type="submit">좋아요</button>
+                <span th:text="${answer.likedUsers.size()}"></span>
+            </form>
             <!--답변 댓글 리스트-->
             <div class="answer-comment-wrapper" th:if="${!answer.comments.isEmpty()}">
                 <div class="row-6" th:each="comment : ${answer.comments}">
