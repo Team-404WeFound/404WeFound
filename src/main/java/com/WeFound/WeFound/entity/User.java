@@ -60,8 +60,30 @@ public class User {
     @Column(name = "update_at")
     private LocalDateTime updatedAt;
 
+
+    @PrePersist
+    @PreUpdate
+    public void updateRole() {
+        if (role != null && !role.equals("ROLE_ADMIN")) {
+            if (grade != null) {
+                switch (grade) {
+                    case "grade2":
+                        role = "ROLE_GRADE2";
+                        break;
+                    case "grade3":
+                        role = "ROLE_GRADE3";
+                        break;
+                    default:
+                        role = "ROLE_GRADE1";
+                }
+            }
+        }
+    }
+
     public User() {
         this.point = 0L;
     }
+
+
 
 }

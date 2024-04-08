@@ -24,6 +24,7 @@ public class AdminService {
     public void updateUserGrade(Long userId, String grade) {
         User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + userId));
         user.setGrade(grade);
+        user.updateRole();
         userRepository.save(user);
     }
 
