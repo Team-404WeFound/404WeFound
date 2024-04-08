@@ -1,0 +1,88 @@
+<!--premium-question-detail.html-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>프리미엄 질문 상세</title>
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<body>
+<header th:replace="~{fragments/header :: header}"></header>
+
+<main>
+    <div id="main-wrapper">
+        <div id="question-title">
+            <h1 th:text="${question.title}"></h1>
+            <div id="update" th:text="|작성일 : ${#temporals.format(question.createdAt, 'yyyy-MM-dd HH:mm')}|"></div>
+        </div>
+        <section class="question-content">
+            <input type="hidden" id="question-id" th:value="${question.premiumQuestionId}">
+            <p class="fs-5 mb-4" th:text="${question.content}"></p>
+        </section>
+
+        <div id="btn-wrapper">
+            <button type="button" id="modify-btn" th:onclick="|location.href='@{/premium-questions/{premiumQuestionId}/edit(premiumQuestionId=${question.premiumQuestionId})}'|" class="btn btn-secondary btn-sm">수정</button>
+            <button type="button" id="delete-btn" class="btn btn-secondary btn-sm">삭제</button>
+            <button type="button" id="back-btn" class="btn btn-secondary btn-sm">목록으로가기</button>
+        </div>
+
+        <!-- 질문 댓글 리스트 -->
+        <div id="comment-wrapper">
+            <div th:if="${comments != null and !comments.isEmpty()}">
+                <div class="row-6" th:each="comment : ${comments}">
+                    <div class="card-body">
+                        <p class="card-text" th:text="${comment.content}"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- 질문 댓글 입력 -->
+            <div id="comment-input">
+                <input placeholder="댓글을 입력하세요" id="comment-content"/>
+                <button class="btn btn-secondary btn-sm" type="button" id="create-comment-btn" th:data-question-id="${question.premiumQuestionId}">질문에 댓글 달기</button>
+            </div>
+        </div>
+
+        <h3 id="title-answer-by-question">이 질문에 대한 답변</h3>
+        <div id="answer-wrapper">
+            <ul>
+                <li th:each="answer : ${answers}">
+                    <p th:text="${answer.content}" style="font-weight: 400; font-size: larger"></p>
+                    <p th:text="'Posted on ' + ${#temporals.format(answer.createdAt, 'yyyy-MM-dd HH:mm')}"></p>
+                    <form th:action="@{/premium-questions/{premiumQuestionId}/answers/{answerId}/like(premiumQuestionId=${question.premiumQuestionId}, answerId=${answer.answerId})}" method="post">
+                        <button type="submit">좋아요</button>
+                        <span th:text="${answer.likedUsers.size()}"></span>
+                    </form>
+
+                    <!-- 답변 댓글 리스트 -->
+                    <div class="answer-comment-wrapper" th:if="${!answer.comments.isEmpty()}">
+                        <div class="answer-comment" th:each="comment : ${answer.comments}">
+                            <div class="card-body">
+                                <p class="card-text" th:text="${comment.content}"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button th:data-answer-id="${answer.answerId}" class="add-comment-btn"></button>
+                    <div class="comment-form">
+                        <textarea class="comment-content" rows="2" required></textarea>
+                        <button class="submit-comment-btn">Submit</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div th:if="${#authorization.expression('hasRole(''GRADE3'')')}">
+            <a th:href="@{/premium-questions/{premiumQuestionId}/answers/new(questionId=${question.premiumQuestionId})}">
+                <button id="go-new-answer">이 질문에 답변 달기</button>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="/scripts/premium-question.js"></script>
+<script src="/scripts/premium-question-detail.js"></script>
+<script src="/scripts/premium-question-form.js"></script>
+<script src="/scripts/comment.js"></script>
+<script src="/scripts/answer-comment.js"></script>
+</body>
+</html>

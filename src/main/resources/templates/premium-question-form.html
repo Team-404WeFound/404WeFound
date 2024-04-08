@@ -1,0 +1,32 @@
+<!--premium-question-form.html-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>프리미엄 질문 작성</title>
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<body>
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div id="main-wrapper">
+    <h1>프리미엄 질문 작성</h1>
+    <form id="question-form" th:action="@{/premium-questions}" method="post">
+        <div>
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+            <label for="content">내용</label>
+            <textarea id="content" name="content" rows="10" required></textarea>
+        </div>
+        <button type="submit">작성 완료</button>
+    </form>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="/scripts/premium-question.js"></script>
+<script src="/scripts/premium-question-detail.js"></script>
+<script src="/scripts/premium-question-form.js"></script>
+</body>
+</html>

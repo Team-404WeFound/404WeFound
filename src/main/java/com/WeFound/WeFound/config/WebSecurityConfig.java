@@ -31,6 +31,10 @@ public class WebSecurityConfig {
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/premium-question-detail").hasAnyRole("GRADE2", "GRADE3")
+                        .requestMatchers("/premium-question-form").hasAnyRole("GRADE2", "GRADE3")
+                        .requestMatchers("/premium-questions").hasAnyRole("GRADE2", "GRADE3")
+                        .requestMatchers("/premium-questions/answer/**").hasRole("GRADE3")
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e

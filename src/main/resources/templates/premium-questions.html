@@ -1,0 +1,49 @@
+<!--premium-questions.html-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>프리미엄 질문게시판</title>
+  <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<body>
+<header th:replace="~{fragments/header :: header}"></header>
+
+<main>
+  <div id="main-wrapper">
+    <div id="my-info">
+      <h1>프리미엄 질문게시판</h1>
+      <p>grade2이상부터 접근 가능한 질문게시판입니다.</p>
+    </div>
+    <div class="container">
+      <button type="button" id="create-btn" th:onclick="|location.href='@{/premium-questions/new}'|">질문 작성</button>
+      <div class="row-6" th:each="question : ${questions}">
+        <a th:href="@{/premium-questions/{premiumQuestionId}(premiumQuestionId=${question.premiumQuestionId})}" class="btn btn-primary">
+          <div class="card">
+            <div class="card-body">
+              <div class="question-number">
+                <span>질문 번호 : </span><span class="card-number" th:text="${question.premiumQuestionId}"></span>
+              </div>
+              <div class="question-wrapper">
+                <div>
+                  <span>질문 제목 : </span><span class="card-title" th:text="${question.title}"></span>
+                </div>
+                <div>
+                  <span>질문 내용 : </span><span class="card-text" th:text="${question.content}"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <br>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="/scripts/premium-question.js"></script>
+<script src="/scripts/premium-question-detail.js"></script>
+<script src="/scripts/premium-question-form.js"></script>
+</body>
+</html>
