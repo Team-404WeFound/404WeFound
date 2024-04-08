@@ -20,7 +20,11 @@ public class AnswerCommentController {
     private final AnswerCommentService answerCommentService;
 
     @PostMapping("/answers/{answerId}/answerComments")
-    public ResponseEntity<AnswerCommentResponse> createAnswerComment(@PathVariable Long answerId, @RequestBody AddAnswerCommentRequest request, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    public ResponseEntity<AnswerCommentResponse> createAnswerComment(
+            @PathVariable Long answerId,
+            @RequestBody AddAnswerCommentRequest request,
+            @AuthenticationPrincipal CustomUserDetails userDetails
+    ) {
         AnswerComment answerComment = answerCommentService.createAnswerComment(answerId, request.getContent(), userDetails.getUserId());
         return ResponseEntity.ok(answerComment.toResponse());
     }
