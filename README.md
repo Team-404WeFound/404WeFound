@@ -376,6 +376,9 @@ response :
 HTTP/1.1 204 No Content
 
 ```
+### TDD 이미지
+![TDD_1](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/TDD_1.jpg)
+![TDD_2](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/TDD_2.jpg)
 ### 개발 시간
 
 - 3/22 ~ 3/26 (기획 및 설계) 프로젝트 주제를 설정하고 주제에 대한 요구사항을 파악하고 ERD설계 및 깃 설정을 진행했습니다.
