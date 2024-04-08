@@ -40,9 +40,10 @@ public class AnswerComment {
 
     // 생성자, 필요한 필드 추가
     @Builder
-    public AnswerComment(Answer answer, String content){
+    public AnswerComment(Answer answer, String content, Long userId){
         this.answer=answer;
         this.content=content;
+        this.userId=userId;
     }
     public AnswerCommentResponse toResponse(){
         return AnswerCommentResponse.builder()

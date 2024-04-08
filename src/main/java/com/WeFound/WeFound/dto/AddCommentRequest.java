@@ -11,10 +11,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddCommentRequest {
     private String content;
-    public Comment toEntity(Question question) {
+    private Long userId;
+    public Comment toEntity(Question question, String content, Long userId) {
         return Comment.builder()
                 .question(question)
                 .content(content)
+                .userId(userId)
                 .build();
     }
 }

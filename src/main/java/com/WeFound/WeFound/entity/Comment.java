@@ -43,9 +43,10 @@ public class Comment {
     private LocalDateTime createdAt;
 
     @Builder
-    public Comment(Question question, String content){
+    public Comment(Question question, String content, Long userId){
         this.question=question;
         this.content=content;
+        this.userId=userId;
     }
 
     public CommentResponse toResponse(){
