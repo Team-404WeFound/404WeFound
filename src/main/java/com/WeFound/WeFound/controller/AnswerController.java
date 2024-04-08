@@ -17,7 +17,11 @@ public class AnswerController {
     private final AnswerService answerService;
 
     @PostMapping("/api/questions/{questionId}/answers")
-    public String createAnswer(@PathVariable Long questionId, @RequestParam String content, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    public String createAnswer(
+            @PathVariable Long questionId,
+            @RequestParam String content,
+            @AuthenticationPrincipal CustomUserDetails userDetails
+    ) {
         answerService.createAnswer(questionId, content, userDetails.getUserId());
         return "redirect:/api/questions/" + questionId;
     }
@@ -28,11 +32,12 @@ public class AnswerController {
         return "answerForm";
     }
 
-
     @PostMapping("/api/answers/{answerId}/like")
-    public String likeAnswer(@PathVariable Long answerId, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    public String likeAnswer(
+            @PathVariable Long answerId,
+            @AuthenticationPrincipal CustomUserDetails userDetails
+    ) {
         answerService.likeAnswer(answerId, userDetails.getUserId());
         return "redirect:/api/questions/" + answerService.getAnswerById(answerId).getQuestion().getQuestionId();
     }
-
 }

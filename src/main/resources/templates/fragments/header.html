@@ -1,12 +1,12 @@
 <header th:fragment="header">
     <div id="top_ba_container">
-        <a href="#">
+        <a href="/">
             <img class="logo_404" th:src="@{/img/logo_404.png}" alt="">
         </a>
         <ol id="top_menu">
+            <li><a href="/questions">질문게시판</a></li>
             <li><a href="/mypage">마이페이지</a></li>
             <li><a href="/admin">관리자페이지</a></li>
-            <li>For Teams</li>
         </ol>
         <form id="search" role="search" th:action="@{/search}" method="get">
             <!--      <img src="img/돋보기.png" alt="돋보기 이미지">-->
