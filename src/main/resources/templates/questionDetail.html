@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <title>404-We-Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/login-signup.css}" type="text/css">
+</head>
+<style>
+    #main-wrapper{
+        margin: 20px 300px 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    section.question-content{
+        border: solid 1px;
+        border-radius: 15px;
+        width: 100%;
+        height: fit-content;
+    }
+
+    textarea#content{
+        width: 100%;
+    }
+
+    #button-area{
+        display: flex;
+        justify-content: right;
+    }
+
+    button{
+        background-color: #818080;
+        color: #fafafa;
+    }
+
+
+    textarea{
+        border-radius: 10px;
+    }
+
+    #update{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    div#btn-wrapper{
+        display: flex;
+        justify-content: right;
+    }
+
+    #comment-input{
+        display: flex;
+        justify-content: right;
+        margin-top: 20px;
+    }
+
+    #go-new-answer{
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    #answer-wrapper{
+        border: solid 1px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    #title-answer-by-question{
+        margin-top:25px;
+    }
+</style>
+<body>
+
+<header th:replace="~{fragments/header :: header}"></header>
+<div id="main-wrapper">
+    <div>
+        <div id="question-title">
+            <h1 th:text="${question.title}"></h1>
+            <p>질문 작성자: <span th:text="${user.getNickName()}"></span></p>
+            <div id="update" th:text="|작성일 : ${#temporals.format(question.creatAt, 'yyyy-MM-dd HH:mm')}|"></div>
+        </div>
+        <section class="question-content">
+            <input type="hidden" id="question-id" th:value="${question.questionId}">
+            <p class="fs-5 mb-4" th:text="${question.content}"></p>
+        </section>
+    </div>
+<div id="btn-wrapper">
+    <button type="button" id="modify-btn" th:onclick="|location.href='@{/inputQuestion?questionId={questionId}(questionId=${question.questionId})}'|"
+            class="btn btn-secondary btn-sm">수정</button>
+    <button type="button" id="delete-btn" class="btn btn-secondary btn-sm">삭제</button>
+    <button type="button" id="back-btn" class="btn btn-secondary btn-sm">목록으로가기</button>
+</div>
+<!--질문 댓글 리스트-->
+<div id="comment-wrapper">
+    <div id="comment-=wrapper" th:if="${!comments.isEmpty()}">
+        <div class="row-6" th:each="comment : ${comments}">
+            <div class="card-body">
+                <p class="card-text" th:text="${comment.content}"></p>
+            </div>
+        </div>
+    </div>
+    <!--질문 댓글 입력-->
+    <div id="comment-input">
+        <input placeholder="댓글을 입력하세요" id="comment-content"/>
+        <button class="btn btn-secondary btn-sm" type="button" id="create-comment-btn" th:data-question-id = "${question.questionId}">질문에 댓글 달기</button>
+    </div>
+</div>
+
+<h3 id="title-answer-by-question">이 질문에 대한 답변</h3>
+<div id="answer-wrapper">
+
+    <ul>
+        <li th:each="answer : ${answers}">
+            <p th:text="${answer.content}" style="font-weight: 400; font-size: larger"></p>
+            <p th:text="'Posted on ' + ${#temporals.format(answer.createdAt, 'yyyy-MM-dd HH:mm')}"></p>
+            <form th:action="@{/api/answers/{answerId}/like(answerId=${answer.answerId})}" method="post">
+                <button type="submit">좋아요</button>
+                <span th:text="${answer.likedUsers.size()}"></span>
+            </form>
+
+            <!--답변 댓글 리스트-->
+            <div class="answer-comment-wrapper" th:if="${!answer.comments.isEmpty()}">
+                <div class="answer-comment" th:each="comment : ${answer.comments}">
+                    <div class="card-body">
+                        <p class="card-text" th:text="${comment.content}"></p>
+                    </div>
+                </div>
+            </div>
+            <button th:data-answer-id="${answer.answerId}" class="add-comment-btn"></button>
+            <div class="comment-form">
+                <textarea class="comment-content" rows="2" required></textarea>
+                <button class="submit-comment-btn">Submit</button>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<a th:href="@{/api/questions/{questionId}/answers/new(questionId=${question.questionId})}">
+    <button id="go-new-answer">이 질문에 답변 달기</button>
+</a>
+</div>
+
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/scripts/question.js"></script>
+<script src="/scripts/comment.js"></script>
+<script src="/scripts/answer-comment.js"></script>
+</div>
+</body>
+</html>
