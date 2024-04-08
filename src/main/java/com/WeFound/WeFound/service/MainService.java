@@ -2,13 +2,12 @@ package com.WeFound.WeFound.service;
 
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 @Service
 public class MainService {
@@ -20,7 +19,6 @@ public class MainService {
             String email = userDetails.getEmail();
             String nickName = userDetails.getNickName();
 
-            // 권한(role) 정보 가져오기
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
             String role = null;
             if (!authorities.isEmpty()) {

@@ -22,7 +22,6 @@ public class AnswerCommentService {
         Answer answer = answerRepository.findById(answerId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid answer Id:" + answerId));
 
-        //refactor: dto 분리하기
         AnswerComment answerComment = new AnswerComment();
         answerComment.setAnswer(answer);
         answerComment.setContent(content);
@@ -36,8 +35,4 @@ public class AnswerCommentService {
         Answer answer = answerService.getAnswerById(answerId);
         return answerCommentRepository.findByAnswer(answer);
     }
-
-
-
-
 }

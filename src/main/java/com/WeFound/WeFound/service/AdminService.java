@@ -4,24 +4,19 @@ import com.WeFound.WeFound.entity.Point;
 import com.WeFound.WeFound.entity.User;
 import com.WeFound.WeFound.repository.PointRepository;
 import com.WeFound.WeFound.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AdminService {
 
     private final UserRepository userRepository;
     private final PointRepository pointRepository;
     private final UserService userService;
 
-    @Autowired
-    public AdminService(UserRepository userRepository, PointRepository pointRepository, UserService userService) {
-        this.userRepository = userRepository;
-        this.pointRepository = pointRepository;
-        this.userService = userService;
-    }
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }

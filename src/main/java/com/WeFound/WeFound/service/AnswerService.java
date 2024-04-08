@@ -9,7 +9,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 
 @Service
@@ -24,7 +23,6 @@ public class AnswerService {
         Question question = questionRepository.findById(questionId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid question Id:" + questionId));
 
-        //refactor: dto 분리하기
         Answer answer = new Answer();
         answer.setQuestion(question);
         answer.setContent(content);
@@ -44,7 +42,6 @@ public class AnswerService {
         return answerRepository.findById(answerId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid answer Id:" + answerId));
     }
-
 
     @Transactional
     public void likeAnswer(Long answerId, Long userId) {
