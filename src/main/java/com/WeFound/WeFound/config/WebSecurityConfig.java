@@ -29,7 +29,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/loginProc", "/join", "/joinProc", "/css/**", "/img/**", "/scripts/**", "/plugin/**", "/fonts/**").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
-                        .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER", "GRADE1", "GRADE2", "GRADE3")
                         .requestMatchers("/api/**").permitAll()
                         .requestMatchers("/premium-question-detail").hasAnyRole("GRADE2", "GRADE3")
                         .requestMatchers("/premium-question-form").hasAnyRole("GRADE2", "GRADE3")

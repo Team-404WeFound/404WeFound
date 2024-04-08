@@ -25,7 +25,7 @@ public class JoinService {
         data.setNickName(joinDto.getNickName());
         data.setPassword(bCryptPasswordEncoder.encode(joinDto.getPassword()));
         data.setGrade("grade1");
-        data.setRole("ROLE_GRADE3");
+        data.setRole("ROLE_USER");
 
         userRepository.save(data);
     }

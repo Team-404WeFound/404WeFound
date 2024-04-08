@@ -27,6 +27,7 @@ public class UserService {
         }
 
         userRepository.save(user);
+        user.updateRole();
     }
 
     public void withdrawUser(String email) {
