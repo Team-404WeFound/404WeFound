@@ -17,7 +17,7 @@ public class AnswerCommentResponse {
     private LocalDateTime createdAt;
     private Long userId;
 
-public AnswerCommentResponse toResponse(AnswerCommentResponse answerCommentResponse){
+public AnswerCommentResponse toResponse(AnswerCommentResponse answerCommentResponse, Long answerCommentId, String content, LocalDateTime createdAt, Long userId){
         return new AnswerCommentResponse(
                 answerCommentResponse.getAnswerCommentId(),
                 answerCommentResponse.getContent(),

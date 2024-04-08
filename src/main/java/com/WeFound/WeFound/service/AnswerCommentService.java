@@ -18,13 +18,15 @@ public class AnswerCommentService {
     private final AnswerService answerService;
 
     @Transactional
-    public AnswerComment createAnswerComment(Long answerId, String content) {
+    public AnswerComment createAnswerComment(Long answerId, String content, Long userId) {
         Answer answer = answerRepository.findById(answerId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid answer Id:" + answerId));
 
+        //refactor: dto 분리하기
         AnswerComment answerComment = new AnswerComment();
         answerComment.setAnswer(answer);
         answerComment.setContent(content);
+        answerComment.setUserId(userId);
         answerCommentRepository.save(answerComment);
         return answerComment;
     }
