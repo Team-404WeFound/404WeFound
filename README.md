@@ -46,7 +46,7 @@
 
 ### 데이터베이스 모델링 ERD
 
-(project_erd 이미지)
+![project_erd](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/project_erd.png)
 
 ### API 명세서 (표 정리해서 이미지로 진행)
 #### 1. User
@@ -405,11 +405,11 @@ HTTP/1.1 204 No Content
 
 |제목|내용|
 |:---|:---:|
-|로그인|![로그인페이지](https://github.com/KSC1019/Javaproject-1/blob/master/src/ch9/%EC%8B%A4%ED%96%89%20%EC%9D%B4%EB%AF%B8%EC%A7%80(%EB%A1%9C%EA%B7%B8%EC%9D%B8).PNG)|
-|회원가입|![회원가입페이지](https://github.com/KSC1019/Javaproject-1/blob/master/src/ch9/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%20%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)|
-|질문게시판|![질문페이지](https://github.com/KSC1019/Javaproject-1/blob/master/src/ch9/%EC%A7%88%EB%AC%B8%EA%B2%8C%EC%8B%9C%ED%8C%90.PNG)|
-|답변게시판|![답변페이지](https://github.com/KSC1019/Javaproject-1/blob/master/src/ch9/%EB%8B%B5%EB%B3%80%EA%B3%BC%20%EB%8C%93%EA%B8%80%20%EB%8B%AC%EA%B8%B0.PNG)|
-|마이페이지|![마이페이지](https://github.com/KSC1019/Javaproject-1/blob/master/src/ch9/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)|
+|로그인|![로그인페이지](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/%EC%8B%A4%ED%96%89%20%EC%9D%B4%EB%AF%B8%EC%A7%80(%EB%A1%9C%EA%B7%B8%EC%9D%B8).PNG)|
+|회원가입|![회원가입페이지](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%20%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)|
+|질문게시판|![질문페이지](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/%EC%A7%88%EB%AC%B8%EA%B2%8C%EC%8B%9C%ED%8C%90.PNG)|
+|답변게시판|![답변페이지](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/%EB%8B%B5%EB%B3%80%EA%B3%BC%20%EB%8C%93%EA%B8%80%20%EB%8B%AC%EA%B8%B0.PNG)|
+|마이페이지|![마이페이지](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)|
 
 ### 프로젝트에 대한 소감
 
