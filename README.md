@@ -48,7 +48,7 @@
 
 ### 데이터베이스 모델링 ERD
 
-![project_erd](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/project_erd.png)
+![project_erd](https://github.com/Team-404WeFound/404WeFound/blob/develop/src/main/resources/static/img/project_erd2.png)
 
 ### API 명세서 (표 정리해서 이미지로 진행)
 #### 1. User
