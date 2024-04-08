@@ -28,4 +28,11 @@ public class AnswerController {
         return "answerForm";
     }
 
+
+    @PostMapping("/api/answers/{answerId}/like")
+    public String likeAnswer(@PathVariable Long answerId, @AuthenticationPrincipal CustomUserDetails userDetails) {
+        answerService.likeAnswer(answerId, userDetails.getUserId());
+        return "redirect:/api/questions/" + answerService.getAnswerById(answerId).getQuestion().getQuestionId();
+    }
+
 }

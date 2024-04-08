@@ -41,6 +41,8 @@ public class Answer {
     @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL)
     private List<AnswerComment> comments = new ArrayList<>();
 
+    @ElementCollection
+    private List<Long> likedUsers = new ArrayList<>();
 
     public Answer(Question question, String content, Long userId) {
         this.question = question;
