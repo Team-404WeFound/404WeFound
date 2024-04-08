@@ -2,10 +2,12 @@ package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.AddAnswerCommentRequest;
 import com.WeFound.WeFound.dto.AnswerCommentResponse;
+import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.entity.AnswerComment;
 import com.WeFound.WeFound.service.AnswerCommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +20,8 @@ public class AnswerCommentController {
     private final AnswerCommentService answerCommentService;
 
     @PostMapping("/answers/{answerId}/answerComments")
-    public ResponseEntity<AnswerCommentResponse> createAnswerComment(@PathVariable Long answerId, @RequestBody AddAnswerCommentRequest request) {
-        AnswerComment answerComment = answerCommentService.createAnswerComment(answerId, request.getContent());
+    public ResponseEntity<AnswerCommentResponse> createAnswerComment(@PathVariable Long answerId, @RequestBody AddAnswerCommentRequest request, @AuthenticationPrincipal CustomUserDetails userDetails) {
+        AnswerComment answerComment = answerCommentService.createAnswerComment(answerId, request.getContent(), userDetails.getUserId());
         return ResponseEntity.ok(answerComment.toResponse());
     }
 

@@ -41,9 +41,11 @@ public class Answer {
     @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL)
     private List<AnswerComment> comments = new ArrayList<>();
 
-    public Answer(Question question, String content) {
+
+    public Answer(Question question, String content, Long userId) {
         this.question = question;
         this.content = content;
+        this.userId = userId;
     }
 
 

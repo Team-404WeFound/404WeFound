@@ -3,10 +3,12 @@ package com.WeFound.WeFound.controller;
 import com.WeFound.WeFound.dto.AddCommentRequest;
 import com.WeFound.WeFound.dto.AllCommentResponse;
 import com.WeFound.WeFound.dto.CommentResponse;
+import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.entity.Comment;
 import com.WeFound.WeFound.service.CommentService;
 import com.WeFound.WeFound.service.QuestionService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,8 +23,9 @@ public class CommentController {
     // 질문 id 에 댓글 추가
     @PostMapping("/questions/{questionId}")
     public ResponseEntity<CommentResponse> addComment(@PathVariable Long questionId,
-                                                      @RequestBody AddCommentRequest request){
-        Comment comment = commentService.save(questionId, request);
+                                                      @RequestBody AddCommentRequest request,
+                                                      @AuthenticationPrincipal CustomUserDetails userDetails){
+        Comment comment = commentService.save(questionId, request, userDetails.getUserId());
         return ResponseEntity.ok(comment.toResponse());
     }
 
