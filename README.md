@@ -1,6 +1,6 @@
 # 프로젝트명 : 404WeFound
 
-release/0.0.1: http://404wefound.com:8080
+배포 url: http://404wefound.com:8080
 ---
 ## 1. 개요
 
