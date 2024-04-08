@@ -23,13 +23,13 @@ public class QuestionsPageController {
     private final AnswerCommentService answerCommentService;
     private final UserService userService;
 
-    @GetMapping("/api/questions")
+    @GetMapping("/questions")
     public String getQuestions(Model model) {
         List<QuestionViewResponse> questions = questionService.findAll().stream()
                 .map(QuestionViewResponse::new)
                 .toList();
         model.addAttribute("questions", questions);
-        return "main";
+        return "questions";
     }
 
     @GetMapping("/api/questions/{questionId}")
@@ -69,7 +69,7 @@ public class QuestionsPageController {
             if (details.getUserId().equals(question.getUserId())) {
                 model.addAttribute("question", new QuestionViewResponse(question));
             } else {
-                return "main";
+                return "questions";
             }
         }
         return "inputQuestion";
