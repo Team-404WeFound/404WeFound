@@ -18,10 +18,16 @@ public class MypageController {
     @GetMapping("/mypage")
     public String myPage(Model model) {
         mypageService.populateModelWithUserDetails(model);
+
         String grade = (String) model.getAttribute("grade");
         model.addAttribute("grade", grade);
+
+        Long currentPoint = (Long) model.getAttribute("currentPoint");
+        model.addAttribute("currentPoint", currentPoint);
+
         List<Point> pointHistory = mypageService.getPointHistoryForCurrentUser();
         model.addAttribute("pointHistory", pointHistory);
+
         return "mypage";
     }
 }

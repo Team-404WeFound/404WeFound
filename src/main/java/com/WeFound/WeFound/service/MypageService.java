@@ -29,7 +29,11 @@ public class MypageService {
             String email = userDetails.getEmail();
             String nickName = userDetails.getNickName();
             String grade = userDetails.getGrade();
-            Long currentPoint = userDetails.getUser().getPoint();
+            Long userId = userDetails.getUserId();
+
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + userId));
+            Long currentPoint = user.getPoint();
 
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
             String role = null;

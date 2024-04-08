@@ -36,11 +36,7 @@ public class AdminService {
         pointData.setReason(reason);
         pointRepository.save(pointData);
 
-        Long totalPoint = pointRepository.findByUserOrderByCreatedAtDesc(user)
-                .stream()
-                .mapToLong(Point::getPoint)
-                .sum();
-
+        Long totalPoint = user.getPoint() + point;
         user.setPoint(totalPoint);
 
         userService.updateUserGrade(user);
