@@ -18,13 +18,15 @@ public class AnswerService {
     private final QuestionRepository questionRepository;
 
     @Transactional
-    public Answer createAnswer(Long questionId, String content) {
+    public Answer createAnswer(Long questionId, String content, Long userId) {
         Question question = questionRepository.findById(questionId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid question Id:" + questionId));
 
+        //refactor: dto 분리하기
         Answer answer = new Answer();
         answer.setQuestion(question);
         answer.setContent(content);
+        answer.setUserId(userId);
         return answerRepository.save(answer);
     }
 
