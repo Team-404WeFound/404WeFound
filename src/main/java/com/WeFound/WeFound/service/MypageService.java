@@ -32,6 +32,7 @@ public class MypageService {
             String email = userDetails.getEmail();
             String nickName = userDetails.getNickName();
             String grade = userDetails.getGrade();
+            Long currentPoint = userDetails.getUser().getPoint(); // 현재 포인트 가져오기
 
             // 권한(role) 정보 가져오기
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -44,9 +45,9 @@ public class MypageService {
             model.addAttribute("nickName", nickName);
             model.addAttribute("grade", grade);
             model.addAttribute("role", role);
+            model.addAttribute("currentPoint", currentPoint); // 현재 포인트를 모델에 추가
         }
     }
-
 
     // 포인트 내역
     public List<Point> getPointHistoryForCurrentUser() {
