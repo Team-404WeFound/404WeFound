@@ -27,7 +27,7 @@ if (createButton) {
             }),
         }).then(() => {
             alert('등록 완료되었습니다');
-            location.replace("/api/questions");
+            location.replace("/questions");
         })
     })
 }
@@ -52,7 +52,7 @@ if (modifyButton) {
             })
         }).then(() => {
             alert('수정이 완료되었습니다');
-            location.replace(`/api/questions/${questionId}`);
+            location.replace(`/questions/${questionId}`);
         });
     });
 }
@@ -60,7 +60,7 @@ if (modifyButton) {
 const backBtn = document.getElementById("back-btn");
 if (backBtn) {
     backBtn.addEventListener("click", function() {
-        location.href = (`/api/questions`);
+        location.href = (`/questions`);
     });
 }
 

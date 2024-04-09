@@ -5,6 +5,7 @@ import com.WeFound.WeFound.entity.Point;
 import com.WeFound.WeFound.entity.User;
 import com.WeFound.WeFound.repository.PointRepository;
 import com.WeFound.WeFound.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,15 +16,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MypageService {
 
     private final PointRepository pointRepository;
     private final UserRepository userRepository;
-
-    public MypageService(PointRepository pointRepository, UserRepository userRepository) {
-        this.pointRepository = pointRepository;
-        this.userRepository = userRepository;
-    }
 
     public void populateModelWithUserDetails(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -32,9 +29,12 @@ public class MypageService {
             String email = userDetails.getEmail();
             String nickName = userDetails.getNickName();
             String grade = userDetails.getGrade();
-            Long currentPoint = userDetails.getUser().getPoint(); // 현재 포인트 가져오기
+            Long userId = userDetails.getUserId();
 
-            // 권한(role) 정보 가져오기
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + userId));
+            Long currentPoint = user.getPoint();
+
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
             String role = null;
             if (!authorities.isEmpty()) {
@@ -45,11 +45,10 @@ public class MypageService {
             model.addAttribute("nickName", nickName);
             model.addAttribute("grade", grade);
             model.addAttribute("role", role);
-            model.addAttribute("currentPoint", currentPoint); // 현재 포인트를 모델에 추가
+            model.addAttribute("currentPoint", currentPoint);
         }
     }
 
-    // 포인트 내역
     public List<Point> getPointHistoryForCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.getPrincipal() instanceof CustomUserDetails) {

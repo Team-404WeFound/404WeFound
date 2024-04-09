@@ -1,22 +1,21 @@
 package com.WeFound.WeFound.service;
 
 import com.WeFound.WeFound.entity.User;
+import com.WeFound.WeFound.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.WeFound.WeFound.repository.UserRepository;
+
 @Service
+@RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public User findNickNameByUserId(Long userId) {
+        return userRepository.findByUserId(userId);
     }
 
-    public  User findNickNameByUserId(Long userId) { return userRepository.findByUserId(userId);
-    }
-
-
-    public void updateUserGrade(User user) { // 포인트 변경이 감지되면
+    public void updateUserGrade(User user) {
         Long totalPoint = user.getPoint();
 
         if (totalPoint >= 100) {
@@ -28,6 +27,7 @@ public class UserService {
         }
 
         userRepository.save(user);
+        user.updateRole();
     }
 
     public void withdrawUser(String email) {

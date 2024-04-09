@@ -1,5 +1,9 @@
 # 프로젝트명 : 404WeFound
-***
+
+배포 url: http://404wefound.com:8080  
+시연영상: https://www.youtube.com/watch?v=HlBxpM8Yg4o
+
+---
 ## 1. 개요
 
 ### 팀원 소개 및 역할분배
@@ -46,7 +50,7 @@
 
 ### 데이터베이스 모델링 ERD
 
-![project_erd](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/project_erd.png)
+![project_erd](https://github.com/Team-404WeFound/404WeFound/blob/develop/src/main/resources/static/img/project_erd2.png)
 
 ### API 명세서 (표 정리해서 이미지로 진행)
 #### 1. User
@@ -413,6 +417,9 @@ HTTP/1.1 204 No Content
 |질문게시판|![질문페이지](https://github.com/Team-404WeFound/404WeFound/blob/develop/src/main/resources/static/img/%EC%A7%88%EB%AC%B8%EA%B2%8C%EC%8B%9C%ED%8C%90.PNG)|
 |답변게시판|![답변페이지](https://github.com/Team-404WeFound/404WeFound/blob/develop/src/main/resources/static/img/%EB%8B%B5%EB%B3%80%2B%EB%8C%93%EA%B8%80%EA%B2%8C%EC%8B%9C%ED%8C%90.PNG)|
 |마이페이지|![마이페이지](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)|
+
+### 프로젝트 시연 영상
+![프로젝트 영상](https://github.com/Team-404WeFound/404WeFound/blob/develop/src/main/resources/static/img/404-We-Found%20-%20Chrome%202024-04-09%2010-11-51.gif)
 
 ### 프로젝트에 대한 소감
 

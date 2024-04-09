@@ -2,20 +2,16 @@ package com.WeFound.WeFound.controller;
 
 import com.WeFound.WeFound.dto.CustomUserDetails;
 import com.WeFound.WeFound.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-
+    private final UserService userService;
 
     @PostMapping("/withdraw")
     public String withdrawUser(@AuthenticationPrincipal CustomUserDetails userDetails) {
