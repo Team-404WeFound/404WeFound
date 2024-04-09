@@ -416,6 +416,9 @@ HTTP/1.1 204 No Content
 |답변게시판|![답변페이지](https://github.com/Team-404WeFound/404WeFound/blob/develop/src/main/resources/static/img/%EB%8B%B5%EB%B3%80%2B%EB%8C%93%EA%B8%80%EA%B2%8C%EC%8B%9C%ED%8C%90.PNG)|
 |마이페이지|![마이페이지](https://github.com/Team-404WeFound/404WeFound/blob/docs/readme/src/main/resources/static/img/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)|
 
+### 프로젝트 시연 영상
+![프로젝트 영상](https://github.com/Team-404WeFound/404WeFound/blob/develop/src/main/resources/static/img/404-We-Found%20-%20Chrome%202024-04-09%2010-11-51.gif)
+
 ### 프로젝트에 대한 소감
 
 강석찬 : "첫 프로젝트라서 긴장도 많이 했지만 믿을 수 있는 팀원들을 만나서 많은 것을 배웠으며, 잘 해낸거 같습니다."
