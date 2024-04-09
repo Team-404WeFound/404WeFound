@@ -1,6 +1,8 @@
 # 프로젝트명 : 404WeFound
 
-배포 url: http://404wefound.com:8080
+배포 url: http://404wefound.com:8080  
+시연영상: https://www.youtube.com/watch?v=HlBxpM8Yg4o
+
 ---
 ## 1. 개요
 
