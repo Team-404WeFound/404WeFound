@@ -1,21 +1,21 @@
 ## 목차
-0. [404WeFound](#0.-404WeFound)
-1. [기능 소개](#1.-기능소개)
-2. [Architecture](#2.-Architecture)
-3. [Sitemap](#3.-Sitemap)
-4. [Flowchart](#4.-Flowchart)
-5. [ER diagram](#5.-ER-diagram)
-6. [Class diagram](#6.-Class-diagram)
-7. [Sequence diagram](#7.-Sequence-diagram)
-8. [State diagram](#8.-State-diagram)
-9. [Deployment diagram](#9.-Deployment-diagram)
-10. [Component diagram](#10.-Component-diagram)
-11. [Use Case diagram](#11.-Use Case-diagram)
-12. [Activity diagram](#12.-Activity-diagram)
-13. [Collaboration diagram](#13.-Collaboration-diagram)
-14. [API 명세](#14.-API-명세)
-15. [프로젝트구조](#15.-프로젝트구조)
-16. [Docs](#16.-Docs)
+0. [404WeFound](#404WeFound)
+1. [기능 소개](#기능소개)
+2. [Architecture](#Architecture)
+3. [Sitemap](#Sitemap)
+4. [Flowchart](#Flowchart)
+5. [ER diagram](#ER-diagram)
+6. [Class diagram](#Class-diagram)
+7. [Sequence diagram](#Sequence-diagram)
+8. [State diagram](#State-diagram)
+9. [Deployment diagram](#Deployment-diagram)
+10. [Component diagram](#Component-diagram)
+11. [Use Case diagram](#Use-Case-diagram)
+12. [Activity diagram](#Activity-diagram)
+13. [Collaboration diagram](#Collaboration-diagram)
+14. [API 명세](#API-명세)
+15. [프로젝트구조](#프로젝트구조)
+16. [Docs](#Docs)
 
 
 # 0. 404WeFound
@@ -81,9 +81,9 @@
 </div>
 
 
-## 1. 기능 소개
+## 기능 소개
 
-### 1.1. 회원가입, 로그인
+### 회원가입, 로그인
 https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/302ea3fe-8cb3-44c8-a2ba-5cb1f7b62551
 
 <div align="right">
@@ -92,7 +92,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/302ea3fe-8cb3-44c8-a2
 
 </div>
 
-### 1.2. 질문,답변,댓글 CRUD
+### 질문,답변,댓글 CRUD
 https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/8791b2f9-aa8f-4492-bfc0-78e5bc502ae6
 
 <div align="right">
@@ -101,7 +101,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/8791b2f9-aa8f-4492-bf
 
 </div>
 
-### 1.3. 좋아요,포인트,등급
+### 좋아요,포인트,등급
 https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/313d228e-c794-4f6a-a8d5-5fb4a8389c0c
 
 <div align="right">
@@ -110,7 +110,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/313d228e-c794-4f6a-a8
 
 </div>
 
-### 1.4. 관리자 페이지
+### 관리자 페이지
 https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/22a57c9d-e2b7-439f-9656-21f3b8827201
 
 <div align="right">
@@ -119,7 +119,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/22a57c9d-e2b7-439f-96
 
 </div>
 
-### 1.5. 등급에 따른 프리미엄 질문 게시판, 회원탈퇴
+### 등급에 따른 프리미엄 질문 게시판, 회원탈퇴
 https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81ba-ca3e4fe92bc8
 
 <div align="right">
@@ -128,7 +128,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 2. Architecture
+## Architecture
 (이미지)
 
 <div align="right">
@@ -137,7 +137,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 3. Sitemap
+## Sitemap
 (이미지)
 
 <div align="right">
@@ -146,7 +146,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 4. Flowchart
+## Flowchart
 (이미지)
 
 <div align="right">
@@ -155,7 +155,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 5. ER diagram
+## ER diagram
 (이미지)
 
 <div align="right">
@@ -164,7 +164,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 6. Class diagram
+## Class diagram
 (이미지)
 
 <div align="right">
@@ -173,7 +173,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 7. Sequence diagram
+## Sequence diagram
 (이미지)
 
 <div align="right">
@@ -182,7 +182,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 8. State diagram
+## State diagram
 (이미지)
 
 <div align="right">
@@ -191,7 +191,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 9. Deployment diagram
+## Deployment diagram
 (이미지)
 
 <div align="right">
@@ -200,7 +200,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 10. Component diagram
+## Component diagram
 (이미지)
 
 <div align="right">
@@ -209,7 +209,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 11. Use Case diagram
+## Use Case diagram
 (이미지)
 
 <div align="right">
@@ -218,7 +218,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 12. Activity iagram
+## Activity iagram
 (이미지)
 
 <div align="right">
@@ -227,7 +227,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 13. Collaboration iagram
+## Collaboration iagram
 (이미지)
 
 <div align="right">
@@ -236,7 +236,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 14. API 명세
+## API 명세
 (이미지)
 
 <div align="right">
@@ -245,7 +245,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 15. 프로젝트구조
+## 프로젝트구조
 (이미지)
 
 <div align="right">
@@ -254,7 +254,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 16. Docs
+## Docs
 (1) [개발계획서](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/SDP_%EA%B0%9C%EB%B0%9C%EA%B3%84%ED%9A%8D%EC%84%9C_WeFound.md)  
 (2) [요구사항 정의서](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/SRS_%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98%EC%84%9C_WeFound.md)  
 (3) [요구사항 추적표]()링크달기  
