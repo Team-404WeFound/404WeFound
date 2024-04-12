@@ -1,6 +1,6 @@
 ## 목차
-0. [404WeFound](#404WeFound)
-1. [기능 소개](#기능소개)
+0. [404WeFound](#404WeFound-:-개발자 커뮤니티)
+1. [기능 소개](#기능 소개)
 2. [Architecture](#Architecture)
 3. [Sitemap](#Sitemap)
 4. [Flowchart](#Flowchart)
@@ -18,7 +18,7 @@
 16. [Docs](#Docs)
 
 
-# 0. 404WeFound
+# 404WeFound : 개발자 커뮤니티
 <img  alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/c61c3556-4cf1-48ec-8939-f7ff6a81afa8">
 
 ### 개발자 및 학생들을 위한 it 관련 질문과 답변을 공유하고 토론할 수 있는 지식 공유 플랫폼
