@@ -1,6 +1,6 @@
 ## 목차
-0. [404WeFound](#404WeFound-:-개발자 커뮤니티)
-1. [기능 소개](#기능 소개)
+0. [404WeFound](#404WeFound-개발자-커뮤니티)
+1. [Feature Introduction](#Feature-Introduction)
 2. [Architecture](#Architecture)
 3. [Sitemap](#Sitemap)
 4. [Flowchart](#Flowchart)
@@ -13,13 +13,13 @@
 11. [Use Case diagram](#Use-Case-diagram)
 12. [Activity diagram](#Activity-diagram)
 13. [Collaboration diagram](#Collaboration-diagram)
-14. [API 명세](#API-명세)
-15. [프로젝트구조](#프로젝트구조)
+14. [API documentation](#API-documentation)
+15. [Project structure](#Project-structure)
 16. [Docs](#Docs)
 
 
-# 404WeFound : 개발자 커뮤니티
-<img  alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/c61c3556-4cf1-48ec-8939-f7ff6a81afa8">
+# 404WeFound 개발자 커뮤니티
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/c61c3556-4cf1-48ec-8939-f7ff6a81afa8">
 
 ### 개발자 및 학생들을 위한 it 관련 질문과 답변을 공유하고 토론할 수 있는 지식 공유 플랫폼
 
@@ -81,7 +81,7 @@
 </div>
 
 
-## 기능 소개
+## Feature Introduction
 
 ### 회원가입, 로그인
 https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/302ea3fe-8cb3-44c8-a2ba-5cb1f7b62551
@@ -128,8 +128,61 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
+## 기술 스택
+#### FE
+<div>
+    <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+    <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
+    <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white">
+</div>
+
+#### BE
+<div>
+    <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
+    <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+    <img src="https://img.shields.io/badge/spring data jpa-6DB33F?style=for-the-badge&logo=amazondocumentdb&logoColor=white">
+    <img src="https://img.shields.io/badge/spring security-6DB33F?style=for-the-badge&logo=spring security&logoColor=white">
+</div>
+
+#### DB
+<div>
+    <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+</div>
+
+#### DEPLOY
+<div>
+    <img src="https://img.shields.io/badge/aws ec2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white">
+    <img src="https://img.shields.io/badge/aws rds-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white">
+</div>
+
+#### Collabo Tools
+<div>
+    <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+    <img src="https://img.shields.io/badge/notion-white?style=for-the-badge&logo=notion&logoColor=000000">
+    <img src="https://img.shields.io/badge/erdcloud-000000?style=for-the-badge&logo=erdcloud&logoColor=white">
+    <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
+
+</div>
+
+
+#### ETC
+
+<div>
+    <img src="https://img.shields.io/badge/intellij-7D00FF?style=for-the-badge&logo=intellijidea&logoColor=white">
+
+</div>
+
+<div align="right">
+
+[맨 위로](#목차)
+
+</div>
+
+
 ## Architecture
-(이미지)
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/a6899298-88aa-41d6-8356-983b272c726f">
 
 <div align="right">
 
@@ -138,7 +191,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 </div>
 
 ## Sitemap
-(이미지)
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/521cc652-c18f-4017-875e-8dbe8d0682e2">
 
 <div align="right">
 
@@ -147,7 +200,8 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 </div>
 
 ## Flowchart
-(이미지)
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/cae1433e-6e2c-436c-ae0f-0ee235856cc8">
+수정 예정
 
 <div align="right">
 
@@ -218,7 +272,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## Activity iagram
+## Activity diagram
 (이미지)
 
 <div align="right">
@@ -227,7 +281,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## Collaboration iagram
+## Collaboration diagram
 (이미지)
 
 <div align="right">
@@ -236,7 +290,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## API 명세
+## API documentation
 (이미지)
 
 <div align="right">
@@ -245,7 +299,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
-## 프로젝트구조
+## Project structure
 (이미지)
 
 <div align="right">
@@ -253,6 +307,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 [맨 위로](#목차)
 
 </div>
+
 
 ## Docs
 (1) [개발계획서](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/SDP_%EA%B0%9C%EB%B0%9C%EA%B3%84%ED%9A%8D%EC%84%9C_WeFound.md)  
