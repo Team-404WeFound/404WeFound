@@ -167,13 +167,6 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 </div>
 
 
-#### ETC
-
-<div>
-    <img src="https://img.shields.io/badge/intellij-7D00FF?style=for-the-badge&logo=intellijidea&logoColor=white">
-
-</div>
-
 <div align="right">
 
 [맨 위로](#목차)
@@ -200,8 +193,11 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 </div>
 
 ## Flowchart
+
 <img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/cae1433e-6e2c-436c-ae0f-0ee235856cc8">
-수정 예정
+
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/f4b9197b-c8d2-4748-8c87-e0bdab9a90d9">
+등급에 따라 접근 가능한 프리미엄 게시판 생략됨. 수정예정
 
 <div align="right">
 
@@ -210,7 +206,8 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 </div>
 
 ## ER diagram
-(이미지)
+(이미지)  
+등급에 따라 접근 가능한 프리미엄 게시판 생략됨. 수정예정
 
 <div align="right">
 
