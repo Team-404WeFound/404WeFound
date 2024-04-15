@@ -418,14 +418,9 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 ## Docs
 (1) [개발계획서](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/SDP_%EA%B0%9C%EB%B0%9C%EA%B3%84%ED%9A%8D%EC%84%9C_WeFound.md)  
 (2) [요구사항 정의서](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/SRS_%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98%EC%84%9C_WeFound.md)  
-(3) [요구사항 추적표]()링크달기  
-(4) [시스템 설계서]()링크달기  
-(5) [데이터베이스설계서]()링크달기  
-(6) [명세서]()링크달기  
-(7) [클래스 정의서]()링크달기  
-(8) [사용자인터페이스 설계서]()링크달기  
-(9) [컨벤션](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/%EC%BB%A8%EB%B2%A4%EC%85%98_WeFound.md)  
-(10) [협업 메뉴얼](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/%ED%98%91%EC%97%85%20%EB%A9%94%EB%89%B4%EC%96%BC_WeFound.md)
+(3) [요구사항 추적표]()링크달기
+(4) [컨벤션](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/%EC%BB%A8%EB%B2%A4%EC%85%98_WeFound.md)  
+(5) [협업 메뉴얼](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/%ED%98%91%EC%97%85%20%EB%A9%94%EB%89%B4%EC%96%BC_WeFound.md)
 
 <div align="right">
 
