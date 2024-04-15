@@ -214,7 +214,8 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영�
 
 ## Class diagram
 
-<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/ce3e9e44-2c40-4bba-a7a0-2418a34f332a">
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/ce3e9e44-2c40-4bba-a7a0-2418a34f332a">  
+
 premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram에 반영하지 않았습니다.
 
 <div align="right">
@@ -223,8 +224,12 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 
 </div>
 
-## Sequence diagram
-(이미지)
+## 포인트,등급 기능 Sequence diagram
+
+404WeFound에서 핵심 기능인 <ins>**질문 게시글에 답변을 작성한 작성자가 다른 사용자로부터 좋아요를 받았을때 포인트를 얻고 등급이 올라서 프리미엄 게시판 접근 권한을 얻는 기능**</ins>을 시퀀스 다이어그램으로 나타내었습니다.
+
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/f2c4946e-15d6-4f80-931a-414abe129735">
+
 
 <div align="right">
 
