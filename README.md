@@ -7,15 +7,13 @@
 5. [ER diagram](#ER-diagram)
 6. [Class diagram](#Class-diagram)
 7. [Sequence diagram](#Sequence-diagram)
-8. [Component diagram](#Component-diagram)
-9. [Deployment diagram](#Deployment-diagram)
-10. [Use Case diagram](#Use-Case-diagram)
-11. [Activity diagram](#Activity-diagram)
-12. [State diagram](#State-diagram)
-13. [Collaboration diagram](#Collaboration-diagram)
-14. [API documentation](#API-documentation)
-15. [Project structure](#Project-structure)
-16. [Docs](#Docs)
+8. [Use Case diagram](#Use-Case-diagram)
+9. [Activity diagram](#Activity-diagram)
+10. [State diagram](#State-diagram)
+11. [Collaboration diagram](#Collaboration-diagram)
+12. [API documentation](#API-documentation)
+13. [Project structure](#Project-structure)
+14. [Docs](#Docs)
 
 
 # 404WeFound 개발자 커뮤니티
@@ -224,9 +222,9 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 
 </div>
 
-## 포인트,등급 기능 Sequence diagram
+## 포인트, 등급, 프리미엄 게시판 Sequence diagram
 
-404WeFound에서 핵심 기능인 <ins>**질문 게시글에 답변을 작성한 작성자가 다른 사용자로부터 좋아요를 받았을때 포인트를 얻고 등급이 올라서 프리미엄 게시판 접근 권한을 얻는 기능**</ins>을 시퀀스 다이어그램으로 나타내었습니다.
+404WeFound에서 핵심 기능인 <ins>**질문 게시글에 답변을 작성한 작성자가 다른 사용자로부터 좋아요를 받았을때 포인트를 얻고 등급이 올라서 프리미엄 게시판에 접근하는 과정**</ins>을 시퀀스 다이어그램으로 나타내었습니다.
 
 <img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/f2c4946e-15d6-4f80-931a-414abe129735">
 
@@ -237,26 +235,9 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 
 </div>
 
-## Component diagram
-(이미지)
-
-<div align="right">
-
-[맨 위로](#목차)
-
-</div>
-
-## Deployment diagram
-(이미지)
-
-<div align="right">
-
-[맨 위로](#목차)
-
-</div>
 
 ## Use Case diagram
-(이미지)
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/021f6895-ac51-4382-a538-ebd39b4d0bda">
 
 <div align="right">
 
