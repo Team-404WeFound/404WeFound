@@ -4,10 +4,10 @@
 2. [Architecture](#Architecture)
 3. [Sitemap](#Sitemap)
 4. [Flowchart](#Flowchart)
-5. [ER diagram](#ER-diagram)
-6. [Class diagram](#Class-diagram)
-7. [Sequence diagram](#Sequence-diagram)
-8. [Use Case diagram](#Use-Case-diagram)
+5. [Use Case diagram](#Use-Case-diagram)
+6. [ER diagram](#ER-diagram)
+7. [Class diagram](#Class-diagram)
+8. [Sequence diagram](#Sequence-diagram)
 9. [API documentation](#API-documentation)
 10. [Project structure](#Project-structure)
 11. [Docs](#Docs)
@@ -247,7 +247,64 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 
 
 ## API documentation
-(이미지)
+
+
+사용자 관련 API:
+
+| API 엔드포인트          | HTTP 메서드 | 설명             |
+|--------------------|----------|----------------|
+| /admin/updateGrade | POST     | 사용자의 등급을 업데이트  |
+| /admin/updatePoint | POST     | 사용자의 포인트를 업데이트 |
+| /joinProc          | POST     | 회원 가입 처리       |
+| /withdraw          | POST     | 회원 탈퇴          |
+
+질문 관련 API:
+
+| API 엔드포인트                                 | HTTP 메서드 | 설명              |
+|-------------------------------------------|----------|-----------------|
+| /api/questions/{questionId}/answers       | POST     | 질문에 답변 작성       |
+| /api/questions/{questionId}/answers/new   | GET      | 답변 작성 페이지 표시    |
+| /api/questions/{questionId}               | GET      | 특정 질문 조회        |
+| /api/questions/{questionId}               | POST     | 질문에 댓글 작성       |
+| /api/questions/{question_id}/comment      | GET      | 질문의 모든 댓글 조회    |
+| /api/questions/{question_id}/{comment_id} | GET      | 특정 댓글 조회        |
+| /api/questions/{question_id}/{comment_id} | DELETE   | 특정 댓글 삭제        |
+| /api/questions                            | POST     | 질문 작성           |
+| /api/questions/{questionId}               | PUT      | 질문 수정           |
+| /api/questions/{questionId}               | DELETE   | 질문 삭제           |
+| /questions                                | GET      | 질문 목록 조회        |
+| /inputQuestion                            | GET      | 질문 작성/수정 페이지 표시 |
+
+프리미엄 질문 관련 API:
+
+| API 엔드포인트                       | HTTP 메서드 | 설명                |
+|---------------------------------|----------|-------------------|
+| /api/premium-questions          | POST     | 프리미엄 질문 작성        |
+| /api/{questionId}               | PUT      | 프리미엄 질문 수정        |
+| /api/{questionId}               | DELETE   | 프리미엄 질문 삭제        |
+| /premium-questions              | GET      | 프리미엄 질문 목록 조회     |
+| /premium-questions/{questionId} | GET      | 특정 프리미엄 질문 조회     |
+| /premium-questions/new          | GET      | 프리미엄 질문 작성 페이지 표시 |
+
+답변 및 댓글 관련 API:
+
+| API 엔드포인트                              | HTTP 메서드 | 설명           |
+|----------------------------------------|----------|--------------|
+| /api/answers/{answerId}/answerComments | POST     | 답변에 댓글 작성    |
+| /api/answers/{answerId}/answerComments | GET      | 답변의 댓글 목록 조회 |
+| /api/answers/{answerId}/like           | POST     | 답변에 좋아요 추가   |
+
+페이지 관련 API:
+
+| API 엔드포인트      | HTTP 메서드 | 설명        |
+|----------------|----------|-----------|
+| /              | GET      | 메인 페이지    |
+| /login         | GET      | 로그인 페이지   |
+| /join          | GET      | 회원가입 페이지  |
+| /admin         | GET      | 관리자 페이지   |
+| /access-denied | GET      | 접근 거부 페이지 |
+| /mypage        | GET      | 마이페이지     |
+
 
 <div align="right">
 
