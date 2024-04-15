@@ -222,7 +222,9 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 
 </div>
 
-## 포인트, 등급, 프리미엄 게시판 Sequence diagram
+## Sequence diagram
+
+### 포인트, 등급, 프리미엄 게시판 접근
 
 404WeFound에서 핵심 기능인 <ins>**질문 게시글에 답변을 작성한 작성자가 다른 사용자로부터 좋아요를 받았을때 포인트를 얻고 등급이 올라서 프리미엄 게시판에 접근하는 과정**</ins>을 시퀀스 다이어그램으로 나타내었습니다.
 
@@ -237,7 +239,8 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 
 
 ## Use Case diagram
-<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/021f6895-ac51-4382-a538-ebd39b4d0bda">
+
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/928f07e6-9358-4999-9a51-43ca13962741">
 
 <div align="right">
 
