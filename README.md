@@ -194,10 +194,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 ## Flowchart
 
-<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/cae1433e-6e2c-436c-ae0f-0ee235856cc8">
-
-<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/f4b9197b-c8d2-4748-8c87-e0bdab9a90d9">
-등급에 따라 접근 가능한 프리미엄 게시판 생략됨. 수정예정
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/5bdc5581-ae51-473f-9470-f54d1c356f9b">
 
 <div align="right">
 
