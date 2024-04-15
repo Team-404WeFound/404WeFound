@@ -23,7 +23,7 @@
 
 ### 개발자 및 학생들을 위한 it 관련 질문과 답변을 공유하고 토론할 수 있는 지식 공유 플랫폼
 
-#### 배포 url: http://404wefound.com:8080
+#### 배포 url: http://404wefound.com:8080 (현재 서비스 종료)
 #### 전체 시연영상: https://www.youtube.com/watch?v=HlBxpM8Yg4o
 
 #### 프로젝트 기간: 24년 3월 22일 ~ 4월 9일 (18일)
@@ -204,6 +204,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 ## ER diagram
 ![404wefound_3](https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/ba3df124-c6e8-49d3-8788-0d798a2e315d)
+premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영하지 않았습니다.
 
 <div align="right">
 
@@ -293,7 +294,100 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 </div>
 
 ## Project structure
-(이미지)
+
+```
+📁 src.main
+├── 📁 java.com.wefound.weFound
+│   ├── 📁 config
+│   │   └── 📃 WebSecurityConfig.java
+│   ├── 📁 controller
+│   │   ├── 📃 AdminController.java
+│   │   ├── 📃 AnswerCommentController.java
+│   │   ├── 📃 AnswerController.java
+│   │   ├── 📃 CommentController.java
+│   │   ├── 📃 JoinController.java
+│   │   ├── 📃 LoginController.java
+│   │   ├── 📃 MainController.java
+│   │   ├── 📃 MyPageController.java
+│   │   ├── 📃 PremiumQuestionController.java
+│   │   ├── 📃 PremiumQuestionPageController.java
+│   │   ├── 📃 QuestionController.java
+│   │   ├── 📃 QuestionPageController.java
+│   │   └── 📃 UserController.java
+│   ├── 📁 dto
+│   │   ├── 📃 AddAnswerCommentRequest.java
+│   │   ├── 📃 AddCommentRequest.java
+│   │   ├── 📃 AddQuestionRequest.java
+│   │   ├── 📃 AllAnswerCommentResponse.java
+│   │   ├── 📃 AllCommentResponse.java
+│   │   ├── 📃 AnswerCommentResponse.java
+│   │   ├── 📃 CommentResponse.java
+│   │   ├── 📃 CustomUserDetails.java
+│   │   ├── 📃 JoinDto.java
+│   │   ├── 📃 QuestionResponse.java
+│   │   └── 📃 QuestionViewResponse.java
+│   ├── 📁 entity
+│   │   ├── 📃 Answer.java
+│   │   ├── 📃 AnswerComment.java
+│   │   ├── 📃 Comment.java
+│   │   ├── 📃 Point.java
+│   │   ├── 📃 PremiumQuestion.java
+│   │   ├── 📃 Question.java
+│   │   └── 📃 User.java
+│   ├── 📁 repository
+│   │   ├── 📃 AnswerCommentRepository.java
+│   │   ├── 📃 AnswerRepository.java
+│   │   ├── 📃 CommentRepository.java
+│   │   ├── 📃 PointRepository.java
+│   │   ├── 📃 PremiumQuestionRepository.java
+│   │   ├── 📃 QuestionRepository.java
+│   │   └── 📃 UserRepository.java
+│   ├── 📁 service
+│   │   ├── 📃 AdminService.java
+│   │   ├── 📃 AnswerCommentService.java
+│   │   ├── 📃 AnswerService.java
+│   │   ├── 📃 CommentService.java
+│   │   ├── 📃 JoinService.java
+│   │   ├── 📃 MainService.java
+│   │   ├── 📃 MyPageService.java
+│   │   ├── 📃 PremiumQuestionService.java
+│   │   ├── 📃 QuestionService.java
+│   │   ├── 📃 UserDetailsService.java
+│   │   └── 📃 UserService.java
+│   └── 📃 Team404WeFoundApplication
+├── 📁 resources
+.   ├── 📁 static
+.   │   ├── 📁 css
+.   │   ├── 📁 img
+    │   └── 📁 script
+    │       ├── 📃 answer-comment.js
+    │       ├── 📃 comment.js
+    │       ├── 📃 joinValidation.js
+    │       ├── 📃 premium-question.js
+    │       ├── 📃 premium-question-detail.js
+    │       ├── 📃 premium-question-form.js
+    │       ├── 📃 question.js
+    │       └── 📃 userWithdraw.js
+    ├── 📁 templates
+    │   ├── 📁 fragments
+    │   │   ├── 📃 footer.html
+    │   │   └── 📃 header.html
+    │   ├── 📃 access-denied.html
+    │   ├── 📃 admin.html
+    │   ├── 📃 answerForm.html
+    │   ├── 📃 firstMain.html
+    │   ├── 📃 inputQuestion.html
+    │   ├── 📃 join.html
+    │   ├── 📃 login.html
+    │   ├── 📃 mypage.html
+    │   ├── 📃 premium-question-detail.html
+    │   ├── 📃 premium-question-form.html
+    │   ├── 📃 premium-question.html
+    │   ├── 📃 questionDetail.html
+    │   ├── 📃 questionDetailNoComment.html
+    │   └── 📃 question.html
+    └── 📃 application.properties
+```
 
 <div align="right">
 
