@@ -8,12 +8,9 @@
 6. [Class diagram](#Class-diagram)
 7. [Sequence diagram](#Sequence-diagram)
 8. [Use Case diagram](#Use-Case-diagram)
-9. [Activity diagram](#Activity-diagram)
-10. [State diagram](#State-diagram)
-11. [Collaboration diagram](#Collaboration-diagram)
-12. [API documentation](#API-documentation)
-13. [Project structure](#Project-structure)
-14. [Docs](#Docs)
+9. [API documentation](#API-documentation)
+10. [Project structure](#Project-structure)
+11. [Docs](#Docs)
 
 
 # 404WeFound 개발자 커뮤니티
@@ -200,6 +197,17 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 
 </div>
 
+
+## Use Case diagram
+
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/05d52367-be58-4be4-b485-f68b44359464">
+
+<div align="right">
+
+[맨 위로](#목차)
+
+</div>
+
 ## ER diagram
 ![404wefound_3](https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/ba3df124-c6e8-49d3-8788-0d798a2e315d)
 premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영하지 않았습니다.
@@ -237,43 +245,6 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 
 </div>
 
-
-## Use Case diagram
-
-<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/928f07e6-9358-4999-9a51-43ca13962741">
-
-<div align="right">
-
-[맨 위로](#목차)
-
-</div>
-
-## Activity diagram
-(이미지)
-
-<div align="right">
-
-[맨 위로](#목차)
-
-</div>
-
-## State diagram
-(이미지)
-
-<div align="right">
-
-[맨 위로](#목차)
-
-</div>
-
-## Collaboration diagram
-(이미지)
-
-<div align="right">
-
-[맨 위로](#목차)
-
-</div>
 
 ## API documentation
 (이미지)
