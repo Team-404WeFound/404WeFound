@@ -213,7 +213,9 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영�
 </div>
 
 ## Class diagram
-(이미지)
+
+<img alt="image" src="https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/ce3e9e44-2c40-4bba-a7a0-2418a34f332a">
+premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram에 반영하지 않았습니다.
 
 <div align="right">
 
@@ -230,7 +232,7 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영�
 
 </div>
 
-## State diagram
+## Component diagram
 (이미지)
 
 <div align="right">
@@ -240,15 +242,6 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영�
 </div>
 
 ## Deployment diagram
-(이미지)
-
-<div align="right">
-
-[맨 위로](#목차)
-
-</div>
-
-## Component diagram
 (이미지)
 
 <div align="right">
@@ -267,6 +260,15 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영�
 </div>
 
 ## Activity diagram
+(이미지)
+
+<div align="right">
+
+[맨 위로](#목차)
+
+</div>
+
+## State diagram
 (이미지)
 
 <div align="right">
@@ -310,7 +312,7 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 ERD에 반영�
 │   │   ├── 📃 MainController.java
 │   │   ├── 📃 MyPageController.java
 │   │   ├── 📃 PremiumQuestionController.java
-│   │   ├── 📃 PremiumQuestionPageController.java
+│   │   └── 📃 PremiumQuestionPageController.java
 │   │   ├── 📃 QuestionController.java
 │   │   ├── 📃 QuestionPageController.java
 │   │   └── 📃 UserController.java
