@@ -203,8 +203,7 @@ https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/0e9f179d-a13d-4125-81
 </div>
 
 ## ER diagram
-(이미지)  
-등급에 따라 접근 가능한 프리미엄 게시판 생략됨. 수정예정
+![404wefound_3](https://github.com/BaxDailyGit/BaxDailyGit/assets/99312529/ba3df124-c6e8-49d3-8788-0d798a2e315d)
 
 <div align="right">
 
