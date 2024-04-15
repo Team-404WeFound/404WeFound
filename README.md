@@ -46,24 +46,24 @@
     </tr>
     <tr>
 	<td>
-	    - <br>
-      - <br>
-      - <br>
+	    - 요구사항 및 기능 정의<br>
+      - 답글 기능 구현<br>
+      -  코드 리팩토링 및 산출물 개선<br>
         </td>
         <td>
-	    - <br>
-      - <br>
-      - 
+	    - 문서 작업 및 ERD 설계<br>
+      - 사용자 관련 기능 개선<br>
+      - 좋아요 기능 구현
         </td>
         <td>
-	    - <br>
-      - <br>
-      - 
+	    - 사이트 설계 및 와이어프레임 작성<br>
+      - 게시판 및 질문, 댓글 관련 기능 구현<br>
+      - 렌더링 처리 및 프론트엔드 개발
         </td>
         <td>
-	    - <br>
-      - <br>
-      - 
+	    - 프로젝트 설정 및 일정 관리<br>
+      - 시큐리티, 포인트, 프리미엄 질문 게시판, 관리자 페이지 기능 구현<br>
+      - 배포
         </td>
     </tr>
 </table>
@@ -418,9 +418,9 @@ premium_questions의 댓글, 답변은 아직 구현하지 않아 Class diagram�
 ## Docs
 (1) [개발계획서](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/SDP_%EA%B0%9C%EB%B0%9C%EA%B3%84%ED%9A%8D%EC%84%9C_WeFound.md)  
 (2) [요구사항 정의서](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/SRS_%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98%EC%84%9C_WeFound.md)  
-(3) [요구사항 추적표]()링크달기
+(3) [요구사항 추적표](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/RTM_%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%B6%94%EC%A0%81%ED%91%9C_WeFound.md)  
 (4) [컨벤션](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/%EC%BB%A8%EB%B2%A4%EC%85%98_WeFound.md)  
-(5) [협업 메뉴얼](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/%ED%98%91%EC%97%85%20%EB%A9%94%EB%89%B4%EC%96%BC_WeFound.md)
+(5) [협업 메뉴얼](https://github.com/Team-404WeFound/404WeFound/blob/main/src/main/resources/docs/%ED%98%91%EC%97%85%20%EB%A9%94%EB%89%B4%EC%96%BC_WeFound.md)  
 
 <div align="right">
 
