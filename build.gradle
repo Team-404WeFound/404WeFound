@@ -6,6 +6,7 @@ plugins {
 
 group = 'com.WeFound'
 version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
 java {
 	sourceCompatibility = '17'
@@ -34,6 +35,11 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0'
+
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	annotationProcessor 'org.projectlombok:lombok'
+
+
 }
 
 tasks.named('test') {
