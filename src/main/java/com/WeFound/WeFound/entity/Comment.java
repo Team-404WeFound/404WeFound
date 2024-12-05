@@ -42,12 +42,6 @@ public class Comment {
     @Column(name = "create_at")
     private LocalDateTime createdAt;
 
-    @Builder
-    public Comment(Question question, String content, Long userId){
-        this.question=question;
-        this.content=content;
-        this.userId=userId;
-    }
 
     public CommentResponse toResponse(){
         return CommentResponse.builder()

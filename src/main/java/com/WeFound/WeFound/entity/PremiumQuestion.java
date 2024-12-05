@@ -39,15 +39,15 @@ public class PremiumQuestion {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Builder
-    public PremiumQuestion(String title, String content, Long premiumQuestionId, Long userId, LocalDateTime createdAt, LocalDateTime updatedAt){
-        this.title = title;
-        this.content = content;
-        this.premiumQuestionId = premiumQuestionId;
-        this.userId = userId;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
+//    @Builder
+//    public PremiumQuestion(String title, String content, Long premiumQuestionId, Long userId, LocalDateTime createdAt, LocalDateTime updatedAt){
+//        this.title = title;
+//        this.content = content;
+//        this.premiumQuestionId = premiumQuestionId;
+//        this.userId = userId;
+//        this.createdAt = createdAt;
+//        this.updatedAt = updatedAt;
+//    }
 
     public QuestionResponse toResponse(){
         return QuestionResponse.builder()
